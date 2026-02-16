@@ -9,7 +9,7 @@ return [
      */
     'register_rules' => true,
 
-    /*
+    /*zz
      * Whether globally to convert Persian/Arabic numbers to English numbers in all persian validation rules that involve numbers.
      * When enabled, rules will accept both Persian/Arabic (۰-۹, ٠-٩) and English (0-9) numbers.
      * When disabled, only English numbers will be accepted.

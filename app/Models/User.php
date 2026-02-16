@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $first_name
  * @property string $last_name
@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool|null $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Collection|Cart[] $carts
  * @property Collection|Order[] $orders
  *
@@ -45,7 +45,7 @@ class User extends Model
 		'last_name',
 		'email',
 		'password',
-		'phone',
+		'mobile',
 		'status'
 	];
 

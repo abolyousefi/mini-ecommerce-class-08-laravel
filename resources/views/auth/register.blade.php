@@ -39,7 +39,7 @@
 
 
                 <form class="space-y-5" action="" method="POST">
-                    <input type="hidden" name="_token" value="4bYZgaUXw6NRUpehNCo79sVxnGyoZdTpQMBuSG48" autocomplete="off">
+                  @csrf
                     <div>
                         <label for="first_name" class="block text-sm/6 font-medium text-gray-500 dark:text-gray-300">
                             نام
@@ -51,11 +51,13 @@
                                 name="first_name"
                                 autofocus
                                 tabindex="1"
-                                value=""
+                                value="{{old('first_name')}}"
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('first_name')
+                        <span style="color: red">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
@@ -68,11 +70,13 @@
                                 id="last_name"
                                 name="last_name"
                                 tabindex="2"
-                                value=""
+                                value="{{old('last_name')}}"
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('last_name')
+                        <span style="color: red">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
@@ -85,10 +89,13 @@
                                 id="mobile"
                                 name="mobile"
                                 tabindex="3"
+                                value="{{old('mobile')}}"
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('mobile')
+                        <span style="color: red">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
@@ -101,11 +108,13 @@
                                 id="email"
                                 name="email"
                                 tabindex="4"
-                                value=""
+                                value="{{old('email')}}"
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('email')
+                        <span style="color: red">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
@@ -121,7 +130,9 @@
                                 class="block w-full p-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400  sm:text-sm/6 transition-all text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                             />
                         </div>
-                        <!-- ERROR -->
+                        @error('password')
+                            <span style="color: red">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>
