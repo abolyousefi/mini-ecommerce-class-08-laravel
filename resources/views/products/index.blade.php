@@ -226,7 +226,7 @@
                                 </div>
                                 @if($product->discount > 0)
                                 <!-- badge offer -->
-                                <span class="product-card_badge">{{$product->discount / 100 /2 }}     %
+                                <span class="product-card_badge">{{calcPercent($product->price , $product->discount)}}     %
                 تخفیف‌</span> @endif
                             </div>
                             <!-- product img -->

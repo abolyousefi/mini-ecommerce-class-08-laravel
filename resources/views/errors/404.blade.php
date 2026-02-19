@@ -1,0 +1,18 @@
+@extends('layout.app')
+
+@section('content')
+
+    <section class="w-full flex flex-col items-center justify-center md:my-8">
+        <img class="float-animation max-w-sm object-cover h-96" src="{{asset('assets/images/svg/404.svg')}}" alt="">
+        <div class="flex flex-col justify-center items-center gap-y-2">
+            <h2 class="font-DanaMedium text-xl">صفحه‌ای که دنبال آن بودید پیدا نشد!</h2>
+            <a href="{{route('index')}}" class="flex items-center gap-x-1  text-blue-400 hover:text-blue-500 transition-all">
+                بازگشت به صفحه اصلی
+                <svg class=" size-4 rotate-90">
+                    <use href="#chevron" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+@endsection

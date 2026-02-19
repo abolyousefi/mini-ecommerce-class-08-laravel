@@ -76,6 +76,9 @@
                         @error('password')
                         <span style="color: red">  {{ $message }}</span>
                         @enderror
+                        @error('general')
+                        <span style="color: red">  {{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div>

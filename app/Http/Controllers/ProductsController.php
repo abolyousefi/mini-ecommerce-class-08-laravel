@@ -13,7 +13,7 @@ class ProductsController extends Controller
         $title =  "فروشگاه";
         $products =  Product::query()
             ->where('status','=',ProductStatus::ENABLE)
-            ->paginate(1);
+            ->paginate();
       return view('products.index',compact('products','title'));
     }
 
