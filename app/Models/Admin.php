@@ -14,8 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property string $name
- * @property string $email
+ * @property string $username
  * @property string $password
+ * @property bool|null $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
@@ -24,6 +25,11 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
 	protected $table = 'admins';
+	public static $snakeAttributes = false;
+
+	protected $casts = [
+		'status' => 'bool'
+	];
 
 	protected $hidden = [
 		'password'
@@ -31,7 +37,8 @@ class Admin extends Model
 
 	protected $fillable = [
 		'name',
-		'email',
-		'password'
+		'username',
+		'password',
+		'status'
 	];
 }

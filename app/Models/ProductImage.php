@@ -6,42 +6,44 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class CartItem
+ * Class ProductImage
  * 
  * @property int $id
- * @property int $cart_id
  * @property int $product_id
- * @property int $quantity
+ * @property int $file_id
+ * @property bool $is_default
+ * @property Carbon $created_at
  * 
- * @property Cart $cart
+ * @property File $file
  * @property Product $product
  *
  * @package App\Models
  */
-class CartItem extends Model
+class ProductImage extends Model
 {
-	protected $table = 'cart_items';
+	protected $table = 'product_image';
 	public $timestamps = false;
 	public static $snakeAttributes = false;
 
 	protected $casts = [
-		'cart_id' => 'int',
 		'product_id' => 'int',
-		'quantity' => 'int'
+		'file_id' => 'int',
+		'is_default' => 'bool'
 	];
 
 	protected $fillable = [
-		'cart_id',
 		'product_id',
-		'quantity'
+		'file_id',
+		'is_default'
 	];
 
-	public function cart()
+	public function file()
 	{
-		return $this->belongsTo(Cart::class);
+		return $this->belongsTo(File::class);
 	}
 
 	public function product()

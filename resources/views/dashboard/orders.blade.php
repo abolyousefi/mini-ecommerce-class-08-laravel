@@ -1,0 +1,223 @@
+@extends('layout.app')
+
+@section('content')
+    <main class="container relative">
+
+        <div class="flex flex-col lg:flex-row gap-x-8 mt-10">
+            <!-- SIDE MENU -->
+            <div class="lg:sticky mb-8 top-1 h-fit lg:w-1/4 hidden lg:flex flex-col gap-y-4 items-center shadow rounded-lg p-4 dark:bg-gray-800 bg-white">
+                <!-- NAME AND AVATAR  -->
+                <div class="w-full flex items-center justify-between border-b border-gray-200 dark:border-white/20 py-3">
+                    <div class="flex items-center gap-x-3">
+                        <img src="{{ asset('assets/images/svg/user.png')}}" class="size-10 ring-2 ring-gray-400/20 rounded-full"
+                             alt="AVATAR">
+                        <span class="felx flex-col gap-y-2">
+                            <p class="font-DanaMedium text-lg">پارسا وصالی</p>
+                            <p class="text-gray-400">09100000001</p>
+                        </span>
+                    </div>
+                    <span>
+                        <svg class="w-6 h-6 cursor-pointer text-blue-500">
+                            <use href="#edit"></use>
+                        </svg>
+                    </span>
+                </div>
+                <ul
+                    class="w-full relative space-y-2 child:duration-300 child:transition-all child:py-3  child:px-2 child:flex child:gap-x-2 text-lg child:cursor-pointer child:rounded-lg">
+                    <li class="hover:text-blue-500">
+                        <svg class="w-6 h-6 ">
+                            <use href="#squares"></use>
+                        </svg>
+                        <a href="{{route('dashboard.orders')}}">داشبورد</a>
+                    </li>
+                    <li class=" bg-blue-500/10 text-blue-500">
+                        <svg class="w-6 h-6 ">
+                            <use href="#shopping-bag"></use>
+                        </svg>
+                        <a href="{{route('dashboard.orders')}}">
+                            سفارش ها
+                        </a>
+                    </li>
+                    <li class="hover:text-blue-500">
+                        <svg class="w-6 h-6 ">
+                            <use href="#cog"></use>
+                        </svg>
+                        <a href="{{route('dashboard.account')}}">اطلاعات حساب </a>
+                    </li>
+                    <li class="text-red-400">
+                        <svg class="w-6 h-6 ">
+                            <use href="#arrow-left-end"></use>
+                        </svg>
+                        <a href="{{route('auth.logout')}}">خروج</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- TOP FILTER BOX & PRODUCT & PAGINATION -->
+            <div class="lg:w-3/4">
+                <div class="flex lg:hidden">
+                    <button class="open-user-menu mr-2 bg-blue-500 flex items-center gap-x-1 font-DanaMedium text-white p-2 rounded-lg text-sm">
+                        <svg class="size-5">
+                            <use href="#bars-3" />
+                        </svg>
+                        منوی کاربری
+                    </button>
+                    <div class="user-menu">
+                        <button class="close-user-menu">
+                            <svg class="size-6">
+                                <use href="#x-mark" />
+                            </svg>
+                        </button>
+                        <!-- NAME AND AVATAR  -->
+                        <div class="w-full flex items-center justify-between border-b border-gray-200 dark:border-white/20 py-3">
+                            <div class="flex items-center gap-x-3">
+                                <img src="{{asset('assets/images/svg/user.png')}}" class="size-10 ring-2 ring-gray-400/20 rounded-full"
+                                     alt="AVATAR">
+                                <span class="felx flex-col gap-y-2">
+                            <p class="font-DanaMedium text-lg">پارسا وصالی</p>
+                            <p class="text-gray-400">09100000001</p>
+                        </span>
+                            </div>
+                            <span>
+                        <svg class="w-6 h-6 cursor-pointer text-blue-500">
+                            <use href="#edit"></use>
+                        </svg>
+                    </span>
+                        </div>
+                        <ul
+                            class="w-full relative space-y-2 child:duration-300 child:transition-all child:py-3  child:px-2 child:flex child:gap-x-2 text-lg child:cursor-pointer child:rounded-lg">
+                            <li class="hover:text-blue-500">
+                                <svg class="w-6 h-6 ">
+                                    <use href="#squares"></use>
+                                </svg>
+                                <a href="dashboard.html">داشبورد</a>
+                            </li>
+                            <li class="bg-blue-500/10 text-blue-500">
+                                <svg class="w-6 h-6 ">
+                                    <use href="#shopping-bag"></use>
+                                </svg>
+                                <a href="dashboard-orders.html">
+                                    سفارش ها
+                                </a>
+                            </li>
+                            <li class="hover:text-blue-500">
+                                <svg class="w-6 h-6 ">
+                                    <use href="#heart"></use>
+                                </svg>
+                                <a href="dashboard-favorite.html">علاقه‌مندی ها</a>
+                            </li>
+                            <li class="hover:text-blue-500">
+                                <svg class="w-6 h-6 ">
+                                    <use href="#map"></use>
+                                </svg>
+                                <a href="dashboard-address.html">آدرس ها</a>
+                            </li>
+                            <li class="hover:text-blue-500">
+                                <svg class="w-6 h-6 ">
+                                    <use href="#bell"></use>
+                                </svg>
+                                <a href="dashboard-messages.html">پیام ها</a>
+                            </li>
+                            <li class="hover:text-blue-500">
+                                <svg class="w-6 h-6 ">
+                                    <use href="#cog"></use>
+                                </svg>
+                                <a href="dashboard-account.html">اطلاعات حساب </a>
+                            </li>
+                            <li class="text-red-400">
+                                <svg class="w-6 h-6 ">
+                                    <use href="#arrow-left-end"></use>
+                                </svg>
+                                <a href="index.html">خروج</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col shadow rounded-lg p-4 dark:bg-gray-800 bg-white mt-5 lg:mt-0">
+               <span class="flex items-center justify-between">
+                 <span class="flex items-center gap-x-2">
+                    <img src="{{asset('assets/images/svg/status-delivered.svg')}}" class="w-10" alt="">
+                    <h2 class="font-DanaMedium text-lg">سفارش های من :</h2>
+                </span>
+                 <a href="#" class="flex items-center gap-x-1 text-blue-500">
+                        <svg class="size-5  ">
+                            <use href="#document"></use>
+                        </svg>
+                        <h2 class="font-DanaMedium">مشاهده فاکتور</h2>
+                    </a>
+               </span>
+                    <div class="relative mt-5 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+                        <table class="w-full text-sm text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700  bg-gray-100 dark:bg-gray-900 dark:text-gray-200">
+                            <tr>
+                                <th scope="col" class="px-6 py-3.5">
+                                    نام محصول
+                                </th>
+                                <th scope="col" class="px-6 py-3.5">
+                                    تاریخ
+                                </th>
+                                <th scope="col" class="px-6 py-3.5">
+                                    قیمت
+                                </th>
+                                <th scope="col" class="px-6 py-3.5">
+                                    وضعیت
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                                <th scope="row"
+                                    class="px-6 py-5 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-x-2">
+                                    <img class="w-10 object-cover" src="{{asset('assets/images/products/11.png')}}" alt="">
+                                    گوشی موبایل اپل مدل iPhone 16
+                                </th>
+                                <td class="px-6 py-5">
+                                    1402/11/11
+                                </td>
+                                <td class="px-6 py-5">
+                                    62,000,000 تومان
+                                </td>
+                                <td class="px-6 py-5 text-red-500 font-DanaDemiBold">
+                                    لغو شده
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                                <th scope="row"
+                                    class="px-6 py-5 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-x-2">
+                                    <img class="w-10 object-cover" src="{{asset('assets/images/products/11.png')}}" alt="">
+                                    گوشی موبایل اپل مدل iPhone 16
+                                </th>
+                                <td class="px-6 py-5">
+                                    1402/11/11
+                                </td>
+                                <td class="px-6 py-5">
+                                    62,000,000 تومان
+                                </td>
+                                <td class="px-6 py-5 text-yellow-500 font-DanaDemiBold">
+                                    درانتظار پرداخت
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b cursor-pointer dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all">
+                                <th scope="row"
+                                    class="px-6 py-5 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-x-2">
+                                    <img class="w-10 object-cover" src="{{asset('assets/images/products/3.png')}}" alt="">
+                                    گوشی موبایل اپل مدل iPhone 16
+                                </th>
+                                <td class="px-6 py-5">
+                                    1402/11/11
+                                </td>
+                                <td class="px-6 py-5">
+                                    62,000,000 تومان
+                                </td>
+                                <td class="px-6 py-5 text-green-500 font-DanaDemiBold">
+                                    پرداخت شده
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+@endsection

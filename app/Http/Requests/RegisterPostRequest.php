@@ -44,6 +44,7 @@ class RegisterPostRequest extends FormRequest
             'email' => [
                 'required',
                 'string',
+                'unique:App\Models\User',
                 'min:7',
                 'max:255'
             ],

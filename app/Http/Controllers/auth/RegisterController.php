@@ -13,7 +13,12 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('auth.register');
+        $withOutHeader = true;
+
+        $withOutFooter = true;
+
+        $title = 'ثبت نام';
+        return view('auth.register',compact('withOutHeader','withOutFooter','title'));
     }
 
     public function post(RegisterPostRequest $request)
@@ -24,7 +29,7 @@ class RegisterController extends Controller
 
      $user = User::create($inputs);
 
-     Auth::guard('user')->login($user);
+     Auth::guard()->login($user);
 
      return redirect()->route('index');
     }

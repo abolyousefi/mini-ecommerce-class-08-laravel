@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,8 +15,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $order_id
  * @property int $product_id
- * @property int $quantity
- * @property float $price
+ * @property int $qty
+ * @property int $price
+ * @property int $total_price
+ * @property int $discount
+ * @property int $total_discount
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * 
  * @property Order $order
  * @property Product $product
@@ -25,20 +31,26 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
 	protected $table = 'order_items';
-	public $timestamps = false;
+	public static $snakeAttributes = false;
 
 	protected $casts = [
 		'order_id' => 'int',
 		'product_id' => 'int',
-		'quantity' => 'int',
-		'price' => 'float'
+		'qty' => 'int',
+		'price' => 'int',
+		'total_price' => 'int',
+		'discount' => 'int',
+		'total_discount' => 'int'
 	];
 
 	protected $fillable = [
 		'order_id',
 		'product_id',
-		'quantity',
-		'price'
+		'qty',
+		'price',
+		'total_price',
+		'discount',
+		'total_discount'
 	];
 
 	public function order()

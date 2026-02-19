@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 
 class LogoutController extends Controller
 {
     //
-    public function index()
-    {
+    public function index()  {
 
+
+        Auth::guard()->logout();
+
+        return redirect()->route('index');
     }
 }
+

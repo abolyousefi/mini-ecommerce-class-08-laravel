@@ -5,17 +5,17 @@
     <div class="px-3 lg:container group w-full mt-4 lg:mt-10">
         <div dir="rtl" class="swiper header-slider h-52 md:h-96 cursor-pointer">
             <div class="swiper-wrapper">
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/4.webp" class="rounded-xl" alt="">
+                <a href="{{route('shop')}}" class="swiper-slide">
+                    <img src="{{  asset('assets/images/slider/4.webp')}}" class="rounded-xl" alt="">
                 </a >
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/1.jpg" class="rounded-xl" alt="">
+                <a href="{{route('shop')}}" class="swiper-slide">
+                    <img src="{{  asset('assets/images/slider/1.jpg')}}" class="rounded-xl" alt="">
                 </a >
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/2.jpg" class="rounded-xl" alt="">
+                <a href="{{route('shop')}}" class="swiper-slide">
+                    <img src="{{  asset('assets/images/slider/2.jpg')}}" class="rounded-xl" alt="">
                 </a >
-                <a href="shop.html" class="swiper-slide">
-                    <img src="./assets/images/slider/3.gif" class="rounded-xl" alt="">
+                <a href="{{route('shop')}}" class="swiper-slide">
+                    <img src="{{  asset('assets/images/slider/3.gif')}}" class="rounded-xl" alt="">
                 </a >
             </div>
             <div class="swiper-pagination-wrapper">
@@ -69,7 +69,7 @@
                 class="flex items-center justify-evenly flex-wrap mt-12 child:mb-8 gap-x-8 child:items-center child:flex-col child:duration-300 child:cursor-pointer child:gap-y-1 child:text-gray-800 child:dark:text-gray-300 child:relative"
             >
                 <a href="http://127.0.0.1:8000/products?category_id%5B1%5D=on" class="group flex">
-                    <img src="./assets/images/category/5.png"
+                    <img src="{{  asset('assets/images/category/5.png')}}"
                          class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
                          alt="category1" />
                     <p class="pt-1 text-sm lg:text-lg line-clamp-1">
@@ -77,7 +77,7 @@
                     </p>
                 </a>
                 <a href="http://127.0.0.1:8000/products?category_id%5B2%5D=on" class="group flex">
-                    <img src="./assets/images/category/5.png"
+                    <img src="{{  asset('assets/images/category/5.png')}}"
                          class="w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] object-cover group-hover:grayscale group-hover:opacity-90 duration-300"
                          alt="category1" />
                     <p class="pt-1 text-sm lg:text-lg line-clamp-1">
@@ -426,23 +426,24 @@
             class="container w-full mt-10 lg:mt-20 flex flex-wrap items-center justify-between gap-6 child:text-sm child:gap-y-1 child:cursor-pointer">
             <!-- item -->
             <span class="flex-col items-center justify-center hidden md:flex">
-                <img class="w-14 h-14" src="./assets/images/svg/1.svg " alt="">
+                <img class="w-14 h-14" src="{{  asset('assets/images/svg/1.svg')}}" alt="">
                 <p class="text-gray-500 dark:text-gray-300">امکان تحویل اکسپرس</p>
             </span>
             <span class="flex flex-col items-center justify-center">
-                <img class="w-14 h-14" src="./assets/images/svg/2.svg" alt="">
+                <img class="w-14 h-14" src="{{  asset('assets/images/svg/2.svg')}}" alt="">
                 <p class="text-gray-500 dark:text-gray-300">ضمانت اصل بودن کالا</p>
             </span>
             <span class="flex flex-col items-center justify-center">
-                <img class="w-14 h-14" src="./assets/images/svg/3.svg" alt="">
+                <img class="w-14 h-14" src="{{  asset('assets/images/svg/3.svg')}}" alt="">
                 <p class="text-gray-500 dark:text-gray-300">ضمانت بازگشت کالا</p>
             </span>
             <span class="flex flex-col items-center justify-center">
-                <img class="w-14 h-14" src="./assets/images/svg/4.svg" alt="">
+                <img class="w-14 h-14" src="{{  asset('assets/images/svg/4.svg')}}" alt="">
                 <p class="text-gray-500 dark:text-gray-300">پشتیبانی 24 ساعته</p>
             </span>
             <span class="flex flex-col items-center justify-center">
-                <img class="w-14 h-14" src="./assets/images/svg/5.svg" alt="">
+                <img class="w-14 h-14" src="{{  asset('assets/images/svg/5.svg')}}" alt="">
+                <img class="w-14 h-14" src="{{  asset('assets/images/svg/5.svg')}}" alt="">
                 <p class="text-gray-500 dark:text-gray-300">امکان پرداخت در محل</p>
             </span>
         </div>

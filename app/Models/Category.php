@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property string $name
- * @property string|null $description
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
@@ -26,10 +25,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
 	protected $table = 'categories';
+	public static $snakeAttributes = false;
 
 	protected $fillable = [
-		'name',
-		'description'
+		'name'
 	];
 
 	public function products()

@@ -15,33 +15,38 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property int $user_id
- * @property float $total_amount
- * @property string $address
- * @property string $phone
+ * @property int $total_price
+ * @property int $total_discount
+ * @property int $total_products
+ * @property string $traking_code
  * @property bool|null $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * 
  * @property User $user
- * @property Collection|OrderItem[] $order_items
+ * @property Collection|OrderItem[] $orderItems
  *
  * @package App\Models
  */
 class Order extends Model
 {
 	protected $table = 'orders';
+	public static $snakeAttributes = false;
 
 	protected $casts = [
 		'user_id' => 'int',
-		'total_amount' => 'float',
+		'total_price' => 'int',
+		'total_discount' => 'int',
+		'total_products' => 'int',
 		'status' => 'bool'
 	];
 
 	protected $fillable = [
 		'user_id',
-		'total_amount',
-		'address',
-		'phone',
+		'total_price',
+		'total_discount',
+		'total_products',
+		'traking_code',
 		'status'
 	];
 
@@ -50,7 +55,7 @@ class Order extends Model
 		return $this->belongsTo(User::class);
 	}
 
-	public function order_items()
+	public function orderItems()
 	{
 		return $this->hasMany(OrderItem::class);
 	}

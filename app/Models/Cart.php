@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * 
  * @property User $user
- * @property Collection|CartItem[] $cart_items
+ * @property Collection|CartItem[] $cartItems
  *
  * @package App\Models
  */
@@ -26,6 +26,7 @@ class Cart extends Model
 {
 	protected $table = 'carts';
 	public $timestamps = false;
+	public static $snakeAttributes = false;
 
 	protected $casts = [
 		'user_id' => 'int'
@@ -40,7 +41,7 @@ class Cart extends Model
 		return $this->belongsTo(User::class);
 	}
 
-	public function cart_items()
+	public function cartItems()
 	{
 		return $this->hasMany(CartItem::class);
 	}
