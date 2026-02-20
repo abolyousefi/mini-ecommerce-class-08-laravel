@@ -61,18 +61,19 @@
                             </button>
                             <div id="content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                                 <div class="pb-3 text-gray-700 dark:text-gray-300 w-full flex flex-col gap-y-1.5">
-                                    <!-- item -->
-                                    <div class="inline-flex items-center mr-2.5">
-                                        <label class="relative flex cursor-pointer items-center rounded-full p-3"
-                                               for="ripple-2" data-ripple-dark="true">
-                                            <input
-                                                id="category-1"
-                                                type="checkbox"
-                                                name="category_id[1]"
-                                                class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500"
-                                            />
-                                            <span
-                                                class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                               @foreach($Categories as $category)
+                                        <!-- item -->
+                                        <div class="inline-flex items-center mr-2.5">
+                                            <label class="relative flex cursor-pointer items-center rounded-full p-3"
+                                                   for="ripple-2" data-ripple-dark="true">
+                                                <input
+                                                    id="category-{{$category->id}}"
+                                                    type="checkbox"
+                                                    name="category_id[{{$category->id}}]"
+                                                    class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500"
+                                                />
+                                                <span
+                                                    class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
                                                  viewBox="0 0 20 20" fill="currentColor" stroke="currentColor"
                                                  stroke-width="1">
@@ -81,42 +82,16 @@
                                                       clip-rule="evenodd"></path>
                                             </svg>
                                         </span>
-                                        </label>
-                                        <label
-                                            class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
-                                            for="category-1"
-                                        >
-                                            الکترونیک
-                                        </label>
-                                    </div>
-                                    <!-- item -->
-                                    <div class="inline-flex items-center mr-2.5">
-                                        <label class="relative flex cursor-pointer items-center rounded-full p-3"
-                                               for="ripple-2" data-ripple-dark="true">
-                                            <input
-                                                id="category-2"
-                                                type="checkbox"
-                                                name="category_id[2]"
-                                                class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500"
-                                            />
-                                            <span
-                                                class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5"
-                                                 viewBox="0 0 20 20" fill="currentColor" stroke="currentColor"
-                                                 stroke-width="1">
-                                                <path fill-rule="evenodd"
-                                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                      clip-rule="evenodd"></path>
-                                            </svg>
-                                        </span>
-                                        </label>
-                                        <label
-                                            class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
-                                            for="category-2"
-                                        >
-                                            کتاب
-                                        </label>
-                                    </div>
+                                            </label>
+                                            <label
+                                                class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
+                                                for="category-{{$category->id}}"
+                                            >
+                                                {{$category->name}}
+                                            </label>
+                                        </div>
+                               @endforeach
+
                                 </div>
                             </div>
                         </div>
@@ -164,24 +139,24 @@
                             <ul
                                 class="flex items-center gap-x-1 lg:gap-x-4 child:transition-all child:cursor-pointer child:rounded-lg child:px-1 child:py-1 child:text-sm child:lg:text-base">
                                 <li
-                                    class="text-blue-500"
+                                    class="{{activeSort('newest')}}"
                                 >
-                                    <a href="http://127.0.0.1:8000/products?sort=newest">جدید ترین</a>
+                                    <a href="{{route('products.index',[ 'sort'  => 'newest'])}}">جدید ترین</a>
                                 </li>
                                 <li
-                                    class="text-gray-400"
+                                    class="{{activeSort('best_selling')}}"
                                 >
-                                    <a href="http://127.0.0.1:8000/products?sort=best_selling">پرفروش ترین</a>
+                                    <a href="{{route('products.index',[ 'sort'  => 'best_selling'])}}">پرفروش ترین</a>
                                 </li>
                                 <li
-                                    class="text-gray-400"
+                                    class="{{activeSort('lowest')}}"
                                 >
-                                    <a href="http://127.0.0.1:8000/products?sort=lowest">ارزان ترین</a>
+                                    <a href="{{route('products.index',[ 'sort'  => 'lowest'])}}">ارزان ترین</a>
                                 </li>
                                 <li
-                                    class="text-gray-400"
+                                    class="{{activeSort('highest')}}"
                                 >
-                                    <a href="http://127.0.0.1:8000/products?sort=highest">گران ترین</a>
+                                    <a href="{{route('products.index',[ 'sort'  => 'highest'])}}">گران ترین</a>
                                 </li>
                             </ul>
 
@@ -189,7 +164,7 @@
 
                     </div>
                     <span class="text-sm text-gray-400 end">
-                        2
+                        {{$products->total()}}
                         کالا
                     </span>
                 </div>

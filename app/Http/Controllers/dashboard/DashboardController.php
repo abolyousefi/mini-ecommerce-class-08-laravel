@@ -7,13 +7,20 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    public function index()
+    {
+        $withOutFooter = true;
+        return view('dashboard.index',compact('withOutFooter'));
+    }
     public function account()
     {
-       return view('dashboard.account');
+        $withOutFooter = true;
+       return view('dashboard.account',compact('withOutFooter'));
    }
 
     public function orders()
     {
-     return view('dashboard.orders');
+        $withOutFooter = true;
+     return view('dashboard.orders',compact('withOutFooter'));
    }
 }

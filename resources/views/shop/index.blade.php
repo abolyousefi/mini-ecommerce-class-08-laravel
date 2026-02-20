@@ -544,10 +544,10 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./images/products/1.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute" src="{{asset('assets/images/products/1.png')}}"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                 src="./images/products/2.png" alt="">
+                                 src="{{asset('assets/images/products/2.png')}}" alt="">
                         </a>
                         <!--  product footer -->
                         <div class="space-y-2">
@@ -621,10 +621,10 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./images/products/3.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute" src="{{asset('assets/images/products/3.png')}}"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                 src="./images/products/4.png" alt="">
+                                 src="{{asset('assets/images/products/4.png')}}" alt="">
                         </a>
                         <!--  product footer -->
                         <div class="space-y-2">
@@ -698,10 +698,10 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./images/products/5.webp"
+                            <img class="product-card_img group-hover:opacity-0 absolute" src="{{asset('assets/images/products/5.webp')}}"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                 src="./images/products/6.webp" alt="">
+                                 src="{{asset('assets/images/products/6.webp')}}" alt="">
                         </a>
                         <!--  product footer -->
                         <div class="space-y-2">
@@ -775,10 +775,10 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./images/products/7.webp"
+                            <img class="product-card_img group-hover:opacity-0 absolute" src="{{asset('assets/images/products/7.webp')}}"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                 src="./images/products/8.webp" alt="">
+                                 src="{{asset('assets/images/products/8.webp')}}" alt="">
                         </a>
                         <!--  product footer -->
                         <div class="space-y-2">
@@ -852,10 +852,10 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./images/products/5.webp"
+                            <img class="product-card_img group-hover:opacity-0 absolute" src="{{asset('assets/images/products/5.webp')}}"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                 src="./images/products/6.webp" alt="">
+                                 src="{{asset('assets/images/products/6.webp')}}" alt="">
                         </a>
                         <!--  product footer -->
                         <div class="space-y-2">
@@ -929,10 +929,10 @@
                         </div>
                         <!-- product img -->
                         <a href="product-details.html">
-                            <img class="product-card_img group-hover:opacity-0 absolute" src="./images/products/1.png"
+                            <img class="product-card_img group-hover:opacity-0 absolute" src="{{asset('assets/images/products/1.png')}}"
                                  alt="">
                             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                 src="./images/products/2.png" alt="">
+                                 src="{{asset('assets/images/products/2.png')}}" alt="">
                         </a>
                         <!--  product footer -->
                         <div class="space-y-2">

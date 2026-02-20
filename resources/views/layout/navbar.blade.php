@@ -32,7 +32,7 @@
         </li>
 
         <li class="menu-item">
-            <a href="/" class="menu-item_link">
+            <a href="{{route('about_us')}}" class="menu-item_link">
                 درباره ما
             </a>
         </li>

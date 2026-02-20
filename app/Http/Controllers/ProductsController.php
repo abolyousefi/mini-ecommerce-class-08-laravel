@@ -3,18 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ProductStatus;
+use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         $title =  "فروشگاه";
-        $products =  Product::query()
-            ->where('status','=',ProductStatus::ENABLE)
-            ->paginate();
-      return view('products.index',compact('products','title'));
+
+
+
+            $products =    Product::query()
+                ->applySort()
+                ->applyFilter()
+                ->where('status','=',ProductStatus::ENABLE)
+                ->paginate();
+
+
+          $Categories = Category::all();
+
+      return view('products.index',compact('products','title','Categories'));
     }
 
     public function show($id)

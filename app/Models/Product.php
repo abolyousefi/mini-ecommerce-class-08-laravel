@@ -8,6 +8,8 @@ namespace App\Models;
 
 use App\Enums\ProductStatus;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -61,6 +63,48 @@ class Product extends Model
 		'status'
 	];
 
+    #[Scope]
+    protected function applySort(Builder $query): void
+    {
+    $request = request();
+
+        if ($request->filled('sort')) {
+            switch ($request->input('sort')) {
+                case 'best_selling' :
+                    $query
+                        ->withSum('orderItems', 'qty')
+                        ->orderByDesc('order_items_sum_qty');
+                    break;
+                case   'lowest' :
+                {
+                    $query->orderBy('price');
+                    break;
+                }
+                case 'highest' :
+                {
+                    $query->orderByDesc('price');
+                    break;
+                }
+                default :
+                {
+                    $query->orderByDesc('created_at');
+                }
+            }
+        }
+
+
+    }
+
+    #[Scope]
+    protected function applyFilter(Builder $query): void
+    {
+      if (request()->filled('exists')){
+          $query->where('qty','>',0);
+      }
+      if (request()->filled('category_id')) {
+          dd(request()->input('category_id'));
+      }
+    }
 	public function category()
 	{
 		return $this->belongsTo(Category::class);
