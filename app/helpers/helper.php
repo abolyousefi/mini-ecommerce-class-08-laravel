@@ -4,6 +4,27 @@ if (!function_exists('calcPercent')) {
     {
     return $amount * 100 / $total;
     }
+    if (!function_exists('GenerateSortRoutParameter')) {
+    function GenerateSortRoutParameter(string $type): array
+    {
+
+        $request =request();
+
+        $query = $request->all();
+
+        $query['sort']  = $type;
+
+        return $query;
+    }
+
+
+    }
+    if (!function_exists('getFullName')) {
+    function getFullName(): string
+    {
+    return auth()->user()->first_name .' '. auth()->user()->last_name;
+    }
+    }
 }
 if (!function_exists('activeSort')) {
     function activeSort(string $type): ?string

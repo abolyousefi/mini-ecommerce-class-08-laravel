@@ -8,6 +8,7 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        return view('Questions');
+        $title = 'سوالات متداول';
+        return view('Questions',compact('title'));
     }
 }

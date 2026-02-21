@@ -21,7 +21,7 @@
                             placeholder="جستجو در محصولات..."
                             type="text"
                             name="keyword"
-                            value=""
+                            value="{{ request()->input('keyword') }}"
                             style="border: 0"
                         />
                     </div>

@@ -98,11 +98,29 @@ class Product extends Model
     #[Scope]
     protected function applyFilter(Builder $query): void
     {
-      if (request()->filled('exists')){
+        $request = request();
+      if ($request->filled('exists')){
           $query->where('qty','>',0);
       }
-      if (request()->filled('category_id')) {
-          dd(request()->input('category_id'));
+      if ($request->filled('category_id')) {
+          $productsIds =  array_keys($request->input('category_id'));
+
+          $query->whereIn('category_id',$productsIds);
+      }
+    }
+    #[Scope]
+    protected function applySearch(Builder $query): void
+    {
+        $request = request();
+      if ($request->filled('keyword')){
+         $keyword = $request->input('keyword');
+
+         $query->whereAny([
+             'name',
+             'name_en',
+             'description'
+         ],'LIKE', "%$keyword%");
+
       }
     }
 	public function category()

@@ -1,59 +1,7 @@
-@extends('layout.app')
+@extends('dashboard.layout.app')
 
-@section('content')
+@section('dashboard-content')
 
-    <main class="container relative">
-
-        <div class="flex flex-col lg:flex-row gap-x-8 mt-10">
-            <!-- SIDE MENU -->
-            <div class="lg:sticky mb-8 top-1 h-fit lg:w-1/4 hidden lg:flex flex-col gap-y-4 items-center shadow rounded-lg p-4 dark:bg-gray-800 bg-white">
-                <!-- NAME AND AVATAR  -->
-                <div class="w-full flex items-center justify-between border-b border-gray-200 dark:border-white/20 py-3">
-                    <div class="flex items-center gap-x-3">
-                        <img src="{{asset('assets/images/svg/user.png')}}" class="size-10 ring-2 ring-gray-400/20 rounded-full"
-                             alt="AVATAR">
-                        <span class="felx flex-col gap-y-2">
-                            <p class="font-DanaMedium text-lg">پارسا وصالی</p>
-                            <p class="text-gray-400">09100000001</p>
-                        </span>
-                    </div>
-                    <span>
-                        <svg class="w-6 h-6 cursor-pointer text-blue-500">
-                            <use href="#edit"></use>
-                        </svg>
-                    </span>
-                </div>
-                <ul
-                    class="w-full relative space-y-2 child:duration-300 child:transition-all child:py-3  child:px-2 child:flex child:gap-x-2 text-lg child:cursor-pointer child:rounded-lg">
-                    <li class="bg-blue-500/10 text-blue-500">
-                        <svg class="w-6 h-6 ">
-                            <use href="#squares"></use>
-                        </svg>
-                        <a href="{{route('dashboard.index')}}">داشبورد</a>
-                    </li>
-                    <li class="hover:text-blue-500">
-                        <svg class="w-6 h-6 ">
-                            <use href="#shopping-bag"></use>
-                        </svg>
-                        <a href="{{route('dashboard.orders')}}">
-                            سفارش ها
-                        </a>
-                    </li>
-                    <li class="hover:text-blue-500">
-                        <svg class="w-6 h-6 ">
-                            <use href="#cog"></use>
-                        </svg>
-                        <a href="{{route('dashboard.account')}}">اطلاعات حساب </a>
-                    </li>
-                    <li class="text-red-400">
-                        <svg class="w-6 h-6 ">
-                            <use href="#arrow-left-end"></use>
-                        </svg>
-                        <a href="{{route('auth.logout')}}">خروج</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- TOP FILTER BOX & PRODUCT & PAGINATION -->
             <div class="lg:w-3/4">
                 <div class="flex lg:hidden">
                     <button class="open-user-menu bg-blue-500 flex items-center gap-x-1 font-DanaMedium text-white p-2 rounded-lg text-sm mr-2">
@@ -117,33 +65,6 @@
                 </div>
                 <div class="grid grid-cols-12 child:col-span-12 mt-5 lg:mt-0 md:child:col-span-4 gap-4 child:rounded-lg child:bg-white child:dark:bg-gray-800 child:w-full child:flex
                child:shadow child:p-4">
-                    <div class="flex items-center gap-x-4">
-                        <svg class="size-9 text-blue-500">
-                            <use href="#wallet" />
-                        </svg>
-                        <div class="flex flex-col gap-y-1">
-                            <h2 class="font-DanaDemiBold">کیف‌پول</h2>
-                            <p class="text-gray-500">موجودی : <span>0 تومان</span></p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-x-4">
-                        <svg class="size-9 text-blue-500">
-                            <use href="#shopping-bag" />
-                        </svg>
-                        <div class="flex flex-col gap-y-1">
-                            <h2 class="font-DanaDemiBold">سفارش‌ها</h2>
-                            <p class="text-gray-500">10 سفارش</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-x-4">
-                        <svg class="size-9 text-blue-500">
-                            <use href="#ticket" />
-                        </svg>
-                        <div class="flex flex-col gap-y-1">
-                            <h2 class="font-DanaDemiBold">تیکت‌ها</h2>
-                            <p class="text-gray-500">5 تیکت</p>
-                        </div>
-                    </div>
                 </div>
                 <div class="flex flex-col shadow rounded-lg p-4 dark:bg-gray-800 bg-white mt-5">
                 <span class="flex items-center gap-x-2">
@@ -229,9 +150,9 @@
                 </span>
                         <a href="#" class="flex items-center gap-x-1 text-blue-500">
                             <svg class="size-5  ">
-                                <use href="#plus"></use>
+
                             </svg>
-                            <h2 class="font-DanaMedium">آدرس جدید</h2>
+
                         </a>
                     </div>
                     <ul class="mt-5 space-y-3">
@@ -243,16 +164,13 @@
                             <h2 class="font-DanaMedium">نام آدرس</h2>
                         </span>
                             <div class="space-y-1.5 text-gray-600 dark:text-gray-300 mt-3 mr-2">
-                                <p>استان تهران-بلوار آزادی، خیابان استاد معین، کوچه گلستان، پلاک ۱۰ </p>
-                                <p>کد پستی: 000000000</p>
-                                <p>گیرنده: پارسا وصالی | ۰۹000000000</p>
+                                <p> ساری بعد از میدان خزر میدان بار قدیم شرکت درنیکا </p>
+                                <p>کد پستی: 208099941</p>
+                                <p>گیرنده: ابولفضل یوسفی | 8587***0930 </p>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </main>
-
 
 @endsection

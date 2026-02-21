@@ -7,7 +7,7 @@
         <nav class="flex mt-8" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li class="inline-flex items-center">
-                    <a href="http://127.0.0.1:8000"
+                    <a href="{{route('index')}}"
                        class="inline-flex items-center text-sm gap-x-1  text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                         <svg class="size-4 mb-0.5">
                             <use href="#home"/>
@@ -67,10 +67,11 @@
                                             <label class="relative flex cursor-pointer items-center rounded-full p-3"
                                                    for="ripple-2" data-ripple-dark="true">
                                                 <input
-                                                    id="category-{{$category->id}}"
+                                                    id="category-{{ $category->id }}"
                                                     type="checkbox"
-                                                    name="category_id[{{$category->id}}]"
+                                                    name="category_id[{{ $category->id }}]"
                                                     class="peer relative h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-slate-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-slate-400 hover:before:opacity-10 dark:bg-gray-600 dark:checked:bg-blue-500 darKchecked:bg-blue-500"
+                                                    @checked(request()->filled('category_id.' . $category->id))
                                                 />
                                                 <span
                                                     class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
@@ -85,9 +86,9 @@
                                             </label>
                                             <label
                                                 class="cursor-pointer text-gray-800 dark:text-gray-400 mr-1"
-                                                for="category-{{$category->id}}"
+                                                for="category-{{ $category->id }}"
                                             >
-                                                {{$category->name}}
+                                                {{ $category->name }}
                                             </label>
                                         </div>
                                @endforeach
@@ -103,6 +104,7 @@
                                     type="checkbox"
                                     id="hs-valid-toggle-switch"
                                     class="peer sr-only"
+                                    @checked(request()->filled('exists'))
                                 />
                                 <span
                                     class="absolute inset-0 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-blue-500 dark:bg-neutral-700 dark:peer-checked:bg-blue-500 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
@@ -113,9 +115,12 @@
                                 فقط کالا های موجود
                             </label>
                         </div>
-
-
-
+                        @if(request()->filled('sort'))
+                            <input type="hidden" name="sort" value="{{request()->input('sort')}}">
+                        @endif
+                        @if(request()->filled('page'))
+                            <input type="hidden" name="page" value="{{request()->input('page')}}">
+                        @endif
                         <button type="submit" class="submit-btn" tabindex="3">فیلتر</button>
                     </div>
                 </form>
@@ -141,22 +146,22 @@
                                 <li
                                     class="{{activeSort('newest')}}"
                                 >
-                                    <a href="{{route('products.index',[ 'sort'  => 'newest'])}}">جدید ترین</a>
+                                    <a href="{{route('products.index',GenerateSortRoutParameter('newest'))}}">جدید ترین</a>
                                 </li>
                                 <li
                                     class="{{activeSort('best_selling')}}"
                                 >
-                                    <a href="{{route('products.index',[ 'sort'  => 'best_selling'])}}">پرفروش ترین</a>
+                                    <a href="{{route('products.index',GenerateSortRoutParameter('best_selling'))}}">پرفروش ترین</a>
                                 </li>
                                 <li
                                     class="{{activeSort('lowest')}}"
                                 >
-                                    <a href="{{route('products.index',[ 'sort'  => 'lowest'])}}">ارزان ترین</a>
+                                    <a href="{{route('products.index',GenerateSortRoutParameter('lowest'))}}">ارزان ترین</a>
                                 </li>
                                 <li
                                     class="{{activeSort('highest')}}"
                                 >
-                                    <a href="{{route('products.index',[ 'sort'  => 'highest'])}}">گران ترین</a>
+                                    <a href="{{route('products.index',GenerateSortRoutParameter('highest'))}}">گران ترین</a>
                                 </li>
                             </ul>
 
@@ -173,68 +178,7 @@
                     class="grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 xs:gap-2 sm:gap-4">
 
                     @foreach($products as $product)
-                        <!-- PRODUCT ITEM -->
-                        <div class="swiper-slide product-card group">
-
-                            <!-- product header -->
-                            <div class="product-card_header">
-                                <div class="flex items-center gap-x-2">
-                                    <form action="http://127.0.0.1:8000/cart/add" method="POST">
-                                        <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">
-                                        <input type="hidden" name="product_id" value="2"/>
-                                        <input type="hidden" name="qty" value="1"/>
-
-                                        <div class="tooltip">
-                                            <button
-                                                type="submit"
-                                                class="rounded-full p-1.5 app-border app-hover"
-                                            >
-                                                <svg class="size-4">
-                                                    <use href="#shopping-cart"></use>
-                                                </svg>
-                                            </button>
-                                            <div class="tooltiptext">
-                                                سبد خرید
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                @if($product->discount > 0)
-                                <!-- badge offer -->
-                                <span class="product-card_badge">{{calcPercent($product->price , $product->discount)}}     %
-                تخفیف‌</span> @endif
-                            </div>
-                            <!-- product img -->
-                            <a href="{{route('products.show',$product->id)}}">
-                                <img
-                                    class="product-card_img group-hover:opacity-0 absolute"
-                                    src="{{asset('assets/images/products/1.png')}}"
-                                    alt=""
-                                >
-                                <img class="product-card_img opacity-0 group-hover:opacity-100"
-                                     src="{{asset('assets/images/products/1.png')}}" alt="">
-                            </a>
-                            <!--  product footer -->
-                            <div class="space-y-2">
-                                <a href="{{route('products.show',$product->id)}}" class="product-card_link">
-                                    {{$product->name}} | {{$product->name_en}}
-                                </a>
-                                <!-- Rate and Price -->
-                                <div class="product-card_price-wrapper">
-                                    <!-- Price -->
-                                    <div class="product-card_price">
-                                        @if($product->discount  > 0)
-                                            <del>{{number_format($product->price)}} <h6>تومان</h6></del>
-                                            <p>{{ number_format($product->price - $product->discount) }}</p>
-                                            <span>تومان</span>
-                                        @else    <p>{{ number_format($product->price)}}</p>
-                                            <span>تومان</span>
-                                        @endif
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                  @include('components.product')
                     @endforeach
                 </div>
 

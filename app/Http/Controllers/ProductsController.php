@@ -19,8 +19,10 @@ class ProductsController extends Controller
             $products =    Product::query()
                 ->applySort()
                 ->applyFilter()
+                ->applySearch()
                 ->where('status','=',ProductStatus::ENABLE)
-                ->paginate();
+                ->paginate()
+               ->withQueryString();
 
 
           $Categories = Category::all();
@@ -31,7 +33,13 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        $title =  "$product->name";
-        return view('products.show',compact('product','title'));
+        $title =  $product->name;
+
+        $relatedProducts = Product::query()
+            ->where('category_id','=',$product->id)
+            ->where('id','!=',$product->id)
+            ->limit(6)
+            ->get();
+        return view('products.show',compact('product','title','relatedProducts'));
     }
 }

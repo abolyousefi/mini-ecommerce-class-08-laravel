@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\About_Us;
 use App\Http\Controllers\Contact_Us;
-use App\Http\Controllers\dashboard\DashboardController;
+use App\Http\Controllers\dashboard\AccountController;
+use App\Http\Controllers\dashboard\IndexController as DashboardIndexController;
+use App\Http\Controllers\dashboard\OrderController;
 use App\Http\Controllers\indexController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\QuestionController;
@@ -10,10 +12,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[indexController::class,'index'])->name('index');
 
-Route::prefix('dashboard')->controller(DashboardController::class)->name('dashboard.')->group(function (){
-   Route::get('index','index')->name('index');
-   Route::get('account','account')->name('account');
-   Route::get('orders','orders')->name('orders');
+Route::prefix('dashboard')->name('dashboard.')->group(function (){
+    Route::get('index',[DashboardIndexController::class,'index'])->name('index');
+    Route::get('account',[AccountController::class,'index'])->name('account');
+    Route::get('orders', [OrderController::class,'index'])->name('orders');
+
 });
 
 

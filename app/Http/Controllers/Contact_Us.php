@@ -8,6 +8,7 @@ class Contact_Us extends Controller
 {
     public function index()
     {
-        return view('Contact_Us');
+        $title = "تماس با ما";
+        return view('Contact_Us',compact('title'));
   }
 }
