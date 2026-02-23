@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterPostRequest extends FormRequest
+class accountPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,41 +23,33 @@ class RegisterPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'first_name' => [
-               'required',
-               'string',
-               'min:2',
-               'max:50',
-               'persian_alpha'
-           ],
+            'first_name' => [
+                'required',
+                'string',
+                'min:2',
+                'max:50',
+                'persian_alpha'
+            ],
             'last_name' => [
-               'required',
-               'string',
-               'min:2',
-               'max:50',
-               'persian_alpha'
-           ],
+                'required',
+                'string',
+                'min:2',
+                'max:50',
+                'persian_alpha'
+            ],
             'mobile' => [
                 'required',
-                'int',
-                'unique:App\Models\User',
-                'ir_mobile:zero'
-        ],
+                'ir_mobile:zero',
+                'unique:App\Models\User,mobile,'. auth()->id()
+            ],
             'email' => [
                 'required',
                 'string',
-                'unique:App\Models\User',
+                'unique:App\Models\User,email,'.auth()->id(),
                 'min:5',
                 'max:255'
             ],
-            'password' => [
-                'required',
-                'string',
-                'min:8',
-                'max:255',
-                'confirmed'
-            ]
-        ];
 
+        ];
     }
 }

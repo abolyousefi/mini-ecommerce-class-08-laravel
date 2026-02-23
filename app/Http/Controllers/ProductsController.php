@@ -33,7 +33,7 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        $title =  $product->name;
+        $title =  'جزییات محصول';
 
         $relatedProducts = Product::query()
             ->where('category_id','=',$product->id)
@@ -41,5 +41,15 @@ class ProductsController extends Controller
             ->limit(6)
             ->get();
         return view('products.show',compact('product','title','relatedProducts'));
+    }
+
+    public function removeFilters(Request $request)
+    {
+    $inputs  =$request->all();
+
+    unset($inputs['exists']);
+    unset($inputs['category_id']);
+
+    return redirect()->route('products.index',$inputs);
     }
 }

@@ -68,7 +68,7 @@ class Product extends Model
     {
     $request = request();
 
-        if ($request->filled('sort')) {
+
             switch ($request->input('sort')) {
                 case 'best_selling' :
                     $query
@@ -93,7 +93,7 @@ class Product extends Model
         }
 
 
-    }
+
 
     #[Scope]
     protected function applyFilter(Builder $query): void

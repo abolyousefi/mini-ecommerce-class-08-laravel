@@ -1,27 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class OrderController extends Controller
+class IndexController extends Controller
 {
     public function index()
     {
+        $title = 'داشبورد';
+
         $userOrders = Order::query()
             ->where('user_id','=',Auth::id())
             ->orderByDesc('created_at')
             ->paginate();
-
-        $title = "سفارش ها";
-
         $withOutFooter = true;
 
-
-
-        return view('dashboard.orders',compact('withOutFooter','title','userOrders'));
+        return view('dashboard.index',compact('withOutFooter','title','userOrders'));
     }
 }

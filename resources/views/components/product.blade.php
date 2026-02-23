@@ -4,9 +4,9 @@
     <!-- product header -->
     <div class="product-card_header">
         <div class="flex items-center gap-x-2">
-            <form action="http://127.0.0.1:8000/cart/add" method="POST">
-                <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">
-                <input type="hidden" name="product_id" value="2"/>
+            <form action="{{route('Cart.add')}}" method="POST">
+            @csrf
+                <input type="hidden" name="product_id" value="{{$product->id}}"/>
                 <input type="hidden" name="qty" value="1"/>
 
                 <div class="tooltip">

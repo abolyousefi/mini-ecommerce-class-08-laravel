@@ -71,16 +71,16 @@
                             <svg class="size-5">
                                 <use href="#map"></use>
                             </svg>
-                            <p>بلوار آزادی، خیابان استاد معین، کوچه گلستان، پلاک ۱۰</p>
+                            <p>مازندران، ساری، کمربندی غربی</p>
                         </div>
                         <div>
-                            <p>KarinShop</p>
+                            <p>info@dornica.net</p>
                             <svg class="size-5 mb-1">
                                 <use href="#envelope"></use>
                             </svg>
                         </div>
                         <div>
-                            <p>091000000</p>
+                            <p>8587***0930</p>
                             <svg class="size-5">
                                 <use href="#phone"></use>
                             </svg>

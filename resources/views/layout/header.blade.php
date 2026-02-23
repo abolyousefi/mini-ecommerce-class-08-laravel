@@ -1,4 +1,5 @@
-<!-- Header -->
+@php use App\Services\CartServices; @endphp
+    <!-- Header -->
 <header class="header">
     <!-- Desktop -->
     <div class="container mt-5 hidden flex-col gap-y-6 lg:flex">
@@ -28,7 +29,7 @@
                 </form>
             </div>
             <!-- Logo -->
-            <a href="http://127.0.0.1:8000" class="flex flex-col text-center ml-20">
+            <a href="{{route('index')}}" class="flex flex-col text-center ml-20">
                     <span class="font-MorabbaMedium text-4xl flex items-center">
                         فروشگاه<span class="text-blue-500">درنیکا</span>
                     </span>
@@ -37,11 +38,11 @@
             <!--  Action -->
             <div class="flex items-center gap-x-3">
                 <!-- LOGIN -->
-              @if(auth()->check())
+                @if(auth()->check())
                     <button class="group relative flex-center py-2 px-4 app-border rounded-full app-hover delay-75">
-                        <a href="{{route('dashboard.index')}}"  class="flex items-center gap-x-1">
+                        <a href="{{route('dashboard.index')}}" class="flex items-center gap-x-1">
                             <svg class="size-5">
-                                <use href="#user" />
+                                <use href="#user"/>
                             </svg>
                             <p>حساب کاربری</p>
                         </a>
@@ -54,7 +55,7 @@
                                 </svg>
                                 سفارشات من
                             </a>
-                            <a href="{{route('dashboard.account')}}"
+                            <a href="{{route('dashboard.account.index')}}"
                                class="flex items-center gap-x-2  hover:bg-blue-500 hover:text-gray-100">
                                 <svg class="h-5 w-5">
                                     <use href="#cog"></use>
@@ -70,7 +71,7 @@
                             </a>
                         </div>
                     </button>
-              @else
+                @else
 
                     <button class="flex-center py-2 px-4  app-border rounded-full app-hover">
                         <a href="{{route('auth.login.index')}}" class="flex items-center gap-x-2">
@@ -94,26 +95,29 @@
                     </svg>
                 </button>
                 <!-- Shopping cart -->
-                <a href="http://127.0.0.1:8000/cart"
+                <a href="{{route('Cart.index')}}"
                    class="flex-center p-2 bg-blue-600 text-gray-100 rounded-full open-cart relative">
                     <svg class="size-6">
                         <use href="#shopping-bag"/>
                     </svg>
-                    <span class="absolute -top-1 -right-1 flex h-4 w-4">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75">
+                    @if(CartServices::getCount() > 0)
+                        <span class="absolute -top-1 -right-1 flex h-4 w-4">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-600 opacity-75">
 
                         </span>
-                        <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-xs pt-1 flex-center text-white">
-                            1
+                        <span
+                            class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-xs pt-1 flex-center text-white">
+                           {{CartServices::getCount()}}
                         </span>
                     </span>
+                    @endif
                 </a>
             </div>
         </div>
         <!-- NAVBAR -->
-      @include('layout.navbar')
+        @include('layout.navbar')
     </div>
-
 
 
 </header>

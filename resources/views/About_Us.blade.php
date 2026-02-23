@@ -33,7 +33,7 @@
                 <!-- Logo -->
                 <a href="{{route('index')}}" class="flex flex-col text-center w-fit">
                     <span class="font-MorabbaMedium text-4xl flex items-center">
-                        <span class="text-blue-500">کارین</span> شاپ
+                        <span>فروشگاه</span>   <span class="text-blue-500"> درنیکا</span>
                     </span>
                     <p class="font-DanaMedium text-gray-400"> خرید موبایل و لپ‌تاپ</p>
                 </a>
@@ -65,11 +65,11 @@
 
                 <div class="flex items-center gap-x-4 text-gray-600 dark:text-gray-300 mt-3">
                     <span class="flex items-center gap-x-2">
-                        <p>KarinShop</p>
+                        <p>Dornica</p>
                         <img class="w-5 h-5" src="{{asset('assets/images/svg/instagram.png')}}" alt="instagram">
                     </span>
                     <span class="flex items-center gap-x-2">
-                        <p>KarinShop</p>
+                        <p>Dornica</p>
                         <img class="w-5 h-5" src="{{asset('assets/images/svg/telegram.png')}}" alt="telegram">
                     </span>
                 </div>

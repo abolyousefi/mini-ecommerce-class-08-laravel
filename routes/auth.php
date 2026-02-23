@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\auth\LogoutController;
-use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->name('auth.')->group(function (){
@@ -19,7 +19,7 @@ Route::prefix('auth')->name('auth.')->group(function (){
         });
 
     });
-  Route::get('logout',[LogoutController::class,'index'])->name('logout');
+  Route::get('logout',[LogoutController::class,'index'])->middleware('auth')->name('logout');
 
 
 

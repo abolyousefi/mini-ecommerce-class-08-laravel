@@ -35,7 +35,7 @@
                 </svg>
             </span>
             <h2 class="font-DanaMedium text-lg">سوالات متداول</h2>
-            <p class="text-gray-400 text-center">اگر سوال مورد نظر خود را پیدا نکردید به <span class="text-blue-400 cursor-pointer">پشتیبانی</span> تیکت بدهید </p>
+
         </div>
         <ul class="w-full rounded-xl py-4 flex items-center justify-center flex-col gap-y-4">
             <div class="max-w-xl rounded-xl px-4 dark:bg-gray-800 bg-gray-100">

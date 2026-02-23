@@ -195,10 +195,10 @@
 
 
                 <form
-                    action="http://127.0.0.1:8000/cart/add"
+                    action="{{route('Cart.add')}}"
                     method="POST"
                 >
-                    <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">
+                    @csrf
                     <button
                         class="w-full flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-2 px-3"
                         type="button"
@@ -211,7 +211,7 @@
                             name="qty"
                             id="customInput"
                             min="1"
-                            max="50"
+                            max="{{$product->qty}}"
                             value="1"
                             class="custom-input mr-4 text-lg bg-transparent"
                         />
@@ -227,7 +227,7 @@
                     <input
                         type="hidden"
                         name="product_id"
-                        value="2"
+                        value="{{$product->id}}"
                     />
 
                     <button
