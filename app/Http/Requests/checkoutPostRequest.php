@@ -40,9 +40,10 @@ class checkoutPostRequest extends FormRequest
                 'min:4',
                 'max:500'
             ],
-            'postal_code' => [
+            'user_postal_code' => [
                 'required',
-                'ir_postal_code'
+                'min:2',
+                'max:10'
             ],
 //            'user_mobile' => [
 //                'ir_mobile'

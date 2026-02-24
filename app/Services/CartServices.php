@@ -36,8 +36,7 @@ class CartServices
     public static function getCartTotalQty(int $product_id):int
     {
         $userCart = self::getItems();
-
-        return $userCart[$product_id]['qty'];
+        return $userCart[$product_id]['qty'] ?? 0;
     }
 
     public static function getItemsWithDetails() :array

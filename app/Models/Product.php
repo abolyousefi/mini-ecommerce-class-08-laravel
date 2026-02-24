@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use App\Enums\ProductStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
@@ -47,7 +48,7 @@ class Product extends Model
 		'discount' => 'int',
 		'qty' => 'int',
 		'image_file_id' => 'int',
-		'status' => 'int'
+		'status' => ProductStatus::class
 	];
 
 	protected $fillable = [

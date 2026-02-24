@@ -71,7 +71,7 @@
                                         type="text"
                                         placeholder="استان*"
                                         name="user_province"
-                                        value=""
+                                        value="{{old('user_province')}}"
                                         class="block w-full py-1.5 px-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400transition-all col-span-6 text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400 h-11"
                                     >
                                     @error('user_province')
@@ -84,7 +84,7 @@
                                         type="text"
                                         placeholder="شهر*"
                                         name="user_city"
-                                        value=""
+                                        value="{{old('user_city')}}"
                                         class="block w-full py-1.5 px-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400transition-all col-span-6 text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400 h-11"
                                     >
                                     @error('user_city')
@@ -97,7 +97,7 @@
                                         type="text"
                                         placeholder="آدرس کامل*"
                                         name="user_address"
-                                        value=""
+                                        value="{{old('user_address')}}"
                                         class="block w-full py-1.5 px-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400 transition-all col-span-12 h-11 text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                                     />
                                     @error('user_address')
@@ -109,11 +109,11 @@
                                     <input
                                         type="text"
                                         placeholder="کد پستی*"
-                                        name="postal_code"
-                                        value=""
+                                        name="user_postal_code"
+                                        value="{{old('user_postal_code')}}"
                                         class="block w-full py-1.5 px-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400transition-all col-span-6 text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400 h-11"
                                     />
-                                    @error('postal_code')
+                                    @error('user_postal_code')
                                     <span style="color: red">  {{ $message }} </span>
                                     @enderror
                                 </div>
@@ -123,7 +123,7 @@
                                         type="text"
                                         placeholder="شماره تلفن "
                                         name="user_mobile"
-                                        value=""
+                                        value="{{old('user_mobile')}}"
                                         class="block w-full py-1.5 px-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400transition-all col-span-6 text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400 h-11"
                                     />
                                     @error('user_mobile')
@@ -136,7 +136,7 @@
                                         type="text"
                                         placeholder="توضیحات"
                                         name="description"
-                                        value=""
+                                        value="{{old('description')}}"
                                         class="block w-full py-1.5 px-3 text-base outline dark:outline-none outline-1 -outline-offset-1 placeholder:text-gray-400 transition-all col-span-12 h-11 text-gray-800 dark:text-gray-100 dark:bg-gray-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded-md outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-blue-400"
                                     />
                                     @error('description')
