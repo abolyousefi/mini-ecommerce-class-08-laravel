@@ -1,3 +1,4 @@
+@php use App\Services\CartServices; @endphp
 @extends('layout.app');
 
 @section('content')
@@ -145,7 +146,7 @@
                                 {{$product->name_en}}
                             </p>
                             <p class="text-sm text-gray-300 dark:text-gray-500">
-                               موجودی: {{$product->qty}}
+                                موجودی: {{$product->qty}}
                             </p>
                         </div>
                     </div>
@@ -192,8 +193,6 @@
                 </div>
 
 
-
-
                 <form
                     action="{{route('Cart.add')}}"
                     method="POST"
@@ -212,14 +211,13 @@
                             id="customInput"
                             min="1"
                             max="{{$product->qty}}"
-                            value="1"
+                            value="{{ CartServices::getCartTotalQty($product->id) }}"
                             class="custom-input mr-4 text-lg bg-transparent"
                         />
                         <svg class="w-6 h-6 decrement text-red-500">
                             <use href="#minus"></use>
                         </svg>
                     </button>
-
 
 
                     <br>
@@ -244,75 +242,77 @@
             </div>
         </section>
         @if(isset($product->description))
-        <section class="relative mt-10 flex flex-col items-start gap-4 rounded-lg bg-white dark:bg-gray-800 shadow p-4">
+            <section
+                class="relative mt-10 flex flex-col items-start gap-4 rounded-lg bg-white dark:bg-gray-800 shadow p-4">
 
                 <div
-                class="w-full py-3 flex items-center gap-x-6 child:font-DanaMedium tab-buttons z-10 border-b  border-gray-600/20 dark:border-b-gray-200/20">
-                <button class="tab-btn text-blue-500" data-target="tab1">توضیحات محصول</button>
-            </div>
+                    class="w-full py-3 flex items-center gap-x-6 child:font-DanaMedium tab-buttons z-10 border-b  border-gray-600/20 dark:border-b-gray-200/20">
+                    <button class="tab-btn text-blue-500" data-target="tab1">توضیحات محصول</button>
+                </div>
                 <div class="tab-content tab1 block">
                     <p class="mt-4 leading-8">
                         {{$product->description}}
                     </p>
                 </div>
-            @endif
+                @endif
 
-            @if($relatedProducts->count() > 0)
-        </section>
+                @if($relatedProducts->count() > 0)
+            </section>
 
-        <!-- Best-selling products -->
-        <section class="mx-4 mt-10 lg:mt-20">
-            <!-- SECTION TITLE -->
-            <div
-                class="flex flex-col gap-y-4 xs:flex-row items-center justify-between w-full text-center xs:text-start">
-                <div class="flex items-center gap-x-2 sm:gap-x-4">
+            <!-- Best-selling products -->
+            <section class="mx-4 mt-10 lg:mt-20">
+                <!-- SECTION TITLE -->
+                <div
+                    class="flex flex-col gap-y-4 xs:flex-row items-center justify-between w-full text-center xs:text-start">
+                    <div class="flex items-center gap-x-2 sm:gap-x-4">
                     <span class="size-12 hidden xs:flex rounded-lg bg-white shadow-lg dark:bg-gray-800 flex-center">
                         <svg class="size-7 text-gray-700 dark:text-gray-100">
                             <use href="#mobile"></use>
                         </svg>
                     </span>
-                    <div class="space-y-1 md:space-y-1">
-                        <h3 class="text-xl md:text-2xl font-MorabbaMedium text-gray-800 dark:text-gray-50">محصولات
-                            <span class="text-blue-600 dark:text-blue-500">مرتبط</span>
-                        </h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-300">جدیدترین و بروزترین محصولات</p>
+                        <div class="space-y-1 md:space-y-1">
+                            <h3 class="text-xl md:text-2xl font-MorabbaMedium text-gray-800 dark:text-gray-50">محصولات
+                                <span class="text-blue-600 dark:text-blue-500">مرتبط</span>
+                            </h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-300">جدیدترین و بروزترین محصولات</p>
+                        </div>
                     </div>
-                </div>
-                <div class="w-full xs:w-auto flex justify-between xs:justify-end  items-center gap-x-2">
-                    <div class="flex items-center gap-x-2">
-                        <button class="slider-navigate_btn BestSelling-prev-slide">
-                            <svg class="size-6 -rotate-90">
-                                <use href="#chevron"/>
-                            </svg>
-                        </button>
-                        <button class="slider-navigate_btn BestSelling-next-slide">
-                            <svg class="size-6 rotate-90">
-                                <use href="#chevron"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <a href="#"
-                       class="group shadow-xl text-sm md:text-base flex gap-x-1.5 items-center px-2 h-10 md:px-3 text-white bg-blue-600 rounded-xl">
-                        <p>مشاهده همه</p>
-                        <span
-                            class="w-7 h-7 rounded-full bg-blue-500 flex-center md:group-hover:-translate-x-1 transition-transform duration-300">
+                    <div class="w-full xs:w-auto flex justify-between xs:justify-end  items-center gap-x-2">
+                        <div class="flex items-center gap-x-2">
+                            <button class="slider-navigate_btn BestSelling-prev-slide">
+                                <svg class="size-6 -rotate-90">
+                                    <use href="#chevron"/>
+                                </svg>
+                            </button>
+                            <button class="slider-navigate_btn BestSelling-next-slide">
+                                <svg class="size-6 rotate-90">
+                                    <use href="#chevron"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#"
+                           class="group shadow-xl text-sm md:text-base flex gap-x-1.5 items-center px-2 h-10 md:px-3 text-white bg-blue-600 rounded-xl">
+                            <p>مشاهده همه</p>
+                            <span
+                                class="w-7 h-7 rounded-full bg-blue-500 flex-center md:group-hover:-translate-x-1 transition-transform duration-300">
                             <svg class="size-5">
                                 <use href="#arrow"/>
                             </svg>
                         </span>
-                    </a>
-                </div>
+                        </a>
+                    </div>
 
-            </div>
-            <!-- Latest products Slider -->
-            <div class="swiper BestSelling mt-5 w-full">
-                <div class="swiper-wrapper py-5">
-                    <!-- PRODUCT ITEM -->
-                  @foreach($relatedProducts as $product)
-                       @include('components.product')
-                  @endforeach
                 </div>
-            </div>
-        </section> @endif
+                <!-- Latest products Slider -->
+                <div class="swiper BestSelling mt-5 w-full">
+                    <div class="swiper-wrapper py-5">
+                        <!-- PRODUCT ITEM -->
+                        @foreach($relatedProducts as $product)
+                            @include('components.product')
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+        @endif
     </main>
 @endsection

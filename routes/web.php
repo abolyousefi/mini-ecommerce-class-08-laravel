@@ -3,6 +3,7 @@
 use App\Http\Controllers\About_UsController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Contact_UsController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Dashboard\AccountController;
@@ -38,7 +39,16 @@ Route::prefix('products')->controller(ProductsController::class)->name('products
 Route::prefix('Cart')->name('Cart.')->middleware('auth')->controller(CartController::class)->group(function (){
     Route::get('/','index')->name('index');
     Route::post('add','add')->name('add');
+    Route::post('update-qty','updateQty')->name('update-qty');
 
+    Route::get('{productId}/remove','removeItem')->name('remove-item');
+    Route::get('clear','clear')->name('clear');
+
+
+});
+Route::prefix('checkout')->name('checkout.')->controller(CheckoutController::class)->middleware('auth')->group(function (){
+   Route::get('/','index')->name('index');
+   Route::post('/','post')->name('post');
 });
 
 

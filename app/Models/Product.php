@@ -6,7 +6,6 @@
 
 namespace App\Models;
 
-use App\Enums\ProductStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
@@ -48,7 +47,7 @@ class Product extends Model
 		'discount' => 'int',
 		'qty' => 'int',
 		'image_file_id' => 'int',
-		'status' => ProductStatus::class
+		'status' => 'int'
 	];
 
 	protected $fillable = [
@@ -63,34 +62,35 @@ class Product extends Model
 		'status'
 	];
 
+
     #[Scope]
     protected function applySort(Builder $query): void
     {
-    $request = request();
+        $request = request();
 
 
-            switch ($request->input('sort')) {
-                case 'best_selling' :
-                    $query
-                        ->withSum('orderItems', 'qty')
-                        ->orderByDesc('order_items_sum_qty');
-                    break;
-                case   'lowest' :
-                {
-                    $query->orderBy('price');
-                    break;
-                }
-                case 'highest' :
-                {
-                    $query->orderByDesc('price');
-                    break;
-                }
-                default :
-                {
-                    $query->orderByDesc('created_at');
-                }
+        switch ($request->input('sort')) {
+            case 'best_selling' :
+                $query
+                    ->withSum('orderItems', 'qty')
+                    ->orderByDesc('order_items_sum_qty');
+                break;
+            case   'lowest' :
+            {
+                $query->orderBy('price');
+                break;
+            }
+            case 'highest' :
+            {
+                $query->orderByDesc('price');
+                break;
+            }
+            default :
+            {
+                $query->orderByDesc('created_at');
             }
         }
+    }
 
 
 
@@ -99,29 +99,29 @@ class Product extends Model
     protected function applyFilter(Builder $query): void
     {
         $request = request();
-      if ($request->filled('exists')){
-          $query->where('qty','>',0);
-      }
-      if ($request->filled('category_id')) {
-          $productsIds =  array_keys($request->input('category_id'));
+        if ($request->filled('exists')){
+            $query->where('qty','>',0);
+        }
+        if ($request->filled('category_id')) {
+            $productsIds =  array_keys($request->input('category_id'));
 
-          $query->whereIn('category_id',$productsIds);
-      }
+            $query->whereIn('category_id',$productsIds);
+        }
     }
     #[Scope]
     protected function applySearch(Builder $query): void
     {
         $request = request();
-      if ($request->filled('keyword')){
-         $keyword = $request->input('keyword');
+        if ($request->filled('keyword')){
+            $keyword = $request->input('keyword');
 
-         $query->whereAny([
-             'name',
-             'name_en',
-             'description'
-         ],'LIKE', "%$keyword%");
+            $query->whereAny([
+                'name',
+                'name_en',
+                'description'
+            ],'LIKE', "%$keyword%");
 
-      }
+        }
     }
 	public function category()
 	{

@@ -89,7 +89,7 @@
                                 )
                             </p>
                                             </span>
-                    <a href="http://127.0.0.1:8000/cart/clear"
+                    <a href="{{route('Cart.clear')}}"
                        class="flex items-center gap-x-1 text-red-600 dark:text-white cursor-pointer">
                         <p class="mt-1 font-DanaMedium ">حذف همه</p>
                         <svg class="w-5 h-5">
@@ -100,7 +100,7 @@
 
 
                 <!-- PRODUCT ITEMS -->
-                <form action="http://127.0.0.1:8000/cart/update-qty" method="POST">
+                <form action="{{route('Cart.update-qty')}}" method="POST">
                  @csrf
                     <div
                         class="w-full flex flex-col gap-y-4 child:p-2 lg:child:p-4"
@@ -124,7 +124,7 @@
                                             </svg>
                                             <input
                                                 type="number"
-                                                name="qty[2][qty]"
+                                                name="cart_items[{{ $cartItem['product_id'] }}][qty]"
                                                 data-cart-product-id="{{$cartItem['product_id']}}"
                                                 id="qtyInput"
                                                 min="1"
@@ -132,7 +132,7 @@
                                                 value="{{$cartItem['qty']}}"
                                                 class="qty-input custom-input mr-8 text-lg bg-transparent"
                                             />
-                                            <input type="hidden" name="qty[2][product_id]" value="2">
+                                            <input type="hidden" name="cart_items[{{ $cartItem['product_id'] }}][product_id]" value="{{ $cartItem['product_id'] }}">
                                             <svg
                                                 class="minus-button w-4 h-4 decrement text-red-500"
                                             >
@@ -149,24 +149,24 @@
                                         </h2>
                                         <div
                                             class="flex items-center gap-x-1 text-gray-700 dark:text-gray-300 font-DanaMedium mt-4">
-                                       @if($cartItem['product']->discount)
+                                       @if($cartItem['product']->discount  )
                                                 <div class="product-card_price">
                                                     <del>
                                                         <div
                                                             id="price-{{$cartItem['product_id']}}"
-                                                            data-price="{{$cartItem['product']->price}}"
+                                                            data-price="{{$cartItem['product']->price  * $cartItem['qty'] }}  "
                                                             data-qty="{{$cartItem['qty']}}"
                                                             data-has-discount="true"
                                                             data-base-discount="{{$cartItem['product']->discount}}"
                                                         >
-                                                            {{number_format($cartItem['product']->price)}}
+                                                            {{number_format($cartItem['product']->price  * $cartItem['qty'])}}
                                                         </div>
                                                         <h6>تومان</h6>
                                                     </del>
                                                     <p
                                                         id="final-price-2"
                                                     >
-                                                        {{number_format($cartItem['product']->price - $cartItem['product']->discount)}}
+                                                        {{number_format(($cartItem['product']->price - $cartItem['product']->discount) * $cartItem['qty'])}}
                                                     </p>
                                                     <span>تومان</span>
                                                 </div>
@@ -184,7 +184,7 @@
                                     </div>
                                 </div>
                                 <div class="hidden sm:flex items-end justify-between flex-col">
-                                    <a href="http://127.0.0.1:8000/cart/2/remove">
+                                    <a href="{{route('Cart.remove-item',$cartItem['product_id'])}}">
                                         <svg class="w-5 h-5 cursor-pointer">
                                             <use href="#x-mark"></use>
                                         </svg>
@@ -215,32 +215,30 @@
                     <li>
                         <p>
                             قیمت کالاها
-                            (
-                            1
-                            )
+
                         </p>
                         <p class="flex gap-x-1 text-gray-600 dark:text-gray-300 ">
-                            80,000
+                            {{number_format($CartTotalPrices['price']) }}
                             <span class="hidden xl:flex">تومان</span>
                         </p>
                     </li>
                     <li>
                         <p>تخفیف </p>
                         <p class="font-DanaMedium text-gray-700 dark:text-gray-200">
-                            1,000
+                            {{number_format($CartTotalPrices['discount'])}}
                             تومان
                         </p>
                     </li>
                     <li class="border-t-2 border-dashed border-gray-400 pt-8">
                         <p>مبلغ نهایی :</p>
                         <p>
-                            79,000
+                            {{ number_format($CartTotalPrices['price'] - $CartTotalPrices['discount']) }}
                             تومان
                         </p>
                     </li>
                 </ul>
 
-                <a href="http://127.0.0.1:8000/checkout"
+                <a href="{{ route('checkout.index') }}"
                    class="w-full mt-4 flex items-center gap-x-1 justify-center bg-blue-500 text-white hover:bg-blue-600 transition-all rounded-lg shadow py-2"
                 >
                     <svg class="w-5 h-5">

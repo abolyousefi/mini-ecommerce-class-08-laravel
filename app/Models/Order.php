@@ -6,24 +6,29 @@
 
 namespace App\Models;
 
-use App\Enums\OrderStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Order
- *
+ * 
  * @property int $id
  * @property int $user_id
  * @property int $total_price
  * @property int $total_discount
  * @property int $total_products
  * @property string $traking_code
+ * @property string $user_province
+ * @property string $user_city
+ * @property string $user_address
+ * @property string $user_postal_code
+ * @property string $user_mobile
+ * @property string $description
  * @property bool|null $status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
+ * 
  * @property User $user
  * @property Collection|OrderItem[] $orderItems
  *
@@ -39,7 +44,7 @@ class Order extends Model
 		'total_price' => 'int',
 		'total_discount' => 'int',
 		'total_products' => 'int',
-		'status' => OrderStatus::class
+		'status' => 'bool'
 	];
 
 	protected $fillable = [
@@ -48,6 +53,12 @@ class Order extends Model
 		'total_discount',
 		'total_products',
 		'traking_code',
+		'user_province',
+		'user_city',
+		'user_address',
+		'user_postal_code',
+		'user_mobile',
+		'description',
 		'status'
 	];
 
