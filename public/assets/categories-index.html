@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+
+<html
+        lang="fa"
+        data-nav-layout="vertical"
+        data-theme-mode="light"
+        data-header-styles="light"
+        data-menu-styles="light"
+        dir="rtl"
+        loader="enable"
+        data-vertical-style="overlay">
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>
+        پنل مدیریت
+    </title>
+
+    <meta name="csrf-token" content="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/admin/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Start::Styles -->
+
+    <!-- Choices JS -->
+    <script src="/assets/admin/js/choices.min.js"></script>
+
+    <!-- Main Theme Js -->
+    <script src="/assets/admin/js/main.js"></script>
+
+    <link href="/assets/admin/css/bootstrap.rtl.min.css" id="style" rel="stylesheet">
+
+    <!-- Style Css -->
+    <link href="/assets/admin/css/styles.css" rel="stylesheet">
+
+    <!-- Icons Css -->
+    <link href="/assets/admin/css/icons.css" rel="stylesheet">
+
+    <!-- Node Waves Css -->
+    <link href="/assets/admin/css/waves.min.css" rel="stylesheet">
+
+    <!-- Simplebar Css -->
+    <link href="/assets/admin/css/simplebar.min.css" rel="stylesheet">
+
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="/assets/admin/css/nano.min.css">
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="/assets/admin/css/choices.min.css">
+
+    <!-- FlatPickr CSS -->
+    <link rel="stylesheet" href="/assets/admin/css/flatpickr.min.css">
+
+    <!-- Auto Complete CSS -->
+    <link rel="stylesheet" href="/assets/admin/css/autoComplete.css">
+
+    <!-- Prism CSS -->
+    <link rel="stylesheet" href="/assets/admin/plugins/prismjs/themes/prism-coy.min.css">
+
+    <link rel="stylesheet" href="/assets/admin/plugins/dropzone/dropzone.css">
+
+    <!-- Persian Datepicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="">
+
+<!-- Loader -->
+<div id="loader" class="d-none">
+    <img src="/assets/admin/images/media/loader.svg" alt="">
+</div>
+<!-- Loader -->
+
+<!-- page -->
+<div class="page">
+    <!-- Start::main-header -->
+    <header class="app-header sticky" id="header">
+
+        <!-- Start::main-header-container -->
+        <div class="main-header-container container-fluid">
+
+            <!-- Start::header-content-left -->
+            <div class="header-content-left">
+
+                <!-- Start::header-element -->
+                <div class="header-element mx-lg-0 me-2 d-lg-none">
+                    <a aria-label="Hide Sidebar" class="sidemenu-toggle header-link" data-bs-toggle="sidebar"
+                       href="javascript:void(0);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon menu-btn" width="24" height="24"
+                             viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon menu-btn-close" width="24"
+                             height="24" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.5" d="m18 6l-6 6m0 0l-6 6m6-6l6 6m-6-6L6 6"
+                                  color="currentColor">
+
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <!-- End::header-element -->
+
+                <!-- Start::header-element -->
+                <div class="header-element">
+                    <div class="horizontal-logo">
+                        <a href="http://127.0.0.1:8000/admin" class="header-logo">
+                            <span class="text-primary fs-6 fw-bold">پنل مدیریت</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- End::header-element -->
+
+                <!-- Start::header-element -->
+                <div class="header-element header-search d-md-block d-none my-auto">
+                    <div>
+                        <h1 class="page-title fw-medium fs-18 mb-2">لیست دسته‌بندی‌ها</h1>
+                        <div>
+                            <nav>
+                                <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">دسته‌بندی‌ها</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">لیست دسته‌بندی‌ها</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- End::header-element -->
+
+            </div>
+            <!-- End::header-content-left -->
+
+            <!-- Start::header-content-right -->
+            <ul class="header-content-right">
+
+                <!-- Start::header-element -->
+                <li class="header-element header-theme-mode">
+                    <!-- Start::header-link|layout-setting -->
+                    <a href="javascript:void(0);" class="header-link layout-setting">
+								<span class="light-layout">
+									<!-- Start::header-link-icon -->
+									<svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon" width="1em"
+                                         height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="1.5"
+                                              d="M21.5 14.078A8.557 8.557 0 0 1 9.922 2.5C5.668 3.497 2.5 7.315 2.5 11.873a9.627 9.627 0 0 0 9.627 9.627c4.558 0 8.376-3.168 9.373-7.422"
+                                              color="currentColor"></path>
+                                    </svg>
+                                    <!-- End::header-link-icon -->
+								</span>
+                        <span class="dark-layout">
+									<!-- Start::header-link-icon -->
+									<svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon" width="1em"
+                                         height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="1.5"
+                                              d="M17 12a5 5 0 1 1-10 0a5 5 0 0 1 10 0M12 2v1.5m0 17V22m7.07-2.929l-1.06-1.06M5.99 5.989L4.928 4.93M22 12h-1.5m-17 0H2m17.071-7.071l-1.06 1.06M5.99 18.011l-1.06 1.06"
+                                              color="currentColor"></path>
+                                    </svg>
+                            <!-- End::header-link-icon -->
+								</span>
+                    </a>
+                    <!-- End::header-link|layout-setting -->
+                </li>
+                <!-- End::header-element -->
+
+
+                <!-- Start::header-element -->
+                <li class="header-element dropdown">
+                    <!-- Start::header-link|dropdown-toggle -->
+                    <a href="javascript:void(0);" class="header-link dropdown-toggle" id="mainHeaderProfile"
+                       data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <img
+                                        src="/assets/admin/images/faces/DefaultAvatar.jpg"
+                                        alt="img"
+                                        class="avatar avatar-sm avatar-rounded">
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End::header-link|dropdown-toggle -->
+                    <ul class="main-header-dropdown dropdown-menu pt-0 overflow-hidden header-profile-dropdown dropdown-menu-end"
+                        aria-labelledby="mainHeaderProfile">
+                        <li class="p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <p class="mb-0 fw-semibold lh-1">مرتضی مهدی زاده</p>
+                                    <span class="fs-11 text-muted">mrking0151@gmail.com</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center px-3" href="/">
+                                <i class="ri-user-line fs-15 me-2 text-gray fw-normal"></i>
+                                اطلاعات پروفایل
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center px-3" href="/">
+                                <i class="ri-user-settings-line fs-15 me-2 text-gray fw-normal"></i>
+                                تنظیمات
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center text-danger px-3"
+                               href="http://127.0.0.1:8000/admin/auth/logout">
+                                <i class="ri-logout-circle-line fs-15 me-2 text-danger fw-normal"
+                                   style="position: relative; top: -2px"></i>
+                                خروج
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End::header-element -->
+
+
+            </ul>
+            <!-- End::header-content-right -->
+
+        </div>
+        <!-- End::main-header-container -->
+
+    </header>
+    <!-- End::main-header -->
+
+    <!-- Start::main-sidebar -->
+    <aside class="app-sidebar sticky" id="sidebar">
+
+        <!-- Start::main-sidebar-header -->
+        <div class="main-sidebar-header">
+            <a href="http://127.0.0.1:8000/admin" class="header-logo">
+                <span class="text-primary fs-6 fw-bold">پنل مدیریت</span>
+            </a>
+        </div>
+        <!-- End::main-sidebar-header -->
+
+        <!-- Start::main-sidebar -->
+        <div class="main-sidebar simplebar-scrollable-y" id="sidebar-scroll" data-simplebar="init">
+            <div class="simplebar-wrapper" style="margin: -8px 0 -80px;">
+                <div class="simplebar-height-auto-observer-wrapper">
+                    <div class="simplebar-height-auto-observer"></div>
+                </div>
+                <div class="simplebar-mask">
+                    <div class="simplebar-offset" style="left: 0; bottom: 0;">
+                        <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                             aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                            <div class="simplebar-content" style="padding: 8px 0 80px;">
+
+                                <!-- Start::nav -->
+                                <nav class="main-menu-container nav nav-pills flex-column sub-open active open">
+                                    <div class="slide-left active open d-none" id="slide-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path
+                                                    d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                                        </svg>
+                                    </div>
+                                    <ul class="main-menu mx-0">
+                                        <!-- Start::slide -->
+                                        <li class="slide ">
+                                            <a href="http://127.0.0.1:8000/admin"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <g fill="none" stroke="currentColor" stroke-linecap="round"
+                                                       stroke-linejoin="round" stroke-width="1.5" color="currentColor">
+                                                        <path d="m9 22l-.251-3.509a3.259 3.259 0 1 1 6.501 0L15 22"></path>
+                                                        <path
+                                                                d="M2.352 13.214c-.354-2.298-.53-3.446-.096-4.465s1.398-1.715 3.325-3.108L7.021 4.6C9.418 2.867 10.617 2 12.001 2c1.382 0 2.58.867 4.978 2.6l1.44 1.041c1.927 1.393 2.89 2.09 3.325 3.108c.434 1.019.258 2.167-.095 4.464l-.301 1.96c-.5 3.256-.751 4.884-1.919 5.856S16.554 22 13.14 22h-2.28c-3.415 0-5.122 0-6.29-.971c-1.168-.972-1.418-2.6-1.918-5.857z"></path>
+                                                    </g>
+                                                </svg>
+                                                <span class="side-menu__label">داشبورد</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide ">
+                                            <a href="http://127.0.0.1:8000/admin/users"
+                                               class="side-menu__item ">
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M13 2h-2C7.229 2 5.343 2 4.172 3.172S3 6.229 3 10v4c0 3.771 0 5.657 1.172 6.828S7.229 22 11 22h2c3.771 0 5.657 0 6.828-1.172S21 17.771 21 14v-4c0-3.771 0-5.657-1.172-6.828S16.771 2 13 2m8 10H3m12-5H9m6 10H9"
+                                                          color="currentColor"></path>
+                                                </svg>
+
+                                                <span class="side-menu__label">مدیریت کاربران</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide  ">
+                                            <a href="http://127.0.0.1:8000/admin/orders"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12M11 7h6M7 7h1m-1 5h1m-1 5h1m3-5h6m-6 5h6"
+                                                          color="currentColor"></path>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت سفارشات</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide  ">
+                                            <a href="http://127.0.0.1:8000/admin/products"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
+                                                     width="1em" height="1em" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M4 11v4c0 3.3 0 4.95 1.025 5.975S7.7 22 11 22h2c3.3 0 4.95 0 5.975-1.025S20 18.3 20 15v-4M3 9c0-.748 0-1.122.201-1.4a1.4 1.4 0 0 1 .549-.44C4.098 7 4.565 7 5.5 7h13c.935 0 1.402 0 1.75.16c.228.106.417.258.549.44C21 7.878 21 8.252 21 9s0 1.121-.201 1.4a1.4 1.4 0 0 1-.549.44c-.348.16-.815.16-1.75.16h-13c-.935 0-1.402 0-1.75-.16a1.4 1.4 0 0 1-.549-.44C3 10.121 3 9.748 3 9m3-5.214C6 2.799 6.8 2 7.786 2h.357A3.857 3.857 0 0 1 12 5.857V7H9.214A3.214 3.214 0 0 1 6 3.786m12 0C18 2.799 17.2 2 16.214 2h-.357A3.857 3.857 0 0 0 12 5.857V7h2.786A3.214 3.214 0 0 0 18 3.786M12 11v11"
+                                                          color="currentColor"></path>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت محصولات</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide active">
+                                            <a href="http://127.0.0.1:8000/admin/categories"
+                                               class="side-menu__item active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <g fill="none" stroke="currentColor" stroke-linecap="round"
+                                                       stroke-linejoin="round" stroke-width="1.5" color="currentColor">
+                                                        <path
+                                                                d="m8.643 3.146l-1.705.788C4.313 5.147 3 5.754 3 6.75s1.313 1.603 3.938 2.816l1.705.788c1.652.764 2.478 1.146 3.357 1.146s1.705-.382 3.357-1.146l1.705-.788C19.687 8.353 21 7.746 21 6.75s-1.313-1.603-3.938-2.816l-1.705-.788C13.705 2.382 12.879 2 12 2s-1.705.382-3.357 1.146"></path>
+                                                        <path
+                                                                d="M20.788 11.097c.141.199.212.406.212.634c0 .982-1.313 1.58-3.938 2.776l-1.705.777c-1.652.753-2.478 1.13-3.357 1.13s-1.705-.377-3.357-1.13l-1.705-.777C4.313 13.311 3 12.713 3 11.731c0-.228.07-.435.212-.634"></path>
+                                                        <path
+                                                                d="M20.377 16.266c.415.331.623.661.623 1.052c0 .981-1.313 1.58-3.938 2.776l-1.705.777C13.705 21.624 12.879 22 12 22s-1.705-.376-3.357-1.13l-1.705-.776C4.313 18.898 3 18.299 3 17.318c0-.391.208-.72.623-1.052"></path>
+                                                    </g>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت دسته‌بندی‌ها</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide ">
+                                            <a href="http://127.0.0.1:8000/admin/admins"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     class="side-menu__icon"
+                                                     width="1em"
+                                                     height="1em"
+                                                     viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M12 12a5 5 0 1 0-5-5a5 5 0 0 0 5 5Zm-7 9a7 7 0 0 1 14 0Z"/>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت مدیران</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                    </ul>
+                                    <div class="slide-right d-none" id="slide-right">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path
+                                                    d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+                                        </svg>
+                                    </div>
+                                </nav>
+                                <!-- End::nav -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="simplebar-placeholder" style="width: 239px; height: 1578px;"></div>
+            </div>
+            <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                <div class="simplebar-scrollbar" style="width: 0; display: none;"></div>
+            </div>
+            <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                <div class="simplebar-scrollbar"
+                     style="height: 568px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+            </div>
+        </div>
+        <!-- End::main-sidebar -->
+
+    </aside>
+    <!-- End::main-sidebar -->
+
+    <!-- Start::app-content -->
+
+    <div class="main-content app-content">
+        <div class="container-fluid pt-4">
+
+
+            <!-- Filters -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-body p-3">
+                            <form method="GET" action="http://127.0.0.1:8000/admin/categories">
+                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+
+                                    <!-- Sort Dropdown -->
+                                    <div class="d-flex flex-wrap gap-1 align-items-center">
+                                        <div class="d-flex me-2">
+                                            <input class="form-control me-2" type="search" name="search"
+                                                   placeholder="جستجو دسته‌بندی" value="">
+                                            <button class="btn btn-light" type="submit">جستجو</button>
+                                        </div>
+
+                                        <select id="choices-single-default" class="form-control" name="sort">
+                                            <option value="">مرتب‌سازی بر اساس</option>
+                                            <option
+                                                    value="date_desc" >
+                                                جدیدترین
+                                            </option>
+                                            <option
+                                                    value="date_asc" >
+                                                قدیمی‌ترین
+                                            </option>
+                                            <option
+                                                    value="name_asc" >
+                                                نام (الف تا ی)
+                                            </option>
+                                            <option
+                                                    value="name_desc" >
+                                                نام (ی تا الف)
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Search -->
+                                    <div class="d-flex" role="search">
+                                        <a href="http://127.0.0.1:8000/admin/categories/create" class="btn btn-primary me-2">
+                                            <i class="ri-add-line me-1 fw-medium align-middle"></i>
+                                            ایجاد دسته بندی
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Table -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="table-responsive">
+                            <table class="table text-nowrap table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>دسته‌بندی</th>
+                                    <th>توضیحات</th>
+                                    <th>تعداد محصولات</th>
+                                    <th scope="col">وضعیت</th>
+
+                                    <th>تاریخ ایجاد</th>
+                                    <th>اقدامات</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-square bg-light">
+                                         <img
+                                                 src="/assets/admin/images/product-default-image.png"
+                                                 class="w-100 h-100"
+                                                 alt="موبایل">
+
+                                        </span>
+                                            <div class="ms-2">
+                                                <p class="fw-semibold mb-0 name-limit">
+                                                    <a href="http://127.0.0.1:8000/admin/categories/1">موبایل</a>
+                                                </p>
+                                                <p class="fs-12 text-muted mb-0 ">1#</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="description-limit">یک دسته بندی تستی برای تست کد</td>
+                                    <td>3</td>
+                                    <td>
+                                        <span
+                                                class="badge bg-success-transparent">
+                                            فعال
+                                        </span>
+                                    </td>
+                                    <td>23 مرداد 1404</td>
+                                    <td>
+                                        <div class="hstack gap-2 fs-15">
+                                            <a href="http://127.0.0.1:8000/admin/categories/1"
+                                               class="btn btn-primary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="http://127.0.0.1:8000/admin/categories/1/edit"
+                                               class="btn btn-secondary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                                <i class="ti ti-pencil"></i>
+                                            </a>
+                                            <form action="http://127.0.0.1:8000/admin/categories/1"
+                                                  method="POST"
+                                                  onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟')">
+                                                <input type="hidden" name="_token" value="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
+                                                <i class="ri-delete-bin-line"></i>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-square bg-light">
+                                         <img
+                                                 src="/assets/admin/images/product-default-image.png"
+                                                 class="w-100 h-100"
+                                                 alt="کالای دیجیتال">
+
+                                        </span>
+                                            <div class="ms-2">
+                                                <p class="fw-semibold mb-0 name-limit">
+                                                    <a href="http://127.0.0.1:8000/admin/categories/2">کالای دیجیتال</a>
+                                                </p>
+                                                <p class="fs-12 text-muted mb-0 ">2#</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="description-limit">نمیدانم اطلاعی ندارم</td>
+                                    <td>1</td>
+                                    <td>
+                                        <span
+                                                class="badge bg-success-transparent">
+                                            فعال
+                                        </span>
+                                    </td>
+                                    <td>20 مرداد 1404</td>
+                                    <td>
+                                        <div class="hstack gap-2 fs-15">
+                                            <a href="http://127.0.0.1:8000/admin/categories/2"
+                                               class="btn btn-primary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="http://127.0.0.1:8000/admin/categories/2/edit"
+                                               class="btn btn-secondary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                                <i class="ti ti-pencil"></i>
+                                            </a>
+                                            <form action="http://127.0.0.1:8000/admin/categories/2"
+                                                  method="POST"
+                                                  onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟')">
+                                                <input type="hidden" name="_token" value="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
+                                                <i class="ri-delete-bin-line"></i>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-square bg-light">
+                                         <img
+                                                 src="/assets/admin/images/product-default-image.png"
+                                                 class="w-100 h-100"
+                                                 alt="خانه و آشپزخانه">
+
+                                        </span>
+                                            <div class="ms-2">
+                                                <p class="fw-semibold mb-0 name-limit">
+                                                    <a href="http://127.0.0.1:8000/admin/categories/3">خانه و آشپزخانه</a>
+                                                </p>
+                                                <p class="fs-12 text-muted mb-0 ">3#</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="description-limit">i don&#039;t know really what is happening in my mind</td>
+                                    <td>0</td>
+                                    <td>
+                                        <span
+                                                class="badge bg-success-transparent">
+                                            فعال
+                                        </span>
+                                    </td>
+                                    <td>20 مرداد 1404</td>
+                                    <td>
+                                        <div class="hstack gap-2 fs-15">
+                                            <a href="http://127.0.0.1:8000/admin/categories/3"
+                                               class="btn btn-primary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="http://127.0.0.1:8000/admin/categories/3/edit"
+                                               class="btn btn-secondary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                                <i class="ti ti-pencil"></i>
+                                            </a>
+                                            <form action="http://127.0.0.1:8000/admin/categories/3"
+                                                  method="POST"
+                                                  onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟')">
+                                                <input type="hidden" name="_token" value="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
+                                                <i class="ri-delete-bin-line"></i>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-square bg-light">
+                                         <img
+                                                 src="/assets/admin/images/product-default-image.png"
+                                                 class="w-100 h-100"
+                                                 alt="آرایشی بهداشتی">
+
+                                        </span>
+                                            <div class="ms-2">
+                                                <p class="fw-semibold mb-0 name-limit">
+                                                    <a href="http://127.0.0.1:8000/admin/categories/4">آرایشی بهداشتی</a>
+                                                </p>
+                                                <p class="fs-12 text-muted mb-0 ">4#</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="description-limit">بیا بخر ضرر نمیکنی</td>
+                                    <td>0</td>
+                                    <td>
+                                        <span
+                                                class="badge bg-success-transparent">
+                                            فعال
+                                        </span>
+                                    </td>
+                                    <td>20 مرداد 1404</td>
+                                    <td>
+                                        <div class="hstack gap-2 fs-15">
+                                            <a href="http://127.0.0.1:8000/admin/categories/4"
+                                               class="btn btn-primary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="http://127.0.0.1:8000/admin/categories/4/edit"
+                                               class="btn btn-secondary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                                <i class="ti ti-pencil"></i>
+                                            </a>
+                                            <form action="http://127.0.0.1:8000/admin/categories/4"
+                                                  method="POST"
+                                                  onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟')">
+                                                <input type="hidden" name="_token" value="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
+                                                <i class="ri-delete-bin-line"></i>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-square bg-light">
+                                         <img
+                                                 src="/assets/admin/images/product-default-image.png"
+                                                 class="w-100 h-100"
+                                                 alt="لوازم تحریر">
+
+                                        </span>
+                                            <div class="ms-2">
+                                                <p class="fw-semibold mb-0 name-limit">
+                                                    <a href="http://127.0.0.1:8000/admin/categories/5">لوازم تحریر</a>
+                                                </p>
+                                                <p class="fs-12 text-muted mb-0 ">5#</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="description-limit">لوازم تحریر ها در اینجا دسته بندی شد</td>
+                                    <td>0</td>
+                                    <td>
+                                        <span
+                                                class="badge bg-success-transparent">
+                                            فعال
+                                        </span>
+                                    </td>
+                                    <td>20 مرداد 1404</td>
+                                    <td>
+                                        <div class="hstack gap-2 fs-15">
+                                            <a href="http://127.0.0.1:8000/admin/categories/5"
+                                               class="btn btn-primary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="http://127.0.0.1:8000/admin/categories/5/edit"
+                                               class="btn btn-secondary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                                <i class="ti ti-pencil"></i>
+                                            </a>
+                                            <form action="http://127.0.0.1:8000/admin/categories/5"
+                                                  method="POST"
+                                                  onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟')">
+                                                <input type="hidden" name="_token" value="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
+                                                <i class="ri-delete-bin-line"></i>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-square bg-light">
+                                         <img
+                                                 src="/assets/admin/images/product-default-image.png"
+                                                 class="w-100 h-100"
+                                                 alt="گیفت کارت">
+
+                                        </span>
+                                            <div class="ms-2">
+                                                <p class="fw-semibold mb-0 name-limit">
+                                                    <a href="http://127.0.0.1:8000/admin/categories/6">گیفت کارت</a>
+                                                </p>
+                                                <p class="fs-12 text-muted mb-0 ">6#</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="description-limit">تمامی هدایات در اینجا دسته بندی شد</td>
+                                    <td>0</td>
+                                    <td>
+                                        <span
+                                                class="badge bg-success-transparent">
+                                            فعال
+                                        </span>
+                                    </td>
+                                    <td>20 مرداد 1404</td>
+                                    <td>
+                                        <div class="hstack gap-2 fs-15">
+                                            <a href="http://127.0.0.1:8000/admin/categories/6"
+                                               class="btn btn-primary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="http://127.0.0.1:8000/admin/categories/6/edit"
+                                               class="btn btn-secondary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                                <i class="ti ti-pencil"></i>
+                                            </a>
+                                            <form action="http://127.0.0.1:8000/admin/categories/6"
+                                                  method="POST"
+                                                  onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟')">
+                                                <input type="hidden" name="_token" value="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
+                                                <i class="ri-delete-bin-line"></i>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                        <span class="avatar avatar-md avatar-square bg-light">
+                                         <img
+                                                 src="/assets/admin/images/product-default-image.png"
+                                                 class="w-100 h-100"
+                                                 alt="ابزار آلات">
+
+                                        </span>
+                                            <div class="ms-2">
+                                                <p class="fw-semibold mb-0 name-limit">
+                                                    <a href="http://127.0.0.1:8000/admin/categories/7">ابزار آلات</a>
+                                                </p>
+                                                <p class="fs-12 text-muted mb-0 ">7#</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="description-limit">مهندس ابزار آلات است؟</td>
+                                    <td>0</td>
+                                    <td>
+                                        <span
+                                                class="badge bg-success-transparent">
+                                            فعال
+                                        </span>
+                                    </td>
+                                    <td>20 مرداد 1404</td>
+                                    <td>
+                                        <div class="hstack gap-2 fs-15">
+                                            <a href="http://127.0.0.1:8000/admin/categories/7"
+                                               class="btn btn-primary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                                <i class="ri-eye-line"></i>
+                                            </a>
+                                            <a href="http://127.0.0.1:8000/admin/categories/7/edit"
+                                               class="btn btn-secondary-light btn-icon btn-sm"
+                                               data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                                <i class="ti ti-pencil"></i>
+                                            </a>
+                                            <form action="http://127.0.0.1:8000/admin/categories/7"
+                                                  method="POST"
+                                                  onsubmit="return confirm('آیا از حذف این دسته‌بندی مطمئن هستید؟')">
+                                                <input type="hidden" name="_token" value="G3faz5te2OVLWMw1sn2U47RRUgVWPGJznIyOIEMM" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
+                                                <i class="ri-delete-bin-line"></i>
+                                            </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Pagination -->
+            <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                    <a class="page-link" href="javascript:void(0);">قبلی</a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="http://127.0.0.1:8000/admin/categories?page=1">1</a>
+                </li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="javascript:void(0);">بعدی</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- End::app-content -->
+
+    <!-- Start::main-footer -->
+    <footer class="footer mt-auto py-3 bg-white text-center">
+        <div class="container">
+        <span class="text-muted">
+            <span id="year"></span>
+            |
+            <span>تمامی حقوق محفوظ است.</span>
+        </span>
+        </div>
+    </footer>
+    <!-- End::main-footer -->
+
+</div>
+<!-- End Page -->
+
+<!-- Scroll To Top -->
+<div class="scrollToTop" style="display: none;">
+    <span class="arrow lh-1"><i class="ri-rocket-line align-middle fs-18"></i></span>
+</div>
+<div id="responsive-overlay"></div>
+<!-- Scroll To Top -->
+
+<!-- Persian Date Library -->
+<script src="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+
+<!-- Popper JS -->
+<script src="/assets/admin/js/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="/assets/admin/js/bootstrap.bundle.min.js"></script>
+
+<!-- Defaultmenu JS -->
+<script src="/assets/admin/js/defaultmenu.js"></script>
+
+<!-- Node Waves JS -->
+<script src="/assets/admin/js/waves.min.js"></script>
+
+<!-- Sticky JS -->
+<script src="/assets/admin/js/sticky.js"></script>
+
+<!-- Color Picker JS -->
+<script src="/assets/admin/js/pickr.es5.min.js"></script>
+
+<!-- Date & Time Picker JS -->
+<script src="/assets/admin/js/flatpickr.min.js"></script>
+
+<!-- Custom-Switcher JS -->
+<script src="/assets/admin/js/custom-switcher.js"></script>
+
+<!-- Custom JS -->
+<script src="/assets/admin/js/custom.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // ===== Choices =====
+        const choicesEl = document.querySelector('#choices-single-default');
+        if (choicesEl && window.Choices) {
+
+            const choices = new Choices(choicesEl, {
+                allowHTML: true,
+                searchEnabled: false,
+                shouldSort: false,
+                itemSelectText: '',
+                placeholder: true,
+                placeholderValue: 'مرتب‌سازی بر اساس'
+            });
+            if (choicesEl) {
+                choicesEl.addEventListener('change', function () {
+                    if (this.form) this.form.submit();
+                });
+            }
+        }
+
+        // ===== ApexCharts =====
+        const charts = document.querySelectorAll(".apex-chart");
+        charts.forEach(chartEl => {
+            if (chartEl) {
+                const options = chartEl.dataset.options ? JSON.parse(chartEl.dataset.options) : {};
+                const chart = new ApexCharts(chartEl, options);
+                chart.render();
+            }
+        });
+
+        // ===== Popper Example =====
+        const popperRefs = document.querySelectorAll("[data-popper-ref]");
+        popperRefs.forEach(ref => {
+            const targetId = ref.getAttribute("data-popper-target");
+            const popperEl = document.getElementById(targetId);
+            if (popperEl) {
+                Popper.createPopper(ref, popperEl, {
+                    placement: 'bottom'
+                });
+            }
+        });
+
+    });
+</script>
+
+</body>
+</html>

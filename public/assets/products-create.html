@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+
+<html
+        lang="fa"
+        data-nav-layout="vertical"
+        data-theme-mode="light"
+        data-header-styles="light"
+        data-menu-styles="light"
+        dir="rtl"
+        data-vertical-style="overlay"
+        loader="enable"
+>
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>
+        پنل مدیریت
+        | ایجاد محصول
+    </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="http://127.0.0.1:8000/assets/admin/images/brand-logos/favicon.ico" type="image/x-icon">
+
+    <!-- Start::Styles -->
+
+    <!-- Choices JS -->
+    <script src="http://127.0.0.1:8000/assets/admin/js/choices.min.js"></script>
+
+    <!-- Main Theme Js -->
+    <script src="http://127.0.0.1:8000/assets/admin/js/main.js"></script>
+
+    <link href="http://127.0.0.1:8000/assets/admin/css/bootstrap.rtl.min.css" id="style" rel="stylesheet">
+
+    <!-- Style Css -->
+    <link href="http://127.0.0.1:8000/assets/admin/css/styles.css" rel="stylesheet">
+
+    <!-- Icons Css -->
+    <link href="http://127.0.0.1:8000/assets/admin/css/icons.css" rel="stylesheet">
+
+    <!-- Node Waves Css -->
+    <link href="http://127.0.0.1:8000/assets/admin/css/waves.min.css" rel="stylesheet">
+
+    <!-- Simplebar Css -->
+    <link href="http://127.0.0.1:8000/assets/admin/css/simplebar.min.css" rel="stylesheet">
+
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/admin/css/nano.min.css">
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/admin/css/choices.min.css">
+
+    <!-- FlatPickr CSS -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/admin/css/flatpickr.min.css">
+
+    <!-- Auto Complete CSS -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/admin/css/autoComplete.css">
+
+    <!-- Prism CSS -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/admin/plugins/prismjs/themes/prism-coy.min.css">
+
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/admin/plugins/dropzone/dropzone.css">
+
+    <!-- Persian Datepicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel='stylesheet' type='text/css' property='stylesheet' href='/_debugbar/assets/stylesheets?v=1753192890' data-turbolinks-eval='false' data-turbo-eval='false'><script src='/_debugbar/assets/javascript?v=1753192890' data-turbolinks-eval='false' data-turbo-eval='false'></script><script data-turbo-eval='false'>jQuery.noConflict(true);</script>
+    <script> Sfdump = window.Sfdump || (function (doc) { doc.documentElement.classList.add('sf-js-enabled'); var rxEsc = /([.*+?^${}()|\[\]\/\\])/g, idRx = /\bsf-dump-\d+-ref[012]\w+\b/, keyHint = 0 <= navigator.platform.toUpperCase().indexOf('MAC') ? 'Cmd' : 'Ctrl', addEventListener = function (e, n, cb) { e.addEventListener(n, cb, false); }; if (!doc.addEventListener) { addEventListener = function (element, eventName, callback) { element.attachEvent('on' + eventName, function (e) { e.preventDefault = function () {e.returnValue = false;}; e.target = e.srcElement; callback(e); }); }; } function toggle(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className, arrow, newClass; if (/\bsf-dump-compact\b/.test(oldClass)) { arrow = '▼'; newClass = 'sf-dump-expanded'; } else if (/\bsf-dump-expanded\b/.test(oldClass)) { arrow = '▶'; newClass = 'sf-dump-compact'; } else { return false; } if (doc.createEvent && s.dispatchEvent) { var event = doc.createEvent('Event'); event.initEvent('sf-dump-expanded' === newClass ? 'sfbeforedumpexpand' : 'sfbeforedumpcollapse', true, false); s.dispatchEvent(event); } a.lastChild.innerHTML = arrow; s.className = s.className.replace(/\bsf-dump-(compact|expanded)\b/, newClass); if (recursive) { try { a = s.querySelectorAll('.'+oldClass); for (s = 0; s < a.length; ++s) { if (-1 == a[s].className.indexOf(newClass)) { a[s].className = newClass; a[s].previousSibling.lastChild.innerHTML = arrow; } } } catch (e) { } } return true; }; function collapse(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-expanded\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function expand(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-compact\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function collapseAll(root) { var a = root.querySelector('a.sf-dump-toggle'); if (a) { collapse(a, true); expand(a); return true; } return false; } function reveal(node) { var previous, parents = []; while ((node = node.parentNode || {}) && (previous = node.previousSibling) && 'A' === previous.tagName) { parents.push(previous); } if (0 !== parents.length) { parents.forEach(function (parent) { expand(parent); }); return true; } return false; } function highlight(root, activeNode, nodes) { resetHighlightedNodes(root); Array.from(nodes||[]).forEach(function (node) { if (!/\bsf-dump-highlight\b/.test(node.className)) { node.className = node.className + ' sf-dump-highlight'; } }); if (!/\bsf-dump-highlight-active\b/.test(activeNode.className)) { activeNode.className = activeNode.className + ' sf-dump-highlight-active'; } } function resetHighlightedNodes(root) { Array.from(root.querySelectorAll('.sf-dump-str, .sf-dump-key, .sf-dump-public, .sf-dump-protected, .sf-dump-private')).forEach(function (strNode) { strNode.className = strNode.className.replace(/\bsf-dump-highlight\b/, ''); strNode.className = strNode.className.replace(/\bsf-dump-highlight-active\b/, ''); }); } return function (root, x) { root = doc.getElementById(root); var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || ' ').replace(rxEsc, '\\$1')+')+', 'm'), options = {"maxDepth":1,"maxStringLength":160,"fileLinkFormat":false}, elt = root.getElementsByTagName('A'), len = elt.length, i = 0, s, h, t = []; while (i < len) t.push(elt[i++]); for (i in x) { options[i] = x[i]; } function a(e, f) { addEventListener(root, e, function (e, n) { if ('A' == e.target.tagName) { f(e.target, e); } else if ('A' == e.target.parentNode.tagName) { f(e.target.parentNode, e); } else { n = /\bsf-dump-ellipsis\b/.test(e.target.className) ? e.target.parentNode : e.target; if ((n = n.nextElementSibling) && 'A' == n.tagName) { if (!/\bsf-dump-toggle\b/.test(n.className)) { n = n.nextElementSibling || n; } f(n, e, true); } } }); }; function isCtrlKey(e) { return e.ctrlKey || e.metaKey; } function xpathString(str) { var parts = str.match(/[^'"]+|['"]/g).map(function (part) { if ("'" == part) { return '"\'"'; } if ('"' == part) { return "'\"'"; } return "'" + part + "'"; }); return "concat(" + parts.join(",") + ", '')"; } function xpathHasClass(className) { return "contains(concat(' ', normalize-space(@class), ' '), ' " + className +" ')"; } a('mouseover', function (a, e, c) { if (c) { e.target.style.cursor = "pointer"; } }); a('click', function (a, e, c) { if (/\bsf-dump-toggle\b/.test(a.className)) { e.preventDefault(); if (!toggle(a, isCtrlKey(e))) { var r = doc.getElementById(a.getAttribute('href').slice(1)), s = r.previousSibling, f = r.parentNode, t = a.parentNode; t.replaceChild(r, a); f.replaceChild(a, s); t.insertBefore(s, r); f = f.firstChild.nodeValue.match(indentRx); t = t.firstChild.nodeValue.match(indentRx); if (f && t && f[0] !== t[0]) { r.innerHTML = r.innerHTML.replace(new RegExp('^'+f[0].replace(rxEsc, '\\$1'), 'mg'), t[0]); } if (/\bsf-dump-compact\b/.test(r.className)) { toggle(s, isCtrlKey(e)); } } if (c) { } else if (doc.getSelection) { try { doc.getSelection().removeAllRanges(); } catch (e) { doc.getSelection().empty(); } } else { doc.selection.empty(); } } else if (/\bsf-dump-str-toggle\b/.test(a.className)) { e.preventDefault(); e = a.parentNode.parentNode; e.className = e.className.replace(/\bsf-dump-str-(expand|collapse)\b/, a.parentNode.className); } }); elt = root.getElementsByTagName('SAMP'); len = elt.length; i = 0; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; if ('SAMP' == elt.tagName) { a = elt.previousSibling || {}; if ('A' != a.tagName) { a = doc.createElement('A'); a.className = 'sf-dump-ref'; elt.parentNode.insertBefore(a, elt); } else { a.innerHTML += ' '; } a.title = (a.title ? a.title+'\n[' : '[')+keyHint+'+click] Expand all children'; a.innerHTML += elt.className == 'sf-dump-compact' ? '<span>▶</span>' : '<span>▼</span>'; a.className += ' sf-dump-toggle'; x = 1; if ('sf-dump' != elt.parentNode.className) { x += elt.parentNode.getAttribute('data-depth')/1; } } else if (/\bsf-dump-ref\b/.test(elt.className) && (a = elt.getAttribute('href'))) { a = a.slice(1); elt.className += ' sf-dump-hover'; elt.className += ' '+a; if (/[\[{]$/.test(elt.previousSibling.nodeValue)) { a = a != elt.nextSibling.id && doc.getElementById(a); try { s = a.nextSibling; elt.appendChild(a); s.parentNode.insertBefore(a, s); if (/^[@#]/.test(elt.innerHTML)) { elt.innerHTML += ' <span>▶</span>'; } else { elt.innerHTML = '<span>▶</span>'; elt.className = 'sf-dump-ref'; } elt.className += ' sf-dump-toggle'; } catch (e) { if ('&' == elt.innerHTML.charAt(0)) { elt.innerHTML = '…'; elt.className = 'sf-dump-ref'; } } } } } if (doc.evaluate && Array.from && root.children.length > 1) { root.setAttribute('tabindex', 0); SearchState = function () { this.nodes = []; this.idx = 0; }; SearchState.prototype = { next: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx < (this.nodes.length - 1) ? this.idx + 1 : 0; return this.current(); }, previous: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx > 0 ? this.idx - 1 : (this.nodes.length - 1); return this.current(); }, isEmpty: function () { return 0 === this.count(); }, current: function () { if (this.isEmpty()) { return null; } return this.nodes[this.idx]; }, reset: function () { this.nodes = []; this.idx = 0; }, count: function () { return this.nodes.length; }, }; function showCurrent(state) { var currentNode = state.current(), currentRect, searchRect; if (currentNode) { reveal(currentNode); highlight(root, currentNode, state.nodes); if ('scrollIntoView' in currentNode) { currentNode.scrollIntoView(true); currentRect = currentNode.getBoundingClientRect(); searchRect = search.getBoundingClientRect(); if (currentRect.top < (searchRect.top + searchRect.height)) { window.scrollBy(0, -(searchRect.top + searchRect.height + 5)); } } } counter.textContent = (state.isEmpty() ? 0 : state.idx + 1) + ' of ' + state.count(); } var search = doc.createElement('div'); search.className = 'sf-dump-search-wrapper sf-dump-search-hidden'; search.innerHTML = ' <input type="text" class="sf-dump-search-input"> <span class="sf-dump-search-count">0 of 0<\/span> <button type="button" class="sf-dump-search-input-previous" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 1331l-166 165q-19 19-45 19t-45-19L896 965l-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> <button type="button" class="sf-dump-search-input-next" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 808l-742 741q-19 19-45 19t-45-19L109 808q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> '; root.insertBefore(search, root.firstChild); var state = new SearchState(); var searchInput = search.querySelector('.sf-dump-search-input'); var counter = search.querySelector('.sf-dump-search-count'); var searchInputTimer = 0; var previousSearchQuery = ''; addEventListener(searchInput, 'keyup', function (e) { var searchQuery = e.target.value; /* Don't perform anything if the pressed key didn't change the query */ if (searchQuery === previousSearchQuery) { return; } previousSearchQuery = searchQuery; clearTimeout(searchInputTimer); searchInputTimer = setTimeout(function () { state.reset(); collapseAll(root); resetHighlightedNodes(root); if ('' === searchQuery) { counter.textContent = '0 of 0'; return; } var classMatches = [ "sf-dump-str", "sf-dump-key", "sf-dump-public", "sf-dump-protected", "sf-dump-private", ].map(xpathHasClass).join(' or '); var xpathResult = doc.evaluate('.//span[' + classMatches + '][contains(translate(child::text(), ' + xpathString(searchQuery.toUpperCase()) + ', ' + xpathString(searchQuery.toLowerCase()) + '), ' + xpathString(searchQuery.toLowerCase()) + ')]', root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null); while (node = xpathResult.iterateNext()) state.nodes.push(node); showCurrent(state); }, 400); }); Array.from(search.querySelectorAll('.sf-dump-search-input-next, .sf-dump-search-input-previous')).forEach(function (btn) { addEventListener(btn, 'click', function (e) { e.preventDefault(); -1 !== e.target.className.indexOf('next') ? state.next() : state.previous(); searchInput.focus(); collapseAll(root); showCurrent(state); }) }); addEventListener(root, 'keydown', function (e) { var isSearchActive = !/\bsf-dump-search-hidden\b/.test(search.className); if ((114 === e.keyCode && !isSearchActive) || (isCtrlKey(e) && 70 === e.keyCode)) { /* F3 or CMD/CTRL + F */ if (70 === e.keyCode && document.activeElement === searchInput) { /* * If CMD/CTRL + F is hit while having focus on search input, * the user probably meant to trigger browser search instead. * Let the browser execute its behavior: */ return; } e.preventDefault(); search.className = search.className.replace(/\bsf-dump-search-hidden\b/, ''); searchInput.focus(); } else if (isSearchActive) { if (27 === e.keyCode) { /* ESC key */ search.className += ' sf-dump-search-hidden'; e.preventDefault(); resetHighlightedNodes(root); searchInput.value = ''; } else if ( (isCtrlKey(e) && 71 === e.keyCode) /* CMD/CTRL + G */ || 13 === e.keyCode /* Enter */ || 114 === e.keyCode /* F3 */ ) { e.preventDefault(); e.shiftKey ? state.previous() : state.next(); collapseAll(root); showCurrent(state); } } }); } if (0 >= options.maxStringLength) { return; } try { elt = root.querySelectorAll('.sf-dump-str'); len = elt.length; i = 0; t = []; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; s = elt.innerText || elt.textContent; x = s.length - options.maxStringLength; if (0 < x) { h = elt.innerHTML; elt[elt.innerText ? 'innerText' : 'textContent'] = s.substring(0, options.maxStringLength); elt.className += ' sf-dump-str-collapse'; elt.innerHTML = '<span class=sf-dump-str-collapse>'+h+'<a class="sf-dump-ref sf-dump-str-toggle" title="Collapse"> ◀</a></span>'+ '<span class=sf-dump-str-expand>'+elt.innerHTML+'<a class="sf-dump-ref sf-dump-str-toggle" title="'+x+' remaining characters"> ▶</a></span>'; } } } catch (e) { } }; })(document); </script><style> .sf-js-enabled .phpdebugbar pre.sf-dump .sf-dump-compact, .sf-js-enabled .sf-dump-str-collapse .sf-dump-str-collapse, .sf-js-enabled .sf-dump-str-expand .sf-dump-str-expand { display: none; } .sf-dump-hover:hover { background-color: #B729D9; color: #FFF !important; border-radius: 2px; } .phpdebugbar pre.sf-dump { display: block; white-space: pre; padding: 5px; overflow: initial !important; } .phpdebugbar pre.sf-dump:after { content: ""; visibility: hidden; display: block; height: 0; clear: both; } .phpdebugbar pre.sf-dump .sf-dump-ellipsization { display: inline-flex; } .phpdebugbar pre.sf-dump a { text-decoration: none; cursor: pointer; border: 0; outline: none; color: inherit; } .phpdebugbar pre.sf-dump img { max-width: 50em; max-height: 50em; margin: .5em 0 0 0; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; } .phpdebugbar pre.sf-dump .sf-dump-ellipsis-tail { flex-shrink: 0; } .phpdebugbar pre.sf-dump code { display:inline; padding:0; background:none; } .sf-dump-public.sf-dump-highlight, .sf-dump-protected.sf-dump-highlight, .sf-dump-private.sf-dump-highlight, .sf-dump-str.sf-dump-highlight, .sf-dump-key.sf-dump-highlight { background: rgba(111, 172, 204, 0.3); border: 1px solid #7DA0B1; border-radius: 3px; } .sf-dump-public.sf-dump-highlight-active, .sf-dump-protected.sf-dump-highlight-active, .sf-dump-private.sf-dump-highlight-active, .sf-dump-str.sf-dump-highlight-active, .sf-dump-key.sf-dump-highlight-active { background: rgba(253, 175, 0, 0.4); border: 1px solid #ffa500; border-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-hidden { display: none !important; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper { font-size: 0; white-space: nowrap; margin-bottom: 5px; display: flex; position: -webkit-sticky; position: sticky; top: 5px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > * { vertical-align: top; box-sizing: border-box; height: 21px; font-weight: normal; border-radius: 0; background: #FFF; color: #757575; border: 1px solid #BBB; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > input.sf-dump-search-input { padding: 3px; height: 21px; font-size: 12px; border-right: none; border-top-left-radius: 3px; border-bottom-left-radius: 3px; color: #000; min-width: 15px; width: 100%; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous { background: #F2F2F2; outline: none; border-left: none; font-size: 0; line-height: 0; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next { border-top-right-radius: 3px; border-bottom-right-radius: 3px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next > svg, .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous > svg { pointer-events: none; width: 12px; height: 12px; } .phpdebugbar pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-count { display: inline-block; padding: 0 5px; margin: 0; border-left: none; line-height: 21px; font-size: 12px; }.phpdebugbar pre.sf-dump, .phpdebugbar pre.sf-dump .sf-dump-default{word-wrap: break-word; white-space: pre-wrap; word-break: normal}.phpdebugbar pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-const{font-weight:bold}.phpdebugbar pre.sf-dump .sf-dump-str{font-weight:bold; color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-note{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ref{color:#7B7B7B}.phpdebugbar pre.sf-dump .sf-dump-public{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-protected{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-private{color:#000000}.phpdebugbar pre.sf-dump .sf-dump-meta{color:#B729D9}.phpdebugbar pre.sf-dump .sf-dump-key{color:#3A9B26}.phpdebugbar pre.sf-dump .sf-dump-index{color:#1299DA}.phpdebugbar pre.sf-dump .sf-dump-ellipsis{color:#A0A000}.phpdebugbar pre.sf-dump .sf-dump-virtual{font-style:italic}.phpdebugbar pre.sf-dump .sf-dump-ns{user-select:none;}.phpdebugbar pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}.phpdebugbar[data-theme='dark'] pre.sf-dump, pre.sf-dump .sf-dump-default{background-color:#18171B; color:#FF8400; line-height:1.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-const{font-weight:bold}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-virtual{font-style:italic}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-str{font-weight:bold; color:#56DB3A}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-note{color:#1299DA}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-ref{color:#A0A0A0}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-public{color:#FFFFFF}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-protected{color:#FFFFFF}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-private{color:#FFFFFF}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-meta{color:#B729D9}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-key{color:#56DB3A}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-index{color:#1299DA}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-ellipsis{color:#FF8400}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-ns{user-select:none;}.phpdebugbar[data-theme='dark'] pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}</style>
+</head>
+
+<body class="">
+
+<!-- Loader -->
+<div id="loader">
+    <img src="http://127.0.0.1:8000/assets/admin/images/media/loader.svg" alt="">
+</div>
+<!-- Loader -->
+
+<!-- page -->
+<div class="page">
+    <!-- Start::main-header -->
+    <header class="app-header sticky" id="header">
+
+        <!-- Start::main-header-container -->
+        <div class="main-header-container container-fluid">
+
+            <!-- Start::header-content-left -->
+            <div class="header-content-left">
+
+                <!-- Start::header-element -->
+                <div class="header-element mx-lg-0 me-2 d-lg-none">
+                    <a aria-label="Hide Sidebar" class="sidemenu-toggle header-link" data-bs-toggle="sidebar"
+                       href="javascript:void(0);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon menu-btn" width="24" height="24"
+                             viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.5" d="M4 5h12M4 12h16M4 19h8" color="currentColor"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon menu-btn-close" width="24"
+                             height="24" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="1.5" d="m18 6l-6 6m0 0l-6 6m6-6l6 6m-6-6L6 6"
+                                  color="currentColor">
+
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <!-- End::header-element -->
+
+                <!-- Start::header-element -->
+                <div class="header-element">
+                    <div class="horizontal-logo">
+                        <a href="http://127.0.0.1:8000/admin" class="header-logo">
+                            <span class="text-primary fs-6 fw-bold">پنل مدیریت</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- End::header-element -->
+
+                <!-- Start::header-element -->
+                <div class="header-element header-search d-md-block d-none my-auto">
+                    <div>
+                        <div>
+                            <h1 class="page-title fw-medium fs-18 mb-2">ایجاد محصول</h1>
+                            <div class="">
+                                <nav>
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item"><a href="javascript:void(0);">مدیریت محصولات</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">ایجاد محصول</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End::header-element -->
+
+            </div>
+            <!-- End::header-content-left -->
+
+            <!-- Start::header-content-right -->
+            <ul class="header-content-right">
+
+                <!-- Start::header-element -->
+                <li class="header-element header-theme-mode">
+                    <!-- Start::header-link|layout-setting -->
+                    <a href="javascript:void(0);" class="header-link layout-setting">
+								<span class="light-layout">
+									<!-- Start::header-link-icon -->
+									<svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon" width="1em"
+                                         height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="1.5"
+                                              d="M21.5 14.078A8.557 8.557 0 0 1 9.922 2.5C5.668 3.497 2.5 7.315 2.5 11.873a9.627 9.627 0 0 0 9.627 9.627c4.558 0 8.376-3.168 9.373-7.422"
+                                              color="currentColor"></path>
+                                    </svg>
+                                    <!-- End::header-link-icon -->
+								</span>
+                        <span class="dark-layout">
+									<!-- Start::header-link-icon -->
+									<svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon" width="1em"
+                                         height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor"
+                                              stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              stroke-width="1.5"
+                                              d="M17 12a5 5 0 1 1-10 0a5 5 0 0 1 10 0M12 2v1.5m0 17V22m7.07-2.929l-1.06-1.06M5.99 5.989L4.928 4.93M22 12h-1.5m-17 0H2m17.071-7.071l-1.06 1.06M5.99 18.011l-1.06 1.06"
+                                              color="currentColor"></path>
+                                    </svg>
+                            <!-- End::header-link-icon -->
+								</span>
+                    </a>
+                    <!-- End::header-link|layout-setting -->
+                </li>
+                <!-- End::header-element -->
+
+
+                <!-- Start::header-element -->
+                <li class="header-element dropdown">
+                    <!-- Start::header-link|dropdown-toggle -->
+                    <a href="javascript:void(0);" class="header-link dropdown-toggle" id="mainHeaderProfile"
+                       data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <img
+                                        src="/assets/admin/images/faces/DefaultAvatar.jpg"
+                                        alt="img"
+                                        class="avatar avatar-sm avatar-rounded">
+                            </div>
+                        </div>
+                    </a>
+                    <!-- End::header-link|dropdown-toggle -->
+                    <ul class="main-header-dropdown dropdown-menu pt-0 overflow-hidden header-profile-dropdown dropdown-menu-end"
+                        aria-labelledby="mainHeaderProfile">
+                        <li class="p-3 border-bottom">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <p class="mb-0 fw-semibold lh-1">Admin Admin</p>
+                                    <span class="fs-11 text-muted">admin@gmail.com</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center text-danger px-3"
+                               href="http://127.0.0.1:8000/admin/auth/logout">
+                                <i
+                                        class="ri-logout-circle-line fs-15 me-2 text-danger fw-normal"
+                                        style="position: relative; top: -2px"
+                                ></i>
+                                خروج
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End::header-element -->
+
+
+            </ul>
+            <!-- End::header-content-right -->
+
+        </div>
+        <!-- End::main-header-container -->
+
+    </header>
+    <!-- End::main-header -->
+
+    <!-- Start::main-sidebar -->
+    <aside class="app-sidebar sticky" id="sidebar">
+
+        <!-- Start::main-sidebar-header -->
+        <div class="main-sidebar-header">
+            <a href="http://127.0.0.1:8000/admin" class="header-logo">
+                <span class="text-primary fs-6 fw-bold">پنل مدیریت</span>
+            </a>
+        </div>
+        <!-- End::main-sidebar-header -->
+
+        <!-- Start::main-sidebar -->
+        <div class="main-sidebar simplebar-scrollable-y" id="sidebar-scroll" data-simplebar="init">
+            <div class="simplebar-wrapper" style="margin: -8px 0 -80px;">
+                <div class="simplebar-height-auto-observer-wrapper">
+                    <div class="simplebar-height-auto-observer"></div>
+                </div>
+                <div class="simplebar-mask">
+                    <div class="simplebar-offset" style="left: 0; bottom: 0;">
+                        <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                             aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                            <div class="simplebar-content" style="padding: 8px 0 80px;">
+
+                                <!-- Start::nav -->
+                                <nav class="main-menu-container nav nav-pills flex-column sub-open active open">
+                                    <div class="slide-left active open d-none" id="slide-left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path
+                                                    d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                                        </svg>
+                                    </div>
+                                    <ul class="main-menu mx-0">
+                                        <!-- Start::slide -->
+                                        <li class="slide active">
+                                            <a href="http://127.0.0.1:8000/admin/dashboard"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <g fill="none" stroke="currentColor" stroke-linecap="round"
+                                                       stroke-linejoin="round" stroke-width="1.5" color="currentColor">
+                                                        <path d="m9 22l-.251-3.509a3.259 3.259 0 1 1 6.501 0L15 22"></path>
+                                                        <path
+                                                                d="M2.352 13.214c-.354-2.298-.53-3.446-.096-4.465s1.398-1.715 3.325-3.108L7.021 4.6C9.418 2.867 10.617 2 12.001 2c1.382 0 2.58.867 4.978 2.6l1.44 1.041c1.927 1.393 2.89 2.09 3.325 3.108c.434 1.019.258 2.167-.095 4.464l-.301 1.96c-.5 3.256-.751 4.884-1.919 5.856S16.554 22 13.14 22h-2.28c-3.415 0-5.122 0-6.29-.971c-1.168-.972-1.418-2.6-1.918-5.857z"></path>
+                                                    </g>
+                                                </svg>
+                                                <span class="side-menu__label">داشبورد</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide ">
+                                            <a href="http://127.0.0.1:8000/admin/users"
+                                               class="side-menu__item ">
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M13 2h-2C7.229 2 5.343 2 4.172 3.172S3 6.229 3 10v4c0 3.771 0 5.657 1.172 6.828S7.229 22 11 22h2c3.771 0 5.657 0 6.828-1.172S21 17.771 21 14v-4c0-3.771 0-5.657-1.172-6.828S16.771 2 13 2m8 10H3m12-5H9m6 10H9"
+                                                          color="currentColor"></path>
+                                                </svg>
+
+                                                <span class="side-menu__label">مدیریت کاربران</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide  ">
+                                            <a href="http://127.0.0.1:8000/admin/orders"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M2.5 12c0-4.478 0-6.718 1.391-8.109S7.521 2.5 12 2.5c4.478 0 6.718 0 8.109 1.391S21.5 7.521 21.5 12c0 4.478 0 6.718-1.391 8.109S16.479 21.5 12 21.5c-4.478 0-6.718 0-8.109-1.391S2.5 16.479 2.5 12M11 7h6M7 7h1m-1 5h1m-1 5h1m3-5h6m-6 5h6"
+                                                          color="currentColor"></path>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت سفارشات</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide  ">
+                                            <a href="http://127.0.0.1:8000/admin/products"
+                                               class="side-menu__item active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
+                                                     width="1em" height="1em" viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M4 11v4c0 3.3 0 4.95 1.025 5.975S7.7 22 11 22h2c3.3 0 4.95 0 5.975-1.025S20 18.3 20 15v-4M3 9c0-.748 0-1.122.201-1.4a1.4 1.4 0 0 1 .549-.44C4.098 7 4.565 7 5.5 7h13c.935 0 1.402 0 1.75.16c.228.106.417.258.549.44C21 7.878 21 8.252 21 9s0 1.121-.201 1.4a1.4 1.4 0 0 1-.549.44c-.348.16-.815.16-1.75.16h-13c-.935 0-1.402 0-1.75-.16a1.4 1.4 0 0 1-.549-.44C3 10.121 3 9.748 3 9m3-5.214C6 2.799 6.8 2 7.786 2h.357A3.857 3.857 0 0 1 12 5.857V7H9.214A3.214 3.214 0 0 1 6 3.786m12 0C18 2.799 17.2 2 16.214 2h-.357A3.857 3.857 0 0 0 12 5.857V7h2.786A3.214 3.214 0 0 0 18 3.786M12 11v11"
+                                                          color="currentColor"></path>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت محصولات</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide ">
+                                            <a href="http://127.0.0.1:8000/admin/categories"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="1em"
+                                                     height="1em" viewBox="0 0 24 24">
+                                                    <g fill="none" stroke="currentColor" stroke-linecap="round"
+                                                       stroke-linejoin="round" stroke-width="1.5" color="currentColor">
+                                                        <path
+                                                                d="m8.643 3.146l-1.705.788C4.313 5.147 3 5.754 3 6.75s1.313 1.603 3.938 2.816l1.705.788c1.652.764 2.478 1.146 3.357 1.146s1.705-.382 3.357-1.146l1.705-.788C19.687 8.353 21 7.746 21 6.75s-1.313-1.603-3.938-2.816l-1.705-.788C13.705 2.382 12.879 2 12 2s-1.705.382-3.357 1.146"></path>
+                                                        <path
+                                                                d="M20.788 11.097c.141.199.212.406.212.634c0 .982-1.313 1.58-3.938 2.776l-1.705.777c-1.652.753-2.478 1.13-3.357 1.13s-1.705-.377-3.357-1.13l-1.705-.777C4.313 13.311 3 12.713 3 11.731c0-.228.07-.435.212-.634"></path>
+                                                        <path
+                                                                d="M20.377 16.266c.415.331.623.661.623 1.052c0 .981-1.313 1.58-3.938 2.776l-1.705.777C13.705 21.624 12.879 22 12 22s-1.705-.376-3.357-1.13l-1.705-.776C4.313 18.898 3 18.299 3 17.318c0-.391.208-.72.623-1.052"></path>
+                                                    </g>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت دسته‌بندی‌ها</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                        <!-- Start::slide -->
+                                        <li class="slide ">
+                                            <a href="http://127.0.0.1:8000/admin/admins"
+                                               class="side-menu__item ">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     class="side-menu__icon"
+                                                     width="1em"
+                                                     height="1em"
+                                                     viewBox="0 0 24 24">
+                                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                                          stroke-linejoin="round" stroke-width="1.5"
+                                                          d="M12 12a5 5 0 1 0-5-5a5 5 0 0 0 5 5Zm-7 9a7 7 0 0 1 14 0Z"/>
+                                                </svg>
+                                                <span class="side-menu__label">مدیریت مدیران</span>
+                                            </a>
+                                        </li>
+                                        <!-- End::slide -->
+
+                                    </ul>
+                                    <div class="slide-right d-none" id="slide-right">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path
+                                                    d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+                                        </svg>
+                                    </div>
+                                </nav>
+                                <!-- End::nav -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="simplebar-placeholder" style="width: 239px; height: 1578px;"></div>
+            </div>
+            <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                <div class="simplebar-scrollbar" style="width: 0; display: none;"></div>
+            </div>
+            <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                <div class="simplebar-scrollbar"
+                     style="height: 568px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+            </div>
+        </div>
+        <!-- End::main-sidebar -->
+
+    </aside>
+    <!-- End::main-sidebar -->
+
+    <!-- Start::app-content -->
+    <div class="main-content app-content">
+        <div class="container-fluid pt-4">
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <form action="http://127.0.0.1:8000/admin/products/store" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">
+                        <div class="card custom-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    ایجاد محصول
+                                </div>
+                            </div>
+
+                            <div class="card-body pt-0">
+
+
+                                <div class="row gy-3">
+                                    <!-- Name -->
+                                    <div class="col-xl-6">
+                                        <label class="form-label">نام فارسی</label>
+                                        <input
+                                                type="text"
+                                                class="form-control" name="name"
+                                                placeholder="نام فارسی را وارد کنید"
+                                                value=""
+                                        />
+                                    </div>
+
+                                    <!-- Name -->
+                                    <div class="col-xl-6">
+                                        <label class="form-label">نام انگلیسی</label>
+                                        <input type="text" class="form-control" name="name_en"
+                                               placeholder="نام انگلیسی را وارد کنید" value="">
+                                    </div>
+
+                                    <!-- Category -->
+                                    <div class="col-xl-6">
+                                        <label class="form-label">دسته‌ بندی</label>
+                                        <select class="form-control" name="category_id">
+                                            <option>یک دسته بندی انتخاب کنید</option>
+                                            <option value="1" >
+                                                الکترونیک
+                                            </option>
+                                            <option value="2" >
+                                                کتاب
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Price -->
+                                    <div class="col-xl-6">
+                                        <label class="form-label">قیمت</label>
+                                        <input type="number" class="form-control" name="price"
+                                               placeholder="قیمت را وارد کنید" value="">
+                                    </div>
+
+                                    <!-- Discount Price -->
+                                    <div class="col-xl-6">
+                                        <label class="form-label">تخفیف</label>
+                                        <input type="number" class="form-control" name="discount"
+                                               placeholder="تخفیف را وارد کنید"
+                                               value="">
+                                    </div>
+
+                                    <!-- Stock -->
+                                    <div class="col-xl-6">
+                                        <label class="form-label">موجودی</label>
+                                        <input type="number" class="form-control" name="qty"
+                                               placeholder="تعداد موجودی را وارد کنید" value="">
+                                    </div>
+
+                                    <!-- Description -->
+                                    <div class="col-xl-12">
+                                        <label class="form-label">توضیحات</label>
+                                        <textarea class="form-control" name="description" rows="4"
+                                                  placeholder="توضیحات را وارد کنید"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Product Images -->
+                                <div
+                                        class="image-upload-wrapper d-flex flex-wrap gap-2 px-0 pt-0 mt-3"
+                                        id="imagePreviewContainer"
+                                        style=" border-radius: 8px; padding: 10px;"
+                                >
+                                    <label
+                                            id="uploadPlaceholder"
+                                            class="upload-placeholder"
+                                            for="imageInput"
+                                            style="cursor: pointer; width:150px; height:150px; display: flex; justify-content: center; align-items: center; border: 2px dashed #ccc; border-radius: 8px; padding: 20px; text-align: center;"
+                                    >
+                                        <div>📷<br><strong>آپلود یا کشیدن</strong></div>
+                                        <small style="color:#999;">JPG / PNG / JPEG / WEBP</small>
+                                    </label>
+                                    <input
+                                            id="imageInput"
+                                            name="images[]"
+                                            type="file"
+                                            accept=".jpg,.png,.jpeg,.webp"
+                                            multiple
+                                            style="display:none"
+                                    />
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer text-end">
+                                <button type="submit" class="btn btn-primary">ایجاد محصول</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End::app-content -->
+
+    <!-- Start::main-footer -->
+    <footer class="footer mt-auto py-3 bg-white text-center">
+        <div class="container">
+        <span class="text-muted">
+            <span id="year"></span>
+            |
+            <span>تمامی حقوق محفوظ است.</span>
+        </span>
+        </div>
+    </footer>
+    <!-- End::main-footer -->
+
+</div>
+<!-- End Page -->
+
+<!-- Scroll To Top -->
+<div class="scrollToTop" style="display: none;">
+    <span class="arrow lh-1"><i class="ri-rocket-line align-middle fs-18"></i></span>
+</div>
+<div id="responsive-overlay"></div>
+<!-- Scroll To Top -->
+
+<!-- Persian Date Library -->
+<script src="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+
+<!-- Popper JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/bootstrap.bundle.min.js"></script>
+
+<!-- Defaultmenu JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/defaultmenu.js"></script>
+
+<!-- Node Waves JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/waves.min.js"></script>
+
+<!-- Sticky JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/sticky.js"></script>
+
+<!-- Color Picker JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/pickr.es5.min.js"></script>
+
+<!-- Date & Time Picker JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/flatpickr.min.js"></script>
+
+<!-- Custom-Switcher JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/custom-switcher.js"></script>
+
+<!-- Custom JS -->
+<script src="http://127.0.0.1:8000/assets/admin/js/custom.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // ===== Choices =====
+        const choicesEl = document.querySelector('#choices-single-default');
+        if (choicesEl && window.Choices) {
+
+            const choices = new Choices(choicesEl, {
+                allowHTML: true,
+                searchEnabled: false,
+                shouldSort: false,
+                itemSelectText: '',
+                placeholder: true,
+                placeholderValue: 'مرتب‌سازی بر اساس'
+            });
+            if (choicesEl) {
+                choicesEl.addEventListener('change', function () {
+                    if (this.form) this.form.submit();
+                });
+            }
+        }
+
+        // ===== ApexCharts =====
+        const charts = document.querySelectorAll(".apex-chart");
+        charts.forEach(chartEl => {
+            if (chartEl) {
+                const options = chartEl.dataset.options ? JSON.parse(chartEl.dataset.options) : {};
+                const chart = new ApexCharts(chartEl, options);
+                chart.render();
+            }
+        });
+
+        // ===== Popper Example =====
+        const popperRefs = document.querySelectorAll("[data-popper-ref]");
+        popperRefs.forEach(ref => {
+            const targetId = ref.getAttribute("data-popper-target");
+            const popperEl = document.getElementById(targetId);
+            if (popperEl) {
+                Popper.createPopper(ref, popperEl, {
+                    placement: 'bottom'
+                });
+            }
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+    var phpdebugbar = new PhpDebugBar.DebugBar({"theme":"auto","hideEmptyTabs":true});
+    phpdebugbar.addTab("request", new PhpDebugBar.DebugBar.Tab({"icon":"tags","order":-100,"title":"Request", "widget": new PhpDebugBar.Widgets.HtmlVariableListWidget()}));
+    phpdebugbar.addTab("messages", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Messages", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+    phpdebugbar.addIndicator("time", new PhpDebugBar.DebugBar.Indicator({"icon":"clock-o","tooltip":"Request Duration","link":"timeline"}), "right");
+    phpdebugbar.addTab("timeline", new PhpDebugBar.DebugBar.Tab({"icon":"tasks","title":"Timeline", "widget": new PhpDebugBar.Widgets.TimelineWidget()}));
+    phpdebugbar.addIndicator("memory", new PhpDebugBar.DebugBar.Indicator({"icon":"cogs","tooltip":"Memory Usage"}), "right");
+    phpdebugbar.addTab("exceptions", new PhpDebugBar.DebugBar.Tab({"icon":"bug","title":"Exceptions", "widget": new PhpDebugBar.Widgets.ExceptionsWidget()}));
+    phpdebugbar.addIndicator("version", new PhpDebugBar.DebugBar.Indicator({"icon":"laravel phpdebugbar-fab"}), "right");
+    phpdebugbar.addTab("views", new PhpDebugBar.DebugBar.Tab({"icon":"leaf","title":"Views", "widget": new PhpDebugBar.Widgets.TemplatesWidget()}));
+    phpdebugbar.addTab("queries", new PhpDebugBar.DebugBar.Tab({"icon":"database","title":"Queries", "widget": new PhpDebugBar.Widgets.LaravelQueriesWidget()}));
+    phpdebugbar.addTab("models", new PhpDebugBar.DebugBar.Tab({"icon":"cubes","title":"Models", "widget": new PhpDebugBar.Widgets.TableVariableListWidget()}));
+    phpdebugbar.addTab("emails", new PhpDebugBar.DebugBar.Tab({"icon":"inbox","title":"Mails", "widget": new PhpDebugBar.Widgets.MailsWidget()}));
+    phpdebugbar.addTab("gate", new PhpDebugBar.DebugBar.Tab({"icon":"list-alt","title":"Gate", "widget": new PhpDebugBar.Widgets.MessagesWidget()}));
+    phpdebugbar.addIndicator("currentrequest", new PhpDebugBar.DebugBar.Indicator({"icon":"share","link":"request"}), "right");
+    phpdebugbar.setDataMap({
+        "request": ["request.data", {}],
+        "messages": ["messages.messages", []],
+        "messages:badge": ["messages.count", null],
+        "time": ["time.duration_str", '0ms'],
+        "timeline": ["time", {}],
+        "memory": ["memory.peak_usage_str", '0B'],
+        "exceptions": ["exceptions.exceptions", []],
+        "exceptions:badge": ["exceptions.count", null],
+        "version": ["laravel.version", ],
+        "version:tooltip": ["laravel.tooltip", {}],
+        "views": ["views", []],
+        "views:badge": ["views.nb_templates", 0],
+        "queries": ["queries", []],
+        "queries:badge": ["queries.nb_statements", 0],
+        "models": ["models", {}],
+        "models:badge": ["models.count", 0],
+        "emails": ["symfonymailer_mails.mails", []],
+        "emails:badge": ["symfonymailer_mails.count", null],
+        "gate": ["gate.messages", []],
+        "gate:badge": ["gate.count", null],
+        "request:badge": ["request.badge", null],
+        "currentrequest": ["request.data.uri", ],
+        "currentrequest:tooltip": ["request.tooltip", {}]
+    });
+    phpdebugbar.restoreState();
+    phpdebugbar.enableAjaxHandlerTab();
+    phpdebugbar.ajaxHandler = new PhpDebugBar.AjaxHandler(phpdebugbar, undefined, true);
+    phpdebugbar.ajaxHandler.bindToFetch();
+    phpdebugbar.ajaxHandler.bindToXHR();
+    phpdebugbar.setOpenHandler(new PhpDebugBar.OpenHandler({"url":"http:\/\/127.0.0.1:8000\/_debugbar\/open"}));
+    phpdebugbar.addDataSet({"__meta":{"id":"01K7P15585XE22R0GQVYG2Z7GY","datetime":"2025-10-16 11:41:04","utime":1760602264.837398,"method":"GET","uri":"\/admin\/products\/create","ip":"127.0.0.1"},"messages":{"count":0,"messages":[]},"time":{"count":9,"start":1760602264.713782,"end":1760602264.837408,"duration":0.1236259937286377,"duration_str":"124ms","measures":[{"label":"Booting","start":1760602264.713782,"relative_start":0,"end":1760602264.795109,"relative_end":1760602264.795109,"duration":0.08132696151733398,"duration_str":"81.33ms","memory":0,"memory_str":"0B","params":[],"collector":"time","group":null},{"label":"Application","start":1760602264.79512,"relative_start":0.08133792877197266,"end":1760602264.837409,"relative_end":9.5367431640625e-7,"duration":0.042289018630981445,"duration_str":"42.29ms","memory":0,"memory_str":"0B","params":[],"collector":"time","group":null},{"label":"Routing","start":1760602264.806247,"relative_start":0.09246492385864258,"end":1760602264.807811,"relative_end":1760602264.807811,"duration":0.00156402587890625,"duration_str":"1.56ms","memory":0,"memory_str":"0B","params":[],"collector":null,"group":null},{"label":"Preparing Response","start":1760602264.829696,"relative_start":0.11591386795043945,"end":1760602264.836421,"relative_end":1760602264.836421,"duration":0.0067250728607177734,"duration_str":"6.73ms","memory":0,"memory_str":"0B","params":[],"collector":null,"group":null},{"label":"View: admin.products.create","start":1760602264.831223,"relative_start":0.11744093894958496,"end":1760602264.831223,"relative_end":1760602264.831223,"duration":0,"duration_str":"0\u03bcs","memory":0,"memory_str":"0B","params":[],"collector":"views","group":"View"},{"label":"View: admin.layouts.app","start":1760602264.835463,"relative_start":0.12168097496032715,"end":1760602264.835463,"relative_end":1760602264.835463,"duration":0,"duration_str":"0\u03bcs","memory":0,"memory_str":"0B","params":[],"collector":"views","group":"View"},{"label":"View: admin.layouts.header","start":1760602264.835825,"relative_start":0.12204289436340332,"end":1760602264.835825,"relative_end":1760602264.835825,"duration":0,"duration_str":"0\u03bcs","memory":0,"memory_str":"0B","params":[],"collector":"views","group":"View"},{"label":"View: admin.layouts.sidebar","start":1760602264.836026,"relative_start":0.12224388122558594,"end":1760602264.836026,"relative_end":1760602264.836026,"duration":0,"duration_str":"0\u03bcs","memory":0,"memory_str":"0B","params":[],"collector":"views","group":"View"},{"label":"View: admin.layouts.footer","start":1760602264.836238,"relative_start":0.12245583534240723,"end":1760602264.836238,"relative_end":1760602264.836238,"duration":0,"duration_str":"0\u03bcs","memory":0,"memory_str":"0B","params":[],"collector":"views","group":"View"}]},"memory":{"peak_usage":23650840,"peak_usage_str":"23MB"},"exceptions":{"count":0,"exceptions":[]},"laravel":{"version":"12.x","tooltip":{"Laravel Version":"12.21.0","PHP Version":"8.3.11","Environment":"local","Debug Mode":"Enabled","URL":"127.0.0.1:8000","Timezone":"Asia\/Tehran","Locale":"fa"}},"views":{"count":5,"nb_templates":5,"templates":[{"name":"admin.products.create","param_count":null,"params":[],"start":1760602264.831207,"type":"blade","hash":"blade\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/resources\/views\/admin\/products\/create.blade.phpadmin.products.create","xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fresources%2Fviews%2Fadmin%2Fproducts%2Fcreate.blade.php\u0026line=1","ajax":false,"filename":"create.blade.php","line":"?"}},{"name":"admin.layouts.app","param_count":null,"params":[],"start":1760602264.835455,"type":"blade","hash":"blade\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/resources\/views\/admin\/layouts\/app.blade.phpadmin.layouts.app","xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fresources%2Fviews%2Fadmin%2Flayouts%2Fapp.blade.php\u0026line=1","ajax":false,"filename":"app.blade.php","line":"?"}},{"name":"admin.layouts.header","param_count":null,"params":[],"start":1760602264.835818,"type":"blade","hash":"blade\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/resources\/views\/admin\/layouts\/header.blade.phpadmin.layouts.header","xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fresources%2Fviews%2Fadmin%2Flayouts%2Fheader.blade.php\u0026line=1","ajax":false,"filename":"header.blade.php","line":"?"}},{"name":"admin.layouts.sidebar","param_count":null,"params":[],"start":1760602264.83602,"type":"blade","hash":"blade\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/resources\/views\/admin\/layouts\/sidebar.blade.phpadmin.layouts.sidebar","xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fresources%2Fviews%2Fadmin%2Flayouts%2Fsidebar.blade.php\u0026line=1","ajax":false,"filename":"sidebar.blade.php","line":"?"}},{"name":"admin.layouts.footer","param_count":null,"params":[],"start":1760602264.836232,"type":"blade","hash":"blade\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/resources\/views\/admin\/layouts\/footer.blade.phpadmin.layouts.footer","xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fresources%2Fviews%2Fadmin%2Flayouts%2Ffooter.blade.php\u0026line=1","ajax":false,"filename":"footer.blade.php","line":"?"}}]},"queries":{"count":3,"nb_statements":2,"nb_visible_statements":3,"nb_excluded_statements":0,"nb_failed_statements":0,"accumulated_duration":0.00067,"accumulated_duration_str":"670\u03bcs","memory_usage":0,"memory_usage_str":null,"statements":[{"sql":"Connection Established","type":"transaction","params":[],"bindings":[],"hints":null,"show_copy":false,"backtrace":[{"index":13,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","line":192},{"index":14,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","line":56},{"index":15,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/SessionGuard.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/SessionGuard.php","line":179},{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/GuardHelpers.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/GuardHelpers.php","line":56},{"index":17,"namespace":"middleware","name":"auth","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/Middleware\/Authenticate.php","line":82}],"start":1760602264.817477,"duration":0,"duration_str":"","memory":0,"memory_str":null,"filename":"EloquentUserProvider.php:192","source":{"index":13,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","line":192},"xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FAuth%2FEloquentUserProvider.php\u0026line=192","ajax":false,"filename":"EloquentUserProvider.php","line":"192"},"connection":"database\/database.sqlite","explain":null,"start_percent":0,"width_percent":0},{"sql":"select * from \u0022admins\u0022 where \u0022id\u0022 = 3 limit 1","type":"query","params":[],"bindings":[3],"hints":null,"show_copy":true,"backtrace":[{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","line":58},{"index":17,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/SessionGuard.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/SessionGuard.php","line":179},{"index":18,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/GuardHelpers.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/GuardHelpers.php","line":56},{"index":19,"namespace":"middleware","name":"auth","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/Middleware\/Authenticate.php","line":82},{"index":20,"namespace":"middleware","name":"auth","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/Middleware\/Authenticate.php","line":61}],"start":1760602264.82278,"duration":0.00058,"duration_str":"580\u03bcs","memory":0,"memory_str":null,"filename":"EloquentUserProvider.php:58","source":{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Auth\/EloquentUserProvider.php","line":58},"xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fvendor%2Flaravel%2Fframework%2Fsrc%2FIlluminate%2FAuth%2FEloquentUserProvider.php\u0026line=58","ajax":false,"filename":"EloquentUserProvider.php","line":"58"},"connection":"database\/database.sqlite","explain":null,"start_percent":0,"width_percent":86.567},{"sql":"select \u0022id\u0022, \u0022name\u0022 from \u0022categories\u0022","type":"query","params":[],"bindings":[],"hints":null,"show_copy":true,"backtrace":[{"index":15,"namespace":null,"name":"app\/Http\/Controllers\/Admin\/ProductController.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/app\/Http\/Controllers\/Admin\/ProductController.php","line":46},{"index":16,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/ControllerDispatcher.php","line":46},{"index":17,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php","line":265},{"index":18,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php","line":211},{"index":19,"namespace":null,"name":"vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php","line":808}],"start":1760602264.8260832,"duration":8.999999999999999e-5,"duration_str":"90\u03bcs","memory":0,"memory_str":null,"filename":"ProductController.php:46","source":{"index":15,"namespace":null,"name":"app\/Http\/Controllers\/Admin\/ProductController.php","file":"\/home\/sirjex\/PhpstormProjects\/mini-ecommerce-laravel\/app\/Http\/Controllers\/Admin\/ProductController.php","line":46},"xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fapp%2FHttp%2FControllers%2FAdmin%2FProductController.php\u0026line=46","ajax":false,"filename":"ProductController.php","line":"46"},"connection":"database\/database.sqlite","explain":null,"start_percent":86.567,"width_percent":13.433}]},"models":{"data":{"App\\Models\\Category":{"retrieved":2,"xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fapp%2FModels%2FCategory.php\u0026line=1","ajax":false,"filename":"Category.php","line":"?"}},"App\\Models\\Admin":{"retrieved":1,"xdebug_link":{"url":"phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fapp%2FModels%2FAdmin.php\u0026line=1","ajax":false,"filename":"Admin.php","line":"?"}}},"count":3,"key_map":{"retrieved":"Retrieved","created":"Created","updated":"Updated","deleted":"Deleted"},"is_counter":true,"badges":{"retrieved":3}},"symfonymailer_mails":{"count":0,"mails":[]},"gate":{"count":0,"messages":[]},"request":{"data":{"status":"200 OK","full_url":"http:\/\/127.0.0.1:8000\/admin\/products\/create","action_name":"admin.products.create","controller_action":"App\\Http\\Controllers\\Admin\\ProductController@create","uri":"GET admin\/products\/create","controller":"App\\Http\\Controllers\\Admin\\ProductController@create\u003Ca href=\u0022phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fapp%2FHttp%2FControllers%2FAdmin%2FProductController.php\u0026line=37\u0022 class=\u0022phpdebugbar-widgets-editor-link\u0022\u003E\u003C\/a\u003E","prefix":"admin\/products","file":"\u003Ca href=\u0022phpstorm:\/\/open?file=%2Fhome%2Fsirjex%2FPhpstormProjects%2Fmini-ecommerce-laravel%2Fapp%2FHttp%2FControllers%2FAdmin%2FProductController.php\u0026line=37\u0022 onclick=\u0022\u0022 class=\u0022phpdebugbar-widgets-editor-link\u0022\u003Eapp\/Http\/Controllers\/Admin\/ProductController.php:37-49\u003C\/a\u003E","middleware":"web, auth:admin","duration":"124ms","peak_memory":"24MB","response":"text\/html; charset=UTF-8","request_format":"html","request_query":"\u003Cpre class=sf-dump id=sf-dump-2085541779 data-indent-pad=\u0022  \u0022\u003E[]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-2085541779\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","request_request":"\u003Cpre class=sf-dump id=sf-dump-684937076 data-indent-pad=\u0022  \u0022\u003E[]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-684937076\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","request_headers":"\u003Cpre class=sf-dump id=sf-dump-1216708109 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:14\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Ehost\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002214 characters\u0022\u003E127.0.0.1:8000\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Euser-agent\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002278 characters\u0022\u003EMozilla\/5.0 (X11; Ubuntu; Linux x86_64; rv:144.0) Gecko\/20100101 Firefox\/144.0\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002263 characters\u0022\u003Etext\/html,application\/xhtml+xml,application\/xml;q=0.9,*\/*;q=0.8\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept-language\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002214 characters\u0022\u003Een-US,en;q=0.5\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eaccept-encoding\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002223 characters\u0022\u003Egzip, deflate, br, zstd\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Econnection\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002210 characters\u0022\u003Ekeep-alive\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ereferer\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002236 characters\u0022\u003Ehttp:\/\/127.0.0.1:8000\/admin\/products\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecookie\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00222326 characters\u0022\u003EpmaUser-1=wYGkbdF4Y8d00glvbwTn79h2KPv7odw%2F9CgxnylX7%2F%2FpuU2hJyxGEsO1%2FF4%3D; rl_session=RudderEncrypt%3AU2FsdGVkX19a%2FaGdlgX0g9sXkeCbgIx%2FO04D49x9TGEBcDp5hvlXhm7%2FF0mUK3cy0SvULkQ3CsODp4ywIu80SNiJLkKHZhEHFvHn%2Bf8y2mfDyniNDeTKPmIvKv2VI9dTb4JykKfT9jAuKzxzJ21ieg%3D%3D; rl_anonymous_id=RudderEncrypt%3AU2FsdGVkX19FdCaIRwww3mYoEWP3Jg4HXeSOkY0HtZrDOPH2UlvL18hwe%2F5zBkjneWnCGp3Y4BI%2Bsk%2FyCc7ujg%3D%3D; rl_page_init_referrer=RudderEncrypt%3AU2FsdGVkX1880hRwcNYHMrliK8XL%2BoaHDzETefxXZk0%3D; rl_page_init_referring_domain=RudderEncrypt%3AU2FsdGVkX184NXIjQzQwcwxiO%2FxP8bA%2BVqMzxYSwXGI%3D; rl_user_id=RudderEncrypt%3AU2FsdGVkX19CPzNPaR9Skm1cSLZ9tKxJeqRNhtgSMlr%2FGuR8ZchqjfjNc3cRfxZQKABKA7X%2BM4k6I0ho7Gc3ewUc2%2FCzLOibue9CM9RTVtCOgAKcSDCoWSeiUPdKqZLv%2FPE4eug%2FEZqPQv6hO5JB4oE3x1K5k82aU5WH8VhY7iU%3D; rl_trait=RudderEncrypt%3AU2FsdGVkX1%2FH3HR3wZEIRlUor3xZQqnaTzqaCzssAdDl1CmsMSZBSz6Ral8QwvNDHMPKfOzYCFpStSpDPXML5pY%2BxaThLnJUkPfPtZRtQrYaOP4d9C%2BREpys32MCu148FE43GoXpVYQy8gcIXRzAFQ%3D%3D; ph_phc_4URIAm1uYfJO7j8kWSe0J8lc8IqnstRLS7Jx8NcakHo_posthog=%7B%22distinct_id%22%3A%227255e225502a726d6ad771adc09944aa7f38f79d6c359fc9c56970300d45b2c6%232946eedc-5907-44c6-8a1d-26117d842575%22%2C%22%24sesid%22%3A%5B1755524118230%2C%220198bd4e-2762-7fbd-965e-eadcf8ecb992%22%2C1755522672482%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22%24direct%22%2C%22u%22%3A%22http%3A%2F%2F127.0.0.1%3A9090%2Fhome%2Fworkflows%22%7D%7D; pma_lang=en; phpMyAdmin=ff630965b9eabe080b181af2c377cc3f; pmaAuth-1=6BbJ2wUluxbRu2xVegsQB5svmEaiRcEzen2UMXZVCfNHT5A3%2BkF6stc8J5PL5WqTQG%2B7e%2Fi0oi%2FObTew7xucxpk%3D; XSRF-TOKEN=eyJpdiI6ImxSc09Qd1hUKzZ3MUlCcHBGYVYzWkE9PSIsInZhbHVlIjoiUUpKU3lFRmRSWExDaWRKU2R5aXpkUkgzZDZSMDRieEZ3SHdMYnUwQUxPNjFScGdNaWc5blVTc1dJRzZmLyszZk85NXFaZThVaWFkQlZORzlYMTVkS2JiSXhWb0FZeTM2cFprNkdadllQeE9RZWpMbVpsOUEvcE5nU3RMazFNWnAiLCJtYWMiOiI2NzhkZmYxZWQ4YjNiM2IzMTQyMzhkMTc4MzM4ZWEzOTdmNjM4N2RjN2Y3MzE0ZjdlMWM3YzNiZDE2NzE4NDQ5IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InBFOEp5ekdyK1QrTkgra0grVk9VNmc9PSIsInZhbHVlIjoibGlQZW5kQlNIQjJ5V1A2SG96U2JLaWx0UVJLWUpHZW5odGo1L0Y0SmFKOVd4MkRGeDdnb1Z5eTgzUGhIZm9KUHgwaTRiNjhmb0NsTGZCSmFHUU0rVCtzVmZEdXdJZHNqZWxFTjYwUnhQUThYbU93dnNzNk5mZHFHK2pYNEtwMDciLCJtYWMiOiIzY2IwMDc1Y2VmMWM0N2U2YTQwOTdkY2E4MzkwMzI5YTgwYWI2ZjBmYWUwYWU3Yzg5ODZmZmQxNjExYjlkZjQ5IiwidGFnIjoiIn0%3D\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Eupgrade-insecure-requests\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str\u003E1\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-dest\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Edocument\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-mode\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00228 characters\u0022\u003Enavigate\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-site\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002211 characters\u0022\u003Esame-origin\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Esec-fetch-user\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00222 characters\u0022\u003E?1\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Epriority\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u00226 characters\u0022\u003Eu=0, i\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1216708109\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","request_cookies":"\u003Cpre class=sf-dump id=sf-dump-1403713257 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:13\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003EpmaUser-1\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Erl_session\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Erl_anonymous_id\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Erl_page_init_referrer\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Erl_page_init_referring_domain\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Erl_user_id\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Erl_trait\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Eph_phc_4URIAm1uYfJO7j8kWSe0J8lc8IqnstRLS7Jx8NcakHo_posthog\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Epma_lang\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003EphpMyAdmin\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003EpmaAuth-1\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-const\u003Enull\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003EXSRF-TOKEN\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002240 characters\u0022\u003EVofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003Elaravel_session\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002240 characters\u0022\u003EZM2pn76fSIi9ffLuTyqdnAAJLtOYfNdgUkbsoUpv\u003C\/span\u003E\u0022\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-1403713257\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","response_headers":"\u003Cpre class=sf-dump id=sf-dump-2001983122 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:3\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Econtent-type\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002224 characters\u0022\u003Etext\/html; charset=UTF-8\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Ecache-control\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002217 characters\u0022\u003Eno-cache, private\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Edate\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u003Cspan class=sf-dump-index\u003E0\u003C\/span\u003E =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002229 characters\u0022\u003EThu, 16 Oct 2025 08:11:04 GMT\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-2001983122\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n","session_attributes":"\u003Cpre class=sf-dump id=sf-dump-2100520406 data-indent-pad=\u0022  \u0022\u003E\u003Cspan class=sf-dump-note\u003Earray:7\u003C\/span\u003E [\u003Csamp data-depth=1 class=sf-dump-expanded\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003E_token\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002240 characters\u0022\u003EVofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL\u003C\/span\u003E\u0022\n  \u0022\u003Cspan class=sf-dump-key\u003E_previous\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eurl\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002243 characters\u0022\u003Ehttp:\/\/127.0.0.1:8000\/admin\/products\/2\/show\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003E_flash\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:2\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eold\u003C\/span\u003E\u0022 =\u003E []\n    \u0022\u003Cspan class=sf-dump-key\u003Enew\u003C\/span\u003E\u0022 =\u003E []\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Elogin_web_59ba36addc2b2f9401580f014c7f58ea4e30989d\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E3\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003Eurl\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-note\u003Earray:1\u003C\/span\u003E [\u003Csamp data-depth=2 class=sf-dump-compact\u003E\n    \u0022\u003Cspan class=sf-dump-key\u003Eintended\u003C\/span\u003E\u0022 =\u003E \u0022\u003Cspan class=sf-dump-str title=\u002237 characters\u0022\u003Ehttp:\/\/127.0.0.1:8000\/admin\/dashboard\u003C\/span\u003E\u0022\n  \u003C\/samp\u003E]\n  \u0022\u003Cspan class=sf-dump-key\u003Elogin_admin_59ba36addc2b2f9401580f014c7f58ea4e30989d\u003C\/span\u003E\u0022 =\u003E \u003Cspan class=sf-dump-num\u003E3\u003C\/span\u003E\n  \u0022\u003Cspan class=sf-dump-key\u003EPHPDEBUGBAR_STACK_DATA\u003C\/span\u003E\u0022 =\u003E []\n\u003C\/samp\u003E]\n\u003C\/pre\u003E\u003Cscript\u003ESfdump(\u0022sf-dump-2100520406\u0022, {\u0022maxDepth\u0022:0})\u003C\/script\u003E\n"},"tooltip":{"status":"200 OK","full_url":"http:\/\/127.0.0.1:8000\/admin\/products\/create","action_name":"admin.products.create","controller_action":"App\\Http\\Controllers\\Admin\\ProductController@create"},"badge":null}}, "01K7P15585XE22R0GQVYG2Z7GY");
+
+</script>
+</body>
+</html>
