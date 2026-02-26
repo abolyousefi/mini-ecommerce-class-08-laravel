@@ -6,12 +6,14 @@
 
 namespace App\Models;
 
+use App\Enums\AdminStatus;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as auth;
 
 /**
- * Class Admin
- * 
+ * Class admin
+ *
  * @property int $id
  * @property string $name
  * @property string $username
@@ -22,13 +24,13 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Admin extends Model
+class Admin extends auth
 {
 	protected $table = 'admins';
 	public static $snakeAttributes = false;
 
 	protected $casts = [
-		'status' => 'bool'
+		'status' => AdminStatus::class
 	];
 
 	protected $hidden = [

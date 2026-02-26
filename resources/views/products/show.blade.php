@@ -227,7 +227,7 @@
                         name="product_id"
                         value="{{$product->id}}"
                     />
-
+                    @if($product->qty > 0)
                     <button
                         type="submit"
                         class="w-full flex items-center gap-x-1 justify-center transition-all rounded-lg shadow py-2  bg-blue-500 hover:bg-blue-600 text-white "
@@ -237,6 +237,17 @@
                         </svg>
                         افزودن به سبد
                     </button>
+                    @else
+                        <button
+
+                            class="w-full flex items-center gap-x-1 justify-center transition-all rounded-lg shadow py-2  bg-gray-300 hover:bg-gray-400 text-red-400 "
+                        >
+                            <svg class="w-5 h-5">
+
+                            </svg>
+                        این کالا موجودی ندارد
+                        </button>
+                    @endif
                 </form>
 
             </div>

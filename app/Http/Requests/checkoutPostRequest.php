@@ -45,14 +45,18 @@ class checkoutPostRequest extends FormRequest
                 'min:2',
                 'max:10'
             ],
-//            'user_mobile' => [
-//                'ir_mobile'
-//            ],
-//            'description' => [
-//                'string',
-//                'min:5',
-//                'max:1000'
-//            ]
+            'user_mobile' => [
+                'sometimes',
+                'nullable',
+                'ir_mobile:zero'
+            ],
+            'description' => [
+                'sometimes',
+                'nullable',
+                'string',
+                'min:5',
+                'max:1000'
+            ]
         ];
     }
 }

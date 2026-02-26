@@ -198,9 +198,12 @@ return [
         'password' => 'گذرواژه',
         'password_confirmation' => 'تاییدیه گذرواژه',
         'city' => 'شهر',
+        'user_city' => 'شهر',
         'state' => 'استان',
+        'user_province' => 'استان',
         'country' => 'کشور',
         'address' => 'آدرس',
+        'user_address' => 'آدرس',
         'phone' => 'تلفن',
         'mobile' => 'تلفن همراه',
         'age' => 'سن',
@@ -229,7 +232,9 @@ return [
         'pic' => 'تصویر',
         'link' => 'لینک',
         'mobile_number' => 'شماره تماس',
+        'user_mobile' => 'شماره مویایل',
         'work_number' => 'شماره تماس ثابت',
+        'user_postal_code' => 'کد پستی',
     ],
 
 ];

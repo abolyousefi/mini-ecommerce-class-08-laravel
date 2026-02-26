@@ -14,7 +14,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/',[indexController::class,'index'])->name('index');
+Route::get('/',[IndexController::class,'index'])->name('index');
 
 Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(function (){
   Route::prefix('account')->controller(AccountController::class)->name('account.')->group(function (){

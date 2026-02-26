@@ -6,10 +6,15 @@
         <div class="flex items-center gap-x-2">
             <form action="{{route('Cart.add')}}" method="POST">
             @csrf
+                @if($product->qty > 0)
                 <input type="hidden" name="product_id" value="{{$product->id}}"/>
                 <input type="hidden" name="qty" value="1"/>
 
+                @else
+                    <span style="color: red">این  محصول موجودی ندارد</span>
+                @endif
                 <div class="tooltip">
+                    @if($product->qty > 0)
                     <button
                         type="submit"
                         class="rounded-full p-1.5 app-border app-hover"
@@ -18,12 +23,16 @@
                             <use href="#shopping-cart"></use>
                         </svg>
                     </button>
+                    @endif
+
                     <div class="tooltiptext">
                         سبد خرید
                     </div>
+
                 </div>
             </form>
         </div>
+
         @if($product->discount > 0)
             <!-- badge offer -->
             <span class="product-card_badge">{{calcPercent($product->price , $product->discount)}}     %

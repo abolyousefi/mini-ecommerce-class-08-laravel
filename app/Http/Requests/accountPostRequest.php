@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class accountPostRequest extends FormRequest
 {
@@ -20,7 +21,7 @@ class accountPostRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules(Request $request): array
     {
         return [
             'first_name' => [
@@ -49,6 +50,15 @@ class accountPostRequest extends FormRequest
                 'min:5',
                 'max:255'
             ],
+            'password' => [
+                'sometimes',
+                'nullable',
+                'string',
+                'min:8',
+                'max:200'
+
+            ]
         ];
+
     }
 }

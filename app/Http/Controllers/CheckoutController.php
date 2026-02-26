@@ -42,10 +42,10 @@ class CheckoutController extends Controller
                     'user_postal_code' => $checkoutData['user_postal_code'],
                     'user_mobile' => $checkoutData['user_mobile'],
                     'description' => $checkoutData['description'],
-                ])->withErrors([
-                    'general' => 'این عملیات با خطا مواجه شده است'
+                ])
+                ->withErrors([
+                    'general' =>  'یکی از محصولات موجودی ندارد'
                 ]);
-
 
         }
 
