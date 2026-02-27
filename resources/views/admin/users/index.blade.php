@@ -1,5 +1,19 @@
 @extends('admin.layout.app')
 
+@section('breadcrumb')
+    <div>
+        <h1 class="page-title fw-medium fs-18 mb-2">لیست کاربران</h1>
+        <div class="">
+            <nav>
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">مدیریت کاربران</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">لیست کاربران</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+@endsection
+
 @section('content')
     <div class="container-fluid pt-4">
 
@@ -20,7 +34,7 @@
                                             type="search"
                                             name="search"
                                             placeholder="جستجوی کاربر"
-                                            value=""
+                                            value="{{ request()->input('search') }}"
                                             aria-label="جستجوی کاربر"
                                         />
                                         <button class="btn btn-light" type="submit">جستجو</button>
@@ -28,13 +42,13 @@
 
                                     <select id="choices-single-default" class="form-control" name="sort">
                                         <option value="">مرتب‌سازی بر اساس</option>
-                                        <option value="newest" selected>
+                                        <option value="newest" @selected(request()->input('sort')  == "newest")>
                                             جدیدترین
                                         </option>
-                                        <option value="name_asc" >
+                                        <option value="name_asc" @selected(request()->input('sort')  == "name_asc")>
                                             الفبا (الف - ی)
                                         </option>
-                                        <option value="name_desc" >
+                                        <option value="name_desc" @selected(request()->input('sort')  == "name_desc") >
                                             الفبا (ی - الف)
                                         </option>
                                     </select>
@@ -64,148 +78,62 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-fill">
-                                            <a
-                                                href="javascript:void(0);"
-                                                class="fw-medium fs-14 d-block text-truncate"
-                                            >
-                                                مهدی هاشمی
-                                            </a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>sirj3x@gmail.com</td>
-                                <td>09359953331</td>
-                                <td>11:29 1404/07/24</td>
-                                <td>
-                                    <div class="btn-list">
-                                        <a href="http://127.0.0.1:8000/admin/users/3/show"
-                                           class="btn btn-primary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
-                                            <i class="ri-eye-line"></i>
-                                        </a>
-                                        <a href="http://127.0.0.1:8000/admin/users/3/edit"
-                                           class="btn btn-secondary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
-                                            <i class="ri-edit-line"></i>
-                                        </a>
-                                        <a href="javascript:void(0);"
-                                           onclick="if(confirm('آیا از حذف این کاربر مطمئن هستید؟')) { document.getElementById('delete-form-3').submit(); }"
-                                           class="btn btn-pink-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="حذف">
-                                            <i class="ri-delete-bin-line"></i>
-                                        </a>
-                                        <form
-                                            id="delete-form-3"
-                                            action="http://127.0.0.1:8000/admin/users/3/delete"
-                                            method="POST"
-                                            style="display:none;"
-                                        >
-                                            <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">                                                    <input type="hidden" name="_method" value="delete">                                                </form>
-                                    </div>
-                                </td>
+                          @foreach($users as $user)
+                              <tr>
+                                  <td>
+                                      <div class="d-flex align-items-center">
+                                          <div class="flex-fill">
+                                              <a
+                                                  href="javascript:void(0);"
+                                                  class="fw-medium fs-14 d-block text-truncate"
+                                              >
+                                                  {{getFullName($user)}}
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  <td>{{ $user->email }}</td>
+                                  <td>{{$user->mobile}}</td>
+                                  <td>{{$user->created_at->toJalali()->format('H:i Y-m-d ')}}</td>
+                                  <td>
+                                      <div class="btn-list">
+                                          <a href="{{ route('admin.users.show',$user->id) }}"
+                                             class="btn btn-primary-light btn-icon btn-sm"
+                                             data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                              <i class="ri-eye-line"></i>
+                                          </a>
+                                          <a href="{{route('admin.users.edit',$user->id)}}"
+                                             class="btn btn-secondary-light btn-icon btn-sm"
+                                             data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                              <i class="ri-edit-line"></i>
+                                          </a>
+                                          <a href="{{ route('admin.users.destroy', $user->id) }}"
+                                             onclick="event.preventDefault(); if(confirm('آیا از حذف این کاربر مطمئن هستید؟')) { document.getElementById('delete-form-{{ $user->id }}').submit(); }"
+                                             class="btn btn-pink-light btn-icon btn-sm"
+                                             data-bs-toggle="tooltip"
+                                             data-bs-placement="top"
+                                             title="حذف">
+                                              <i class="ri-delete-bin-line"></i>
+                                          </a>
+
+                                          <form id="delete-form-{{ $user->id }}"
+                                                action="{{ route('admin.users.destroy', $user->id) }}"
+                                                method="POST"
+                                                style="display:none;">
+                                              @csrf
+                                              @method('DELETE')
+                                          </form>
+                                      </div>
+                                  </td>
 
 
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-fill">
-                                            <a
-                                                href="javascript:void(0);"
-                                                class="fw-medium fs-14 d-block text-truncate"
-                                            >
-                                                سارا محمدی
-                                            </a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>sara@gmail.com</td>
-                                <td>09120000001</td>
-                                <td>16:13 1404/07/13</td>
-                                <td>
-                                    <div class="btn-list">
-                                        <a href="http://127.0.0.1:8000/admin/users/1/show"
-                                           class="btn btn-primary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
-                                            <i class="ri-eye-line"></i>
-                                        </a>
-                                        <a href="http://127.0.0.1:8000/admin/users/1/edit"
-                                           class="btn btn-secondary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
-                                            <i class="ri-edit-line"></i>
-                                        </a>
-                                        <a href="javascript:void(0);"
-                                           onclick="if(confirm('آیا از حذف این کاربر مطمئن هستید؟')) { document.getElementById('delete-form-1').submit(); }"
-                                           class="btn btn-pink-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="حذف">
-                                            <i class="ri-delete-bin-line"></i>
-                                        </a>
-                                        <form
-                                            id="delete-form-1"
-                                            action="http://127.0.0.1:8000/admin/users/1/delete"
-                                            method="POST"
-                                            style="display:none;"
-                                        >
-                                            <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">                                                    <input type="hidden" name="_method" value="delete">                                                </form>
-                                    </div>
-                                </td>
+                              </tr>
+                          @endforeach
 
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-fill">
-                                            <a
-                                                href="javascript:void(0);"
-                                                class="fw-medium fs-14 d-block text-truncate"
-                                            >
-                                                حسین کریمی
-                                            </a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>hossein@gmail.com</td>
-                                <td>09120000002</td>
-                                <td>16:13 1404/07/13</td>
-                                <td>
-                                    <div class="btn-list">
-                                        <a href="http://127.0.0.1:8000/admin/users/2/show"
-                                           class="btn btn-primary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
-                                            <i class="ri-eye-line"></i>
-                                        </a>
-                                        <a href="http://127.0.0.1:8000/admin/users/2/edit"
-                                           class="btn btn-secondary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
-                                            <i class="ri-edit-line"></i>
-                                        </a>
-                                        <a href="javascript:void(0);"
-                                           onclick="if(confirm('آیا از حذف این کاربر مطمئن هستید؟')) { document.getElementById('delete-form-2').submit(); }"
-                                           class="btn btn-pink-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="حذف">
-                                            <i class="ri-delete-bin-line"></i>
-                                        </a>
-                                        <form
-                                            id="delete-form-2"
-                                            action="http://127.0.0.1:8000/admin/users/2/delete"
-                                            method="POST"
-                                            style="display:none;"
-                                        >
-                                            <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">                                                    <input type="hidden" name="_method" value="delete">                                                </form>
-                                    </div>
-                                </td>
-
-
-                            </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> {{$users->links()}}
             </div>
         </div>
         <!-- End::row-2 -->

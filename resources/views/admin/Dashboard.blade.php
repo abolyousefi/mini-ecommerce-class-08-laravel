@@ -1,5 +1,18 @@
 @extends('admin.layout.app')
 
+@section('breadcrumb')
+    <div>
+        <p class="fw-medium fs-18 mb-0">
+            سلام،
+            {{auth('admin')->user()->name}}
+            عزیز
+        </p>
+        <p class="fs-13 text-muted mb-0">
+            به داشبورد مدیریت فروشگاه خوش آمدید.
+        </p>
+    </div>
+@endsection
+
 @section('content')
     <div class="container-fluid pt-4">
 

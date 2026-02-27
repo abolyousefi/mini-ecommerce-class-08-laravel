@@ -104,7 +104,7 @@
                         </label>
                         <div class="mt-3">
                             <input
-                                type="text"
+                                type="email"
                                 id="email"
                                 name="email"
                                 tabindex="4"

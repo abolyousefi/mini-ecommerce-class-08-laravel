@@ -1,4 +1,7 @@
 <?php
+
+use function PHPUnit\Framework\isString;
+
 if (!function_exists('calcPercent')) {
     function calcPercent(int|float $total, int|float $amount): int
     {
@@ -19,9 +22,12 @@ if (!function_exists('calcPercent')) {
         }
     }
     if (!function_exists('getFullName')) {
-    function getFullName(): string
+    function getFullName(? \App\Models\User  $user = null): string
     {
-    return auth()->user()->first_name .' '. auth()->user()->last_name;
+        if (!$user){
+         $user  = auth()->user();
+        }
+    return $user->first_name .' '. $user->last_name;
     }
     }
 
@@ -53,3 +59,21 @@ if (!function_exists('activeAccountSidebar')) {
         return 'hover:text-blue-500';
     }
 }
+
+if (!function_exists('activeAdminSidebar')) {
+    function activeAdminSidebar(string | array $RouteName): string
+    {
+         $currentRouteName = \Illuminate\Support\Facades\Route::currentRouteName();
+
+        if (is_String($RouteName)){
+         $RouteName = [$RouteName];
+        }
+
+        if (in_array($currentRouteName, $RouteName)){
+        return 'active';
+    }
+
+        return '';
+    }
+}
+

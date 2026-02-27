@@ -32,9 +32,9 @@
                                 </div>
                                 <ul class="main-menu mx-0">
                                     <!-- Start::slide -->
-                                    <li class="slide active">
+                                    <li class="slide ">
                                         <a href="{{route('admin.dashboard')}}"
-                                           class="side-menu__item active">
+                                           class="side-menu__item {{ activeAdminSidebar('admin.dashboard') }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
                                                  width="1em"
                                                  height="1em" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@
                                     <!-- Start::slide -->
                                     <li class="slide ">
                                         <a href="{{route('admin.users.index')}}"
-                                           class="side-menu__item ">
+                                           class="side-menu__item {{ activeAdminSidebar(["admin.users.index","admin.users.edit",'admin.users.show']) }}">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
                                                  width="1em"
@@ -72,8 +72,8 @@
 
                                     <!-- Start::slide -->
                                     <li class="slide  ">
-                                        <a href="http://127.0.0.1:8000/admin/orders"
-                                           class="side-menu__item ">
+                                        <a href="{{ route('admin.orders.index') }}"
+                                           class="side-menu__item {{ activeAdminSidebar(["admin.orders.index","admin.orders.edit",'admin.orders.show','admin.orders.create']) }} ">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
                                                  width="1em"
                                                  height="1em" viewBox="0 0 24 24">

@@ -40,16 +40,7 @@
 
             <!-- Start::header-element -->
             <div class="header-element header-search d-md-block d-none my-auto">
-                <div>
-                    <p class="fw-medium fs-18 mb-0">
-                        سلام،
-                        {{auth('admin')->user()->name}}
-                        عزیز
-                    </p>
-                    <p class="fs-13 text-muted mb-0">
-                        به داشبورد مدیریت فروشگاه خوش آمدید.
-                    </p>
-                </div>
+             @yield('breadcrumb')
             </div>
             <!-- End::header-element -->
 
