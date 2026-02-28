@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\OrderUpdatePostRequest;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -20,6 +22,8 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
+
+
         return view('admin.orders.show',compact('order'));
     }
 
@@ -28,8 +32,15 @@ class OrderController extends Controller
        return view('admin.orders.edit',compact('order'));
     }
 
-    public function update()
+    public function update(Request $request)
     {
+       $order = Order::findOrFail($request->input('id'));
+
+      $order->update([
+          'status' => $request->input('status')
+      ]);
+
+      return redirect()->route('admin.orders.index');
 
     }
 

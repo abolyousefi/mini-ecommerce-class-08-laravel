@@ -7,5 +7,33 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('admin.products.index');
+     }
+
+    public function edit()
+    {
+        return view('admin.products.edit');
+     }
+
+    public function update()
+    {
+
+     }
+
+    public function show()
+    {
+        return view('admin.products.show');
+     }
+
+    public function create()
+    {
+        return view('admin.products.create');
+     }
+
+    public function createPost()
+    {
+
+     }
 }

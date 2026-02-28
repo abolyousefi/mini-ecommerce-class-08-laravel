@@ -1,3 +1,4 @@
+@php use App\Enums\OrderStatus @endphp
 @extends('admin.layout.app')
 
 @section('breadcrumb')
@@ -69,49 +70,72 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div>
-                                            <span class="fw-semibold d-block">#2</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    79,000
-                                    تومان
-                                </td>
-                                <td>
-                                    <span class="text-info">در حال پردازش</span>
-                                </td>
-                                <td>11:34 1404/07/24</td>
-                                <td>
-                                    <div class="btn-list">
-                                        <a href="http://127.0.0.1:8000/admin/orders/2/show"
-                                           class="btn btn-primary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
-                                            <i class="ri-eye-line"></i>
-                                        </a>
-                                        <a href="http://127.0.0.1:8000/admin/orders/2/edit"
-                                           class="btn btn-secondary-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
-                                            <i class="ti ti-pencil"></i>
-                                        </a>
-                                        <a href="javascript:void(0);"
-                                           onclick="if(confirm('آیا از حذف این سفارش مطمئن هستید؟')) { document.getElementById('delete-form-2').submit(); }"
-                                           class="btn btn-pink-light btn-icon btn-sm"
-                                           data-bs-toggle="tooltip" data-bs-placement="top" title="حذف">
-                                            <i class="ri-delete-bin-line"></i>
-                                        </a>
-                                        <form id="delete-form-2"
-                                              action="http://127.0.0.1:8000/admin/orders/2/delete"
-                                              method="POST"
-                                              style="display:none;"
-                                        >
-                                            <input type="hidden" name="_token" value="VofHLLAqMD1Drv23vG8MgkBtFMjNl7t6G8gfBpxL" autocomplete="off">                                                    <input type="hidden" name="_method" value="DELETE">                                                </form>
-                                    </div>
-                                </td>
-                            </tr>
+                         @foreach($orders as $order)
+                             <tr>
+                                 <td>
+                                     <div class="d-flex align-items-center gap-2">
+                                         <div>
+                                             <span class="fw-semibold d-block">{{$order->traking_code}}</span>
+                                         </div>
+                                     </div>
+                                 </td>
+                                 <td>
+                                     {{number_format($order->total_price - $order->total_discount)}}
+                                     تومان
+                                 </td>
+                                 <td>
+                                     <span class="text-info"> @switch($order->status)
+                                             @case(OrderStatus::PENDING)
+                                                 <span class="text-red-500">در انتظار پرداخت</span>
+                                                 @break
+                                             @case(OrderStatus::PROCESSING)
+                                                 <span style="color: yellow" class="text-red-500">در حال پردازش</span>
+                                                 @break
+                                             @case(OrderStatus::SENT)
+                                                 <span style="color: orange" class="text-red-500">ارسال شده</span>
+                                                 @break
+                                             @case(OrderStatus::DELIVERED)
+                                                 <span style="color: green" class="text-red-500">تحویل شده</span>
+                                                 @break
+                                             @case(OrderStatus::CANCELLED)
+                                                 <span style="color: red" class="text-red-500">کنسل شده</span>
+                                                 @break
+                                             @case(OrderStatus::REFUND)
+                                                 <span style="color: orange" class="text-red-500">مرجوع شده</span>
+                                                 @break
+                                         @endswitch</span>
+                                 </td>
+                                 <td>{{$user->created_at->toJalali()->format('H:i Y-m-d ')}}</td>
+                                 <td>
+                                     <div class="btn-list">
+                                         <a href="{{route('admin.orders.show',$order->id)}}"
+                                            class="btn btn-primary-light btn-icon btn-sm"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="مشاهده">
+                                             <i class="ri-eye-line"></i>
+                                         </a>
+                                         <a href="{{route('admin.orders.edit',$order->id)}}"
+                                            class="btn btn-secondary-light btn-icon btn-sm"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
+                                             <i class="ti ti-pencil"></i>
+                                         </a>
+                                         <a href="javascript:void(0);"
+                                            onclick="if(confirm('آیا از حذف این سفارش مطمئن هستید؟')) { document.getElementById('delete-form-2').submit(); }"
+                                            class="btn btn-pink-light btn-icon btn-sm"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="حذف">
+                                             <i class="ri-delete-bin-line"></i>
+                                         </a>
+                                         <form id="delete-form-2"
+                                               action="{{route('admin.orders.destroy',$order->id)}}"
+                                               method="POST"
+                                               style="display:none;"
+                                         >
+                                           @csrf
+                                        @method('DELETE')
+                                                                                  </form>
+                                     </div>
+                                 </td>
+                             </tr>
+                         @endforeach
                             </tbody>
                         </table>
                     </div>

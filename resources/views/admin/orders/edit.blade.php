@@ -1,3 +1,4 @@
+@php use App\Enums\OrderStatus; @endphp
 @extends('admin.layout.app')
 
 @section('breadcrumb')
@@ -29,28 +30,18 @@
 
 
                 <form action="{{route('admin.orders.update',$order->id)}}" method="POST">
-                  @csrf
+                    @csrf
                     @method('PATCH')
                     <!-- Status -->
+                    <input type="hidden" value="{{$order->id}}" name="id">
                     <div class="mb-3">
                         <label for="status" class="form-label fw-semibold">وضعیت سفارش</label>
 
                         <select name="status" id="status" class="form-select ">
-                            <option
-                                value="0"
-                            >در انتظار ثبت</option>
-                            <option
-                                value="1"
-                                selected                                >در حال پردازش</option>
-                            <option
-                                value="2"
-                            >ارسال شده</option>
-                            <option
-                                value="3"
-                            >تحویل داده</option>
-                            <option
-                                value="4"
-                            >لغو شده</option>
+                            @foreach(OrderStatus::cases() as $case)
+                                <option value="{{$case->value}}" @selected($case == $order->status)>{{ __($case->name) }} </option>
+                            @endforeach
+
                         </select>
                     </div>
 

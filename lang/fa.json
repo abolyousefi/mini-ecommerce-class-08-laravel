@@ -1153,5 +1153,16 @@
     "Zimbabwe": "زیمباوه",
     "ZIP / Postal Code": "کد پستی",
     "Zip / Postal Code": "کدپستی",
-    "Åland Islands": "جزایر الند"
+    "Åland Islands": "جزایر الند",
+    "PENDING": "در انتظار ثبت",
+    "PROCESSING": "در حال پردازش",
+    "SENT": "ارسال شده",
+    "DELIVERED" : "تحویل داده",
+    "CANCELLED" : "لغو شده",
+    "REFUND" : "مرجوع شده"
+
 }
+
+
+
+

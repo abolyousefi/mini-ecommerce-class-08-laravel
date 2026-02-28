@@ -165,28 +165,30 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <div class="mb-1 fs-14 fw-medium">
+                              @foreach($order->orderItems as $orderItem)
+                                  <tr>
+                                      <td>
+                                          <div class="d-flex align-items-center">
+                                              <div>
+                                                  <div class="mb-1 fs-14 fw-medium">
                                                         <span>
-                                                            رمان | Novel
+                                                            {{$orderItem->product->name}} | {{$orderItem->product->name_en}}
                                                         </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        80,000
-                                        تومان
-                                    </td>
-                                    <td>1</td>
-                                    <td>
-                                        80,000
-                                        تومان
-                                    </td>
-                                </tr>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </td>
+                                      <td>
+                                          {{number_format($orderItem->product->price - $orderItem->product->discount)}}
+                                          تومان
+                                      </td>
+                                      <td>{{$orderItem->qty}}</td>
+                                      <td>
+                                          {{number_format(($orderItem->product->price - $orderItem->product->discount) * $orderItem->qty )}}
+                                          تومان
+                                      </td>
+                                  </tr>
+                              @endforeach
                                 </tbody>
                             </table>
                         </div>

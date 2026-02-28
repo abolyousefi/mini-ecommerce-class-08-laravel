@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 
-class UserUpdatePostRequest extends FormRequest
+class AdminsUpdatePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,42 +20,33 @@ class UserUpdatePostRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(Request $request ): array
+    public function rules(Request $request): array
     {
         return [
-            'first_name' => [
+            'name' => [
                 'required',
                 'string',
                 'min:2',
-                'max:50',
-                'persian_alpha'
+                'max:64',
+                'alpha_num'
             ],
-            'last_name' => [
+            'username' => [
                 'required',
                 'string',
-                'min:2',
-                'max:50',
-                'persian_alpha'
+                'min:3',
+                'max:64',
+                'unique:App\Models\Admin,username,'.$request->input('id'),
             ],
-            'mobile' => [
+            'status' => [
                 'required',
-                'unique:App\Models\User,mobile,'.$request->input('id'),
-                'ir_mobile:zero'
-            ],
-            'email' => [
-                'required',
-                'string',
-                'unique:App\Models\User,email,'.$request->input('id'),
-                'min:5',
-                'max:255'
+                'int'
             ],
             'password' => [
                 'sometimes',
                 'nullable',
                 'string',
                 'min:8',
-                'max:255',
-
+                'max:200'
             ]
         ];
     }

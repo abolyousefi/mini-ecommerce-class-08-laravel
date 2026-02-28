@@ -104,6 +104,7 @@
                             <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
                         </div>
                     </div>
+                    <input type="hidden" name="id" value="{{$user->id}}">
                 </form>
             </div>
         </div>

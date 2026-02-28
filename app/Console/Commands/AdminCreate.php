@@ -29,7 +29,7 @@ class AdminCreate extends Command
     public function handle()
     {
         Admin::create([
-            'name' => 'Admin',
+            'name' => 'admin',
             'username' => "admin",
             'password' => Hash::make('12345678'),
             'status' => AdminStatus::ENABLE

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserUpdatePostRequest;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $title = 'مدیریت کاربران';
+
 
 
         $users = User::query()
@@ -54,7 +56,12 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return view('admin.users.show',compact('user'));
+        $orders = Order::query()
+            ->where('user_id','=',$user->id)
+            ->orderByDesc('created_at')
+            ->paginate();
+
+        return view('admin.users.show',compact('user','orders'));
     }
 
     public function edit(User $user)

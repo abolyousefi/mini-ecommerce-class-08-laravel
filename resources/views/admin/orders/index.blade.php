@@ -142,21 +142,22 @@
                                                data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش">
                                                 <i class="ti ti-pencil"></i>
                                             </a>
-                                            <a href="javascript:void(0);"
-                                               onclick="if(confirm('آیا از حذف این سفارش مطمئن هستید؟')) { document.getElementById('delete-form-2').submit(); }"
+                                            <a href="{{ route('admin.orders.destroy', $order->id) }}"
+                                               onclick="event.preventDefault(); if(confirm('آیا از حذف این کاربر مطمئن هستید؟')) { document.getElementById('delete-form-{{ $order->id }}').submit(); }"
                                                class="btn btn-pink-light btn-icon btn-sm"
-                                               data-bs-toggle="tooltip" data-bs-placement="top" title="حذف">
+                                               data-bs-toggle="tooltip"
+                                               data-bs-placement="top"
+                                               title="حذف">
                                                 <i class="ri-delete-bin-line"></i>
                                             </a>
-                                            <form id="delete-form-2"
-                                                  action="{{route('admin.orders.destroy',$order->id)}}"
-                                                  method="POST"
-                                                  style="display:none;"
-                                            >
 
+                                            <form id="delete-form-{{ $order->id }}"
+                                                  action="{{ route('admin.orders.destroy', $order->id) }}"
+                                                  method="POST"
+                                                  style="display:none;">
                                                 @csrf
                                                 @method('DELETE')
-                                                                               </form>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
