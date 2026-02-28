@@ -90,7 +90,7 @@
                                     <!-- Start::slide -->
                                     <li class="slide  ">
                                         <a href="{{ route('admin.products.index') }}"
-                                           class="side-menu__item {{activeAdminSidebar(['admin.products.index','admin.products.edit','admin.products.create','admin.products.show'])}}">
+                                           class="side-menu__item {{ activeAdminSidebar(["admin.products.index",'admin.products.edit',"admin.products.create.index",'admin.products.show']) }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
                                                  width="1em" height="1em" viewBox="0 0 24 24">
                                                 <path fill="none" stroke="currentColor" stroke-linecap="round"
@@ -105,8 +105,8 @@
 
                                     <!-- Start::slide -->
                                     <li class="slide ">
-                                        <a href="http://127.0.0.1:8000/admin/categories"
-                                           class="side-menu__item ">
+                                        <a href="{{ route('admin.categories.index') }}"
+                                           class="side-menu__item {{activeAdminSidebar(['admin.categories.index','admin.categories.edit','admin.categories.show','admin.categories.create.index'])}}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon"
                                                  width="1em"
                                                  height="1em" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@
                                     <!-- Start::slide -->
                                     <li class="slide ">
                                         <a href="{{route('admin.admins.index')}}"
-                                           class="side-menu__item {{activeAdminSidebar(['admin.admins.index','admin.admins.edit','admin.admins.create'])}}">
+                                           class="side-menu__item {{activeAdminSidebar(['admin.admins.index','admin.admins.edit','admin.admins.create.index'])}}">
                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                  class="side-menu__icon"
                                                  width="1em"

@@ -59,7 +59,6 @@ class Product extends Model
 		'price',
 		'discount',
 		'qty',
-		'image_file_id',
 		'status'
 	];
 

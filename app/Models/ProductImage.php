@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ProductImage
- * 
+ *
  * @property int $id
  * @property int $product_id
  * @property int $file_id
  * @property bool $is_default
  * @property Carbon $created_at
- * 
+ *
  * @property File $file
  * @property Product $product
  *
@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductImage extends Model
 {
 	protected $table = 'product_image';
-	public $timestamps = false;
+	public const UPDATED_AT = null;
 	public static $snakeAttributes = false;
 
 	protected $casts = [
