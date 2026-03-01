@@ -64,9 +64,7 @@ class ProductUpdatePostRequest extends FormRequest
             'images' => [
                 'sometimes',
                 'nullable',
-                'string',
-                'min:4',
-                'max:200',
+                'array',
             ]
         ];
     }

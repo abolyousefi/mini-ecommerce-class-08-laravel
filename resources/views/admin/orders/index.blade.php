@@ -35,22 +35,22 @@
                                     <select id="choices-single-default" class="form-control" name="sort">
                                         <option value="">مرتب‌سازی بر اساس</option>
                                         <option
-                                            value="created_at_desc" selected>
+                                            value="created_at_desc" @selected(request()->input('sort') == "created_at_desc" ) >
                                             جدیدترین
                                         </option>
                                         <option
-                                            value="created_at_asc">
+                                            value="created_at_asc"  @selected(request()->input('sort') == "created_at_asc" ) >
                                             قدیمی‌ترین
                                         </option>
                                         <option
-                                            value="price_high">
+                                            value="price_high"  @selected(request()->input('sort') == "price_high" ) >
                                             مبلغ (زیاد به کم)
                                         </option>
                                         <option
-                                            value="price_low">
+                                            value="price_low"  @selected(request()->input('sort') == "price_low" ) >
                                             مبلغ (کم به زیاد)
                                         </option>
-                                        <option value="status">
+                                        <option value="status"  @selected(request()->input('sort') == "status" ) >
                                             وضعیت
                                         </option>
                                     </select>
@@ -60,7 +60,7 @@
                                 <div class="d-flex" role="search">
                                     <input class="form-control me-2" type="search" name="search"
                                            placeholder="جستجو سفارش"
-                                           value=""
+                                           value="{{ request()->input('search') }}"
                                     >
                                     <button class="btn btn-light" type="submit">جستجو</button>
                                 </div>

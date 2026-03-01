@@ -23,7 +23,7 @@
             <div class="col-xl-12">
                 <div class="card custom-card">
                     <div class="card-body p-3">
-                        <form method="GET" action="http://127.0.0.1:8000/admin/users">
+                        <form method="GET" action="{{route('admin.users.index')}}">
                             <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
 
                                 <!-- Left: Add User + Sort Dropdown -->

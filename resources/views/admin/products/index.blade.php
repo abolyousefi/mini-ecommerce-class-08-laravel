@@ -32,31 +32,31 @@
                                     <div class="d-flex me-2">
                                         <input class="form-control me-2" type="search" name="search"
                                                placeholder="جستجو محصول"
-                                               value=""
+                                               value="{{ request()->input('search') }}"
                                                aria-label="جستجو">
                                         <button class="btn btn-light" type="submit">جستجو</button>
                                     </div>
 
                                     <select id="choices-single-default" class="form-control" name="sort">
-                                        <option value="">مرتب‌سازی بر اساس</option>
+                                        <option value="{{ request()->input('sort') }}">مرتب‌سازی بر اساس</option>
                                         <option
                                             value="newest" selected>
                                             جدیدترین
                                         </option>
                                         <option
-                                            value="name_asc" >
+                                            value="name_asc" @selected(request()->input('sort') == 'name_asc')>
                                             نام (صعودی)
                                         </option>
                                         <option
-                                            value="name_desc" >
+                                            value="name_desc" @selected(request()->input('sort') == 'name_desc')>
                                             نام (نزولی)
                                         </option>
                                         <option
-                                            value="price_asc" >
+                                            value="price_asc" @selected(request()->input('sort') == 'price_asc') >
                                             قیمت (کم به زیاد)
                                         </option>
                                         <option
-                                            value="price_desc" >
+                                            value="price_desc" @selected(request()->input('sort') == 'price_desc')>
                                             قیمت (زیاد به کم)
                                         </option>
                                     </select>

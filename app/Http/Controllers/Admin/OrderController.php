@@ -6,14 +6,51 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\OrderUpdatePostRequest;
 use App\Models\Order;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $orders = Order::query()
-            ->orderByDesc('created_at')
+            ->when($request->filled('search'), function (Builder $query) use($request) {
+
+                $search = $request->input('search');
+                $query->where('traking_code','LIKE',"%$search%");
+            })
+            ->when($request->filled('sort'), function (Builder $query) use($request) {
+                $sort  =  $request->input('sort');
+
+                switch ($sort){
+                    case "created_at_asc" : {
+                        $query
+                            ->orderBy('created_at')
+                            ->orderBy('updated_at');
+                    }
+                    case "price_high" : {
+                        $query
+                            ->orderByDesc('total_price')
+                            ->orderByDesc('total_discount');
+                    }
+                    case "price_low" : {
+                        $query
+                            ->orderBy('total_price');
+                    }
+                    case "price_desc" : {
+                        $query
+                            ->orderByDesc('total_price');
+                    }
+                    case "status" : {
+                        $query
+                            ->orderByDesc('status');
+                    }
+                    default : {
+                        $query
+                            ->orderByDesc('created_at');
+                    }
+                }
+            })
             ->paginate();
 
 
@@ -43,17 +80,6 @@ class OrderController extends Controller
       return redirect()->route('admin.orders.index');
 
     }
-
-    public function create()
-    {
-
-    }
-
-    public function createPost()
-    {
-
-    }
-
     public function destroy(Order $order)
     {
         $order->delete();

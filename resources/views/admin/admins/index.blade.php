@@ -26,14 +26,14 @@
             <div class="col-xl-12">
                 <div class="card custom-card">
                     <div class="card-body p-3">
-                        <form method="GET" action="http://127.0.0.1:8000/admin/admins">
+                        <form method="GET" action="{{route('admin.admins.index')}}">
                             <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
 
                                 <!-- Left: Add admin + Sort -->
                                 <div class="d-flex flex-wrap gap-1 project-list-main align-items-center">
                                     <div class="d-flex me-2">
                                         <input class="form-control me-2" type="search" name="search"
-                                               placeholder="جستجو ادمین" value=""
+                                               placeholder="جستجو ادمین" value="{{request()->input('search')}}"
                                                aria-label="جستجو">
                                         <button class="btn btn-light" type="submit">جستجو</button>
                                     </div>
@@ -48,9 +48,6 @@
                                             value="name_desc" >
                                             نام (ی - الف)
                                         </option>
-                                        <option value="email" >
-                                            ایمیل
-                                        </option>
                                         <option value="newest" >
                                             جدیدترین
                                         </option>
@@ -59,7 +56,7 @@
 
                                 <!-- Right: Search -->
                                 <div class="d-flex" role="search">
-                                    <a href="http://127.0.0.1:8000/admin/admins/create" class="btn btn-primary me-2">
+                                    <a href="{{route('admin.admins.create.index')}}" class="btn btn-primary me-2">
                                         <i class="ri-add-line me-1 fw-medium align-middle"></i>ایجاد مدیر
                                     </a>
                                 </div>

@@ -71,10 +71,10 @@ class UserController extends Controller
 
     public function update(UserUpdatePostRequest $request)
     {
-       $inputs = $request->validated();
+       $inputs = $request->all();
 
        $user =  User::query()
-           ->where('mobile','=',$inputs['mobile'])
+           ->where('id','=',$inputs['id'])
            ->first();
 
        if ($request->filled('password')){

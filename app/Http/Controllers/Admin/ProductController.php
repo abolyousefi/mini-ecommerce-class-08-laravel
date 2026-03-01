@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\File;
 use App\Models\Product;
 use App\Models\ProductImage;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -17,10 +18,44 @@ use mysql_xdevapi\Exception;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::query()
-            ->orderByDesc('created_at')
+            ->when($request->filled('search'), function (Builder $query) use($request) {
+                $search = $request->input('search');
+                $query->whereAny([
+                    'name',
+                    'name_en',
+                ],'LIKE',"%$search%");
+            })
+            ->when($request->filled('sort'), function (Builder $query) use($request) {
+                $sort  =  $request->input('sort');
+
+                switch ($sort){
+                    case "name_asc" : {
+                        $query
+                            ->orderBy('name')
+                            ->orderBy('name_en');
+                    }
+                    case "name_desc" : {
+                        $query
+                            ->orderByDesc('name')
+                            ->orderByDesc('name_en');
+                    }
+                    case "price_asc" : {
+                        $query
+                            ->orderBy('price');
+                    }
+                    case "price_desc" : {
+                        $query
+                            ->orderByDesc('price');
+                    }
+                    default : {
+                        $query
+                            ->orderByDesc('created_at');
+                    }
+                }
+            })
             ->paginate();
 
         return view('admin.products.index',compact('products'));
@@ -54,13 +89,14 @@ class ProductController extends Controller
             $product->update($inputs);
 
 
+
           if ($request->filled('images')){
             foreach ($request->file('images')  as $image) {
                 $imageName = $product->id . '_' . time() . '.' . $image->extension();
 
                 $path = $image->storeAs('product_images', $imageName);
 
-                $file = File::update([
+                $file = File::updateOrCreate([
                     'file_name' => $imageName,
                     'orginal_name' => $image->getClientOriginalName(),
                     'file_size' => $image->getSize(),
@@ -68,12 +104,9 @@ class ProductController extends Controller
                     'file_type' => $image->extension()
                 ]);
 
-                $file->id = File::query()
-                    ->where('file_name', '=', $imageName)
-                    ->first();
 
                 $default = true;
-                ProductImage::update([
+                ProductImage::updateOrCreate([
                     'product_id' => $product->id,
                     'file_id' => $file->id,
                     'is_default' => $default

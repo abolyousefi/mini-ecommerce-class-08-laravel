@@ -81,7 +81,7 @@
                                         @break
                                     @case(ProductStatus::DISABLE)
                                     <p>
-                                        <span style="color: red">غیر فعال</span>
+                                        <span style="color: red ">غیر فعال</span>
                                     </p>
 
                                     @break

@@ -98,10 +98,24 @@ Route::prefix('admin')->name('admin.')->group(function (){
 
       });
 
-     Route::prefix('categories')->name('categories.')->controller(CategoryController::class)->group(function (){
-         Route::get('index','index')->name('index');
+     Route::prefix('categories')->name('categories.')->controller(CategoryController::class)->group(function () {
+         Route::get('index', 'index')->name('index');
 
-     });
+         Route::prefix('create')->name('create.')->group(function () {
+             Route::get('/', 'create')->name('index');
+             Route::post('/', 'createPost')->name('post');
+         });
+
+             Route::prefix('{category}')->group(function () {
+                 Route::get('show', 'show')->name('show');
+
+                 Route::get('edit', 'edit')->name('edit');
+                 Route::put('update', 'update')->name('update');
+
+                 Route::delete('destroy', 'destroy')->name('destroy');
+             });
+
+         });
 
 
 

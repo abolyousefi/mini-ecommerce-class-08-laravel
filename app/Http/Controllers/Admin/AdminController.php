@@ -6,17 +6,45 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminsCreatePostRequest;
 use App\Http\Requests\Admin\AdminsUpdatePostRequest;
 use App\Models\Admin;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Testing\Fluent\Concerns\Has;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $admins = Admin::query()
-            ->orderByDesc('created_at')
+            ->when($request->filled('search'), function (Builder $query) use($request) {
+                $search = $request->input('search');
+                $query->whereAny([
+                    'name',
+                    'username'
+                ],'LIKE',"%$search%");
+            })
+            ->when($request->filled('sort'), function (Builder $query) use($request) {
+                $sort  =  $request->input('sort');
+
+                switch ($sort){
+                    case "name_asc" : {
+                        $query
+                            ->orderBy('name')
+                            ->orderBy('username');
+                    }
+                    case "name_desc" : {
+                        $query
+                            ->orderByDesc('name')
+                            ->orderByDesc('username');
+                    }
+                    default : {
+                        $query
+                            ->orderByDesc('created_at');
+                    }
+                }
+            })
             ->paginate();
+
 
         return view('admin.admins.index',compact('admins'));
 

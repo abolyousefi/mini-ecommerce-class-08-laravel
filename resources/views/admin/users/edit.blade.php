@@ -34,6 +34,7 @@
                 >
                    @csrf
                     @method('PUT')
+                    <input type="hidden" name="id" value="{{$user->id}}">
                     <div class="card custom-card">
                         <div class="card-header">
                             <div class="card-title">ویرایش کاربر</div>
