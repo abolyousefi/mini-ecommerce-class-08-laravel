@@ -41,14 +41,14 @@
                                     <select id="choices-single-default" class="form-control" name="sort">
                                         <option value="">مرتب‌سازی بر اساس</option>
                                         <option
-                                            value="name_asc" >
+                                            value="name_asc" @selected(request()->input('sort') == 'name_asc')>
                                             نام (الف - ی)
                                         </option>
                                         <option
-                                            value="name_desc" >
+                                            value="name_desc" @selected(request()->input('sort') == 'name_desc')>
                                             نام (ی - الف)
                                         </option>
-                                        <option value="newest" >
+                                        <option value="newest" @selected(request()->input('sort') == 'newest')>
                                             جدیدترین
                                         </option>
                                     </select>

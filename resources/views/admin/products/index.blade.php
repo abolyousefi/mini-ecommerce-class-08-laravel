@@ -99,11 +99,13 @@
                                 <tr class="product-list">
                                     <td>
                                         <div class="d-flex">
+                                             @foreach($product->productImages as $image)
                                                 <span class="avatar avatar-md avatar-square bg-light">
                                                     <img
-                                                        src="{{ storage_path($product->file->file_name ?? null) }}"
+                                                        src="{{ \Illuminate\Support\Facades\Storage::url($image->file->file_path) }}"
                                                         class="w-100 h-100" alt="گوشی هوشمند | Smartphone">
                                                 </span>
+                                             @endforeach
                                             <div class="ms-2">
                                                 <p class="fw-semibold mb-0 name-limit">
                                                     <a href="{{route('admin.products.show',$product->id)}}">
