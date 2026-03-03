@@ -108,12 +108,15 @@
                         @foreach($userCartItems as $cartItem)
 
                             <!-- PRODUCT ITEM -->
+
+
                             <div
                                 class="w-full flex justify-between relative border-b-2 border-gray-200 dark:border-white/20 ">
                                 <div class="flex flex-col sm:flex-row items-center gap-6">
                                     <!-- IMG AND COUNT BTN -->
                                     <div class="flex w-fit flex-col">
-                                        <img src="{{asset('/assets/images/products/8.webp')}}" class="w-36" alt="">
+                                        @foreach($cartItem['product']->productImages as $image )
+                                        <img src="{{ Storage::url($image->file->file_path)  }}"  @endforeach class="w-36" alt="">
                                         <button
                                             type="button"
                                             class="flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-1 px-2">

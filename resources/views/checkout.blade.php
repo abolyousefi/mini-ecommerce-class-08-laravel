@@ -171,7 +171,10 @@
                         <div class="mt-8">
                        @foreach($userCart as $item)
                                 <div class="flex mt-8 gap-x-4 col-span-4">
-                                    <img src="{{asset('assets/images/products/8.webp')}}" class="w-36 h-20" alt="">
+                                    @foreach($item['product']->productImages as $image )
+                                        <img src="{{ Storage::url($image->file->file_path)  }}"
+                                             @endforeach
+                                               class="w-36 h-20" alt="">
                                     <ul class="flex flex-col items-start gap-y-2 font-DanaMedium text-gray-600 dark:text-gray-200 mr-3">
                                         <li>
                                             <p>

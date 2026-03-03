@@ -40,15 +40,17 @@
     </div>
     <!-- product img -->
     <a href="{{route('products.show',$product->id)}}">
-       @foreach($product->productImages as $image)
+        @foreach($product->productImages as $image)
             <img
                 class="product-card_img group-hover:opacity-0 absolute"
-                src="{{ \Illuminate\Support\Facades\Storage::url($image->file->file_path)  }}"
-                alt=""
-            >
+
+                src="{{ Storage::url($image->file->file_path)  }}"
+                @endforeach
+                alt="">
             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                 src="{{ \Illuminate\Support\Facades\Storage::url($image->file->file_path)  }}" alt="">
-       @endforeach
+                 src=" "
+                    alt="">
+
     </a>
     <!--  product footer -->
     <div class="space-y-2">

@@ -88,40 +88,35 @@ class ProductController extends Controller
 
             $product->update($inputs);
 
+           if ($request->hasFile('images')) {
+               foreach ($request->file('images') as $image) {
+
+                   $imageName = $product->id . '_' . time() . '.' . $image->extension();
+
+                   $path = $image->storeAs('product_images', $imageName);
+
+                   $file = File::updateOrCreate([
+                       'file_name' => $imageName,
+                       'orginal_name' => $image->getClientOriginalName(),
+                       'file_size' => $image->getSize(),
+                       'file_path' => $path,
+                       'file_type' => $image->extension()
+                   ]);
 
 
-          if ($request->filled('images')){
-            foreach ($request->file('images')  as $image) {
-                $imageName = $product->id . '_' . time() . '.' . $image->extension();
+                   ProductImage::updateOrCreate([
+                       'product_id' => $product->id,
+                       'file_id' => $file->id,
+                   ]);
+               }
+           }
 
-                $path = $image->storeAs('product_images', $imageName);
-
-                $file = File::updateOrCreate([
-                    'file_name' => $imageName,
-                    'orginal_name' => $image->getClientOriginalName(),
-                    'file_size' => $image->getSize(),
-                    'file_path' => $path,
-                    'file_type' => $image->extension()
-                ]);
-
-
-                $default = true;
-                ProductImage::updateOrCreate([
-                    'product_id' => $product->id,
-                    'file_id' => $file->id,
-                    'is_default' => $default
-                ]);
-            }
-                if ($default){
-                    $default = false;
-                }
-            }
-
-            DB::commit();
+           DB::commit();
 
             return redirect()->route('admin.products.index');
         } catch (Exception $exception){
             Log::error($exception);
+
             DB::rollBack();
             return back()->withErrors([
                 'general' =>  'ویرایش محصول با خطا مواجه شده است'

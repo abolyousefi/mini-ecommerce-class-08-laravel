@@ -26,6 +26,7 @@
                 <form action="{{route('admin.products.update',$product->id)}}" method="POST" enctype="multipart/form-data">
                  @csrf
                     @method('PUT')
+
                     <div class="card custom-card">
                         <div class="card-header">
                             <div class="card-title">
