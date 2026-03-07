@@ -38,6 +38,7 @@ Route::prefix('admin')->name('admin.')->group(function (){
           Route::prefix('{product}')->group(function (){
               Route::get('show','show')->name('show');
               Route::get('edit','edit')->name('edit');
+              Route::get('remove_item','removeItem')->name('remove_item');
               Route::put('update','update')->name('update');
 
               Route::delete('destroy','destroy')->name('destroy');

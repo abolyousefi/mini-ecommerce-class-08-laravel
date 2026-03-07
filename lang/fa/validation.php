@@ -235,6 +235,7 @@ return [
         'user_mobile' => 'شماره مویایل',
         'work_number' => 'شماره تماس ثابت',
         'user_postal_code' => 'کد پستی',
+        'images.*' => "تصویر"
     ],
 
 ];

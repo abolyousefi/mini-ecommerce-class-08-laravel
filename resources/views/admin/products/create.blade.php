@@ -142,6 +142,9 @@
                                     multiple
                                     style="display:none"
                                 />
+                                @error('images.*')
+                                  <span style="color: red">{{ $message }}</span>
+                                @enderror
                             </div>
 
                         </div>

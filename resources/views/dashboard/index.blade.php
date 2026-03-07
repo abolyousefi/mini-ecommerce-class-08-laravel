@@ -65,9 +65,16 @@
                             <h2 class="font-DanaMedium">نام آدرس</h2>
                         </span>
                             <div class="space-y-1.5 text-gray-600 dark:text-gray-300 mt-3 mr-2">
-                                <p> ساری بعد از میدان خزر میدان بار قدیم شرکت درنیکا </p>
-                                <p>کد پستی: 208099941</p>
-                                <p>گیرنده: ابولفضل یوسفی | 8587***0930 </p>
+                         @foreach($userOrders as $order)
+                             @if( empty($order->user_address) && empty($order->user_mobile) && empty($order->user_postal_code) )
+                                 <p>ادرسی ثبت نشده است</p>
+                                    @else
+
+                                    <p> {{$order->user_address}} </p>
+                                    <p>کد پستی: {{$order->user_postal_code}}</p>
+                                    <p>گیرنده: {{$order->user->first_name." ".$order->user->last_name}} | {{$order->user_mobile}} </p><br>
+                                 @endif
+                         @endforeach
                             </div>
                         </li>
                     </ul>

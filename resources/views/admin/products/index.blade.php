@@ -104,12 +104,11 @@
                                                     <img
 
 
-                                                     @foreach($product->productImages as $image)
-                                                            src="{{ Storage::url($image->file->file_path) }}"
-                                                     @endforeach
+                                                            src="{{ getDefaultProductImage($product) }}"
+
                                                         class="w-100 h-100" alt="">
 
-
+                                                </span>
                                             <div class="ms-2">
                                                 <p class="fw-semibold mb-0 name-limit">
                                                     <a href="{{route('admin.products.show',$product->id)}}">

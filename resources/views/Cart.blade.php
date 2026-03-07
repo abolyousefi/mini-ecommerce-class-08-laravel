@@ -115,8 +115,9 @@
                                 <div class="flex flex-col sm:flex-row items-center gap-6">
                                     <!-- IMG AND COUNT BTN -->
                                     <div class="flex w-fit flex-col">
-                                        @foreach($cartItem['product']->productImages as $image )
-                                        <img src="{{ Storage::url($image->file->file_path)  }}"  @endforeach class="w-36" alt="">
+
+                                        <img src="{{ getDefaultProductImage($cartItem['product']) }}"
+                                             class="w-36" alt="">
                                         <button
                                             type="button"
                                             class="flex items-center justify-between gap-x-1 rounded-lg border border-gray-200 dark:border-white/20 py-1 px-2">

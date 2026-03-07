@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use mysql_xdevapi\Exception;
 
 class ProductController extends Controller
@@ -65,6 +66,17 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         return view('admin.products.edit',compact('product','categories'));
+     }
+
+    public function removeItem(Product $product)
+    {
+
+        foreach ($product->productImages as $productImage) {
+            Storage::disk('public')->delete($productImage->file->file_path);
+            $productImage->file()->delete();
+            $productImage->delete();
+        }
+        return redirect()->route('admin.products.index');
      }
 
     public function update(ProductUpdatePostRequest $request)

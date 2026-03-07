@@ -59,6 +59,12 @@ class ProductCreatePostRequest extends FormRequest
                 'string',
                 'min:4',
                 'max:1000'
+            ],
+            'images.*' => [
+                'required',
+                'mimes:jpeg,jpg,png,webp',
+                'max:5000',
+
             ]
         ];
     }

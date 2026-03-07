@@ -102,7 +102,7 @@
                                               <p class="fw-semibold mb-0 name-limit">
                                                   <a href="{{route('admin.categories.show',$category->id)}}">{{$category->name}}</a>
                                               </p>
-                                              <p class="fs-12 text-muted mb-0 ">1#</p>
+                                              <p class="fs-12 text-muted mb-0 ">{{ $category->id }}#</p>
                                           </div>
                                       </div>
                                   </td>

@@ -77,3 +77,32 @@ if (!function_exists('activeAdminSidebar')) {
     }
 }
 
+if (!function_exists('getDefaultProductImage')) {
+    function getDefaultProductImage(object|array|string $product): string
+    {
+
+        foreach ($product->productImages as $image) {
+            if ($image->is_default == 1) {
+                $path = $image->file->file_path;
+            } else return  "";
+        }
+
+        return Storage::disk('public')->url($path ?? null);
+    }
+}
+if (!function_exists('getAllProductImages')) {
+    function getAllProductImages(object|array|string $product): string
+    {
+
+        foreach ($product->productImages as $image) {
+            if ($image->is_default == 0) {
+                $path = $image->file->file_path;
+
+            }else return "";
+
+        }
+
+        return Storage::disk('public')->url($path);
+    }
+}
+

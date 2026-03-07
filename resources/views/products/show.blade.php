@@ -47,28 +47,28 @@
                     <!-- IMAGE SLIDER -->
                     <div class="w-2/4 hidden md:flex flex-col justify-center items-center gap-y-4">
                         <span class="open-sliderModal">
-                            <img src="{{asset('assets/images/products/11.png')}}" class="cursor-pointer object-cover"
+                            <img src="{{ getDefaultProductImage($product) }}" class="cursor-pointer object-cover"
                                  alt="">
                         </span>
                         <div
                             class="grid grid-cols-12 child:col-span-3 child:app-border gap-x-4 child:size-16 child:rounded-lg child:cursor-pointer">
                             <div class="p-1 open-sliderModal">
-                                <img src="{{asset('assets/images/products/11.png')}}"
+                                <img src="{{ getDefaultProductImage($product) }}"
                                      class="object-cover  rounded-lg">
                             </div>
                             <div class="p-1 open-sliderModal">
-                                <img src="{{asset('assets/images/products/12.webp')}}"
+                                <img src="{{ getAllProductImages($product) }}"
                                      class="object-cover  rounded-lg">
                             </div>
                             <div class="p-1 open-sliderModal">
-                                <img src="{{asset('assets/images/products/13.webp')}}"
+                                <img src="{{getAllProductImages($product) }}"
                                      class="object-cover  rounded-lg">
                             </div>
                             <div class="overflow-hidden relative open-sliderModal">
                                 <svg class="absolute size-8 text-gray-100 top-4 left-4 z-10">
                                     <use href="#ellipsis"></use>
                                 </svg>
-                                <img src="{{asset('assets/images/products/14.webp')}}"
+                                <img src="{{getAllProductImages($product) }}"
                                      class="object-cover rounded-lg blur-sm">
                             </div>
                         </div>
@@ -86,16 +86,16 @@
                         <div class="swiper ProductDetailsSlider mt-14 px-10 w-96 relative">
                             <div class="swiper-wrapper w-[50%] child:w-full child:rounded-lg child:overflow-hidden">
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/11.png')}}" alt="">
+                                    <img src="{{getAllProductImages($product) }}" alt="">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/12.webp')}}" alt="">
+                                    <img src="{{getAllProductImages($product) }}" alt="">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/13.webp')}}" alt="">
+                                    <img src="{{getAllProductImages($product) }}" alt="">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="{{asset('assets/images/products/14.webp')}}" alt="">
+                                    <img src="{{getAllProductImages($product) }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -122,16 +122,16 @@
                             <div class="swiper MobileProductSlider w-full">
                                 <div class="swiper-wrapper w-full child:w-full child:overflow-hidden child:rounded-lg">
                                     <div class="swiper-slide">
-                                        <img src="{{asset('assets/images/products/11.png')}}" alt="">
+                                        <img src="{{getAllProductImages($product) }}" alt="">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="{{asset('assets/images/products/12.webp')}}" alt="">
+                                        <img src="{{getAllProductImages($product) }}" alt="">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="{{asset('assets/images/products/13.webp')}}" alt="">
+                                        <img src="{{getAllProductImages($product) }}" alt="">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="{{asset('assets/images/products/14.webp')}}" alt="">
+                                        <img src="{{getAllProductImages($product) }}" alt="">
                                     </div>
                                 </div>
                                 <div class="swiper-pagination MobileProductSlider-pagination"></div>

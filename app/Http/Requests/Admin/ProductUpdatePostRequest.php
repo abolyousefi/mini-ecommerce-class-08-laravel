@@ -25,7 +25,7 @@ class ProductUpdatePostRequest extends FormRequest
             'name' => [
                 'required',
                 'string',
-                'alpha_num',
+                'persian_alpha',
                 'min:2',
                 'max:128',
 
@@ -33,7 +33,7 @@ class ProductUpdatePostRequest extends FormRequest
             'name_en' => [
                 'required',
                 'string',
-                'alpha_num',
+                'persian_not_accept',
                 'min:2',
                 'max:128'
             ],
@@ -61,10 +61,12 @@ class ProductUpdatePostRequest extends FormRequest
                 'min:4',
                 'max:1000'
             ],
-            'images' => [
+            'images.*' => [
                 'sometimes',
                 'nullable',
-                'array',
+                'mimes:jpeg,jpg,png,webp',
+                'max:5000',
+
             ]
         ];
     }

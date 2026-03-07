@@ -125,11 +125,12 @@
                                 id="imagePreviewContainer"
                                 style=" border-radius: 8px; padding: 10px;"
                             >
+
                                 <div class="position-relative" style="width:150px;height:150px;">
-                                    <img src="{{ Storage::url('product_images/9_1772284010') }}"
+                                    <img src="{{ getDefaultProductImage($product)  }}"
                                          class="img-fluid rounded"
                                          style="width:100%;height:100%;object-fit:cover;" alt="">
-                                    <a href="http://127.0.0.1:8000/admin/products/1/remove-image/4"
+                                    <a href="{{route('admin.products.remove_item',$product->id)}}"
                                        class="remove-btn btn btn-sm btn-danger position-absolute top-0 end-0 delete-image"
                                        data-confirm="حذف این تصویر؟">×</a>
                                 </div>
@@ -151,7 +152,7 @@
                                     multiple
                                     style="display:none"
                                 />
-                                @error('images')
+                                @error('images.*')
                                 <span style="color: red"> {{ $message }} </span>
                                 @enderror
                             </div>

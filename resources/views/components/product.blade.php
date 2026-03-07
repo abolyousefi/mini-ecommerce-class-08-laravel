@@ -40,15 +40,15 @@
     </div>
     <!-- product img -->
     <a href="{{route('products.show',$product->id)}}">
-        @foreach($product->productImages as $image)
+
             <img
                 class="product-card_img group-hover:opacity-0 absolute"
 
-                src="{{ Storage::url($image->file->file_path)  }}"
-                @endforeach
+                src="{{ getDefaultProductImage($product) }}"
+
                 alt="">
             <img class="product-card_img opacity-0 group-hover:opacity-100"
-                 src=" "
+                 src="{{ getDefaultProductImage($product) }}"
                     alt="">
 
     </a>

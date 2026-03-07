@@ -31,9 +31,12 @@
                         <div class="image-upload-wrapper d-flex flex-wrap gap-2 mb-4"
                              style="border-radius: 8px; padding: 10px;">
                             <div style="width:150px;height:150px;">
-                                <img src="/storage/products/86RqhSSnghgyin7JcuD5OEU7LVIZLjWwZm7UgaAq.webp"
-                                     class="img-fluid rounded"
-                                     style="width:100%;height:100%;object-fit:cover;" alt="تصویر محصول">
+
+                                    <img src="{{ getDefaultProductImage($product) }}"
+
+                                         class="img-fluid rounded"
+                                         style="width:100%;height:100%;object-fit:cover;" alt="تصویر محصول">
+
                             </div>
                         </div>
 
